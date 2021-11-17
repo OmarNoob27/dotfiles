@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>mpd.conf &#8212; Music Player Daemon  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Music Player Daemon  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mpd.conf</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="mpd-conf">
+<h1>mpd.conf<a class="headerlink" href="#mpd-conf" title="Permalink to this headline">¶</a></h1>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p><code class="file docutils literal notranslate"><span class="pre">mpd.conf</span></code> is the configuration file for <em class="manpage">mpd(1)</em>. If
+not specified on the command line, MPD first searches for it at
+<code class="file docutils literal notranslate"><span class="pre">$XDG_CONFIG_HOME/mpd/mpd.conf</span></code> then at <code class="file docutils literal notranslate"><span class="pre">~/.mpdconf</span></code> then
+at <code class="file docutils literal notranslate"><span class="pre">~/.mpd/mpd.conf</span></code> and then in <code class="file docutils literal notranslate"><span class="pre">/etc/mpd.conf</span></code>.</p>
+<p>Each line in the configuration file contains a setting name and its value, e.g.:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">connection_timeout</span> <span class="pre">&quot;5&quot;</span></code></p>
+<p>For settings which specify a filesystem path, the tilde is expanded:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">music_directory</span> <span class="pre">&quot;~/Music&quot;</span></code></p>
+<p>Some of the settings are grouped in blocks with curly braces, e.g. per-plugin settings:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>audio_output {
+    type &quot;alsa&quot;
+    name &quot;My ALSA output&quot;
+    device &quot;iec958:CARD=Intel,DEV=0&quot;
+    mixer_control &quot;PCM&quot;
+}
+</pre></div>
+</div>
+<p>The <code class="code docutils literal notranslate"><span class="pre">include</span></code> directive can be used to include settings from
+another file; the given file name is relative to the current file:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">include</span> <span class="pre">&quot;other.conf&quot;</span></code></p>
+<p>You can use include_optional instead if you want the included file to be
+optional; the directive will be ignored if the file does not exist:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">include_optional</span> <span class="pre">&quot;may_not_exist.conf&quot;</span></code></p>
+<p>See <code class="file docutils literal notranslate"><span class="pre">docs/mpdconf.example</span></code> in the source tarball for an example
+configuration file.</p>
+<p>This manual is not complete, it lists only the most important options.
+Please read the MPD user manual for a complete configuration guide:
+<a class="reference external" href="http://www.musicpd.org/doc/user/">http://www.musicpd.org/doc/user/</a></p>
+</section>
+<section id="optional-parameters">
+<h2>OPTIONAL PARAMETERS<a class="headerlink" href="#optional-parameters" title="Permalink to this headline">¶</a></h2>
+<dl>
+<dt>db_file &lt;file&gt;</dt><dd><p>This specifies where the db file will be stored.</p>
+</dd>
+<dt>log_file &lt;file&gt;</dt><dd><p>This specifies where the log file should be located. The special value “syslog” makes MPD use the local syslog daemon.</p>
+</dd>
+<dt>sticker_file &lt;file&gt;</dt><dd><p>The location of the sticker database. This is a database which manages
+dynamic information attached to songs.</p>
+</dd>
+<dt>pid_file &lt;file&gt;</dt><dd><p>This specifies the file to save mpd’s process ID in.</p>
+</dd>
+<dt>music_directory &lt;directory&gt;</dt><dd><p>This specifies the directory where music is located. If you do not configure
+this, you can only play streams.</p>
+</dd>
+<dt>playlist_directory &lt;directory&gt;</dt><dd><p>This specifies the directory where saved playlists are stored. If
+you do not configure this, you cannot save playlists.</p>
+</dd>
+<dt>state_file &lt;file&gt;</dt><dd><p>This specifies if a state file is used and where it is located. The state of
+mpd will be saved to this file when mpd is terminated by a TERM signal or by
+the <strong class="program">kill</strong> command. When mpd is restarted, it will read the state file and
+restore the state of mpd (including the playlist).</p>
+</dd>
+<dt>restore_paused &lt;yes or no&gt;</dt><dd><p>Put MPD into pause mode instead of starting playback after startup.</p>
+</dd>
+<dt>user &lt;username&gt;</dt><dd><p>This specifies the user that MPD will run as, if set. MPD should never run
+as root, and you may use this option to make MPD change its user id after
+initialization. Do not use this option if you start MPD as an unprivileged
+user.</p>
+</dd>
+<dt>port &lt;port&gt;</dt><dd><p>This specifies the port that mpd listens on. The default is 6600.</p>
+</dd>
+<dt>log_level &lt;level&gt;</dt><dd><p>Suppress all messages below the given threshold.  The following
+log levels are available:</p>
+<ul class="simple">
+<li><p><code class="samp docutils literal notranslate"><span class="pre">error</span></code>: errors</p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">warning</span></code>: warnings</p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">notice</span></code>: interesting informational messages</p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">info</span></code>: unimportant informational messages</p></li>
+<li><p><code class="samp docutils literal notranslate"><span class="pre">verbose</span></code>: debug messages (for developers and for
+troubleshooting)</p></li>
+</ul>
+<p>The default is <code class="samp docutils literal notranslate"><span class="pre">notice</span></code>.</p>
+</dd>
+<dt>follow_outside_symlinks &lt;yes or no&gt;</dt><dd><p>Control if MPD will follow symbolic links pointing outside the music dir. You
+must recreate the database after changing this option. The default is “yes”.</p>
+</dd>
+<dt>follow_inside_symlinks &lt;yes or no&gt;</dt><dd><p>Control if MPD will follow symbolic links pointing inside the music dir,
+potentially adding duplicates to the database. You must recreate the
+database after changing this option. The default is “yes”.</p>
+</dd>
+<dt>zeroconf_enabled &lt;yes or no&gt;</dt><dd><p>If yes, and MPD has been compiled with support for Avahi or Bonjour, service
+information will be published with Zeroconf. The default is yes.</p>
+</dd>
+<dt>zeroconf_name &lt;name&gt;</dt><dd><p>If Zeroconf is enabled, this is the service name to publish. This name should
+be unique to your local network, but name collisions will be properly dealt
+with. The default is “Music Player &#64; %h”, where %h will be replaced with the
+hostname of the machine running MPD.</p>
+</dd>
+<dt>audio_output</dt><dd><p>See DESCRIPTION and the various <code class="docutils literal notranslate"><span class="pre">AUDIO</span> <span class="pre">OUTPUT</span> <span class="pre">PARAMETERS</span></code> sections for the
+format of this parameter. Multiple audio_output sections may be specified. If
+no audio_output section is specified, then MPD will scan for a usable audio
+output.</p>
+</dd>
+<dt>replaygain &lt;off or album or track or auto&gt;</dt><dd><p>If specified, mpd will adjust the volume of songs played using ReplayGain
+tags (see <a class="reference external" href="https://wiki.hydrogenaud.io/index.php?title=Replaygain">https://wiki.hydrogenaud.io/index.php?title=Replaygain</a>).
+Setting this to “album” will
+adjust volume using the album’s ReplayGain tags, while setting it to “track”
+will adjust it using the track ReplayGain tags. “auto” uses the track
+ReplayGain tags if random play is activated otherwise the album ReplayGain
+tags. Currently only FLAC, Ogg Vorbis, Musepack, and MP3 (through ID3v2
+ReplayGain tags, not APEv2) are supported.</p>
+</dd>
+<dt>replaygain_preamp &lt;-15 to 15&gt;</dt><dd><p>This is the gain (in dB) applied to songs with ReplayGain tags.</p>
+</dd>
+<dt>volume_normalization &lt;yes or no&gt;</dt><dd><p>If yes, mpd will normalize the volume of songs as they play. The default is
+no.</p>
+</dd>
+<dt>filesystem_charset &lt;charset&gt;</dt><dd><p>This specifies the character set used for the filesystem. A list of supported
+character sets can be obtained by running “iconv -l”. The default is
+determined from the locale when the db was originally created.</p>
+</dd>
+<dt>save_absolute_paths_in_playlists &lt;yes or no&gt;</dt><dd><p>This specifies whether relative or absolute paths for song filenames are used
+when saving playlists. The default is “no”.</p>
+</dd>
+<dt>auto_update &lt;yes or no&gt;</dt><dd><p>This specifies the whether to support automatic update of music database
+when files are changed in music_directory. The default is to disable
+autoupdate of database.</p>
+</dd>
+<dt>auto_update_depth &lt;N&gt;</dt><dd><p>Limit the depth of the directories being watched, 0 means only watch the
+music directory itself. There is no limit by default.</p>
+</dd>
+</dl>
+</section>
+<section id="required-audio-output-parameters">
+<h2>REQUIRED AUDIO OUTPUT PARAMETERS<a class="headerlink" href="#required-audio-output-parameters" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>type &lt;type&gt;</dt><dd><p>This specifies the audio output type. See the list of supported outputs in
+<code class="docutils literal notranslate"><span class="pre">mpd</span> <span class="pre">--version</span></code> for possible values.</p>
+</dd>
+<dt>name &lt;name&gt;</dt><dd><p>This specifies a unique name for the audio output.</p>
+</dd>
+</dl>
+</section>
+<section id="optional-audio-output-parameters">
+<h2>OPTIONAL AUDIO OUTPUT PARAMETERS<a class="headerlink" href="#optional-audio-output-parameters" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt>format &lt;sample_rate:bits:channels&gt;</dt><dd><p>This specifies the sample rate, bits per sample, and number of channels of
+audio that is sent to the audio output device. See documentation for the
+<code class="docutils literal notranslate"><span class="pre">audio_output_format</span></code> parameter for more details. The default is to use
+whatever audio format is passed to the audio output. Any of the three
+attributes may be an asterisk to specify that this attribute should not be
+enforced</p>
+</dd>
+<dt>replay_gain_handler &lt;software, mixer or none&gt;</dt><dd><p>Specifies how replay gain is applied. The default is “software”, which uses
+an internal software volume control. “mixer” uses the configured (hardware)
+mixer control. “none” disables replay gain on this audio output.</p>
+</dd>
+<dt>mixer_type &lt;hardware, software or none&gt;</dt><dd><p>Specifies which mixer should be used for this audio output: the hardware
+mixer (available for ALSA, OSS and PulseAudio), the software mixer or no
+mixer (“none”). By default, the hardware mixer is used for devices which
+support it, and none for the others.</p>
+</dd>
+</dl>
+</section>
+<section id="files">
+<h2>FILES<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt><code class="file docutils literal notranslate"><span class="pre">$XDG_CONFIG_HOME/mpd/mpd.conf</span></code></dt><dd><p>User configuration file (usually <code class="file docutils literal notranslate"><span class="pre">~/.config/mpd/mpd.conf</span></code>).</p>
+</dd>
+<dt><code class="file docutils literal notranslate"><span class="pre">/etc/mpd.conf</span></code></dt><dd><p>Global configuration file.</p>
+</dd>
+</dl>
+</section>
+<section id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><em class="manpage">mpd(1)</em>, <em class="manpage">mpc(1)</em></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">mpd.conf</a><ul>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#optional-parameters">OPTIONAL PARAMETERS</a></li>
+<li><a class="reference internal" href="#required-audio-output-parameters">REQUIRED AUDIO OUTPUT PARAMETERS</a></li>
+<li><a class="reference internal" href="#optional-audio-output-parameters">OPTIONAL AUDIO OUTPUT PARAMETERS</a></li>
+<li><a class="reference internal" href="#files">FILES</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mpd.conf.5.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Music Player Daemon  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mpd.conf</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2003-2021 The Music Player Daemon Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+    </div>
+  </body>
+</html>

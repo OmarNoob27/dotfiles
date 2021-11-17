@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Client Developer’s Manual &#8212; Music Player Daemon  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Protocol" href="protocol.html" />
+    <link rel="prev" title="Developer’s Manual" href="developer.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="protocol.html" title="Protocol"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="developer.html" title="Developer’s Manual"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Music Player Daemon  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Client Developer’s Manual</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="client-developer-s-manual">
+<h1>Client Developer’s Manual<a class="headerlink" href="#client-developer-s-manual" title="Permalink to this headline">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>MPD is a music player without a user interface.  The user interface
+will be provided by independent clients, which connect to MPD over
+socket connections (TCP or local sockets).</p>
+<p>This chapter describes how to develop a client.</p>
+<p>Before you develop a new client, consider joining an existing client
+project.  There are many clients, but few are mature; we need fewer,
+but better clients.</p>
+</section>
+<section id="client-libraries">
+<h2>Client Libraries<a class="headerlink" href="#client-libraries" title="Permalink to this headline">¶</a></h2>
+<p>There are many libraries which help with connecting to MPD.  If you
+develop a MPD client, use a library instead of reinventing the wheel.
+The MPD website has a list of libraries: <a class="reference external" href="https://www.musicpd.org/libs/">https://www.musicpd.org/libs/</a></p>
+</section>
+<section id="connecting-to-mpd">
+<h2>Connecting to MPD<a class="headerlink" href="#connecting-to-mpd" title="Permalink to this headline">¶</a></h2>
+<p>Do not hard-code your client to connect to <code class="docutils literal notranslate"><span class="pre">localhost:6600</span></code>.
+Instead, use the defaults of the client library.  For example, with
+<strong class="program">libmpdclient</strong>, don’t do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">mpd_connection_new</span><span class="p">(</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="mi">6600</span><span class="p">,</span> <span class="mi">30000</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Instead, do:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">mpd_connection_new</span><span class="p">(</span><span class="n">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This way, the library can choose the best defaults, maybe derived from
+environment variables, so all MPD clients use the same settings.</p>
+<p>If you need to reimplement those defaults (or if you are developing a
+client library), this is a good set of addresses to attempt to connect
+to:</p>
+<ul class="simple">
+<li><p>if the environment variable <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">MPD_HOST</span></code> is set:
+<code class="docutils literal notranslate"><span class="pre">$MPD_HOST:$MPD_PORT</span></code> (<span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">MPD_PORT</span></code> defaulting to 6600)</p></li>
+<li><p>if the environment variable <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">XDG_RUNTIME_DIR</span></code> is set:
+<code class="docutils literal notranslate"><span class="pre">$XDG_RUNTIME_DIR/mpd/socket</span></code></p></li>
+<li><p><code class="file docutils literal notranslate"><span class="pre">/run/mpd/socket</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">localhost:$MPD_PORT</span></code> (<span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">MPD_PORT</span></code> defaulting to 6600)</p></li>
+</ul>
+</section>
+<section id="environment-variables">
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
+<p>The following environment variables should be obeyed by all clients
+(preferably by the client library):</p>
+<ul class="simple">
+<li><p><span class="target" id="index-4"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">MPD_HOST</span></code>: the host (or local socket path) to connect to;
+on Linux, this may start with a <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> to connect to an abstract
+socket.  To use a password with MPD, set <span class="target" id="index-5"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">MPD_HOST</span></code> to
+<code class="docutils literal notranslate"><span class="pre">password&#64;host</span></code> (then abstract socket requires double <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>:
+<code class="docutils literal notranslate"><span class="pre">password&#64;&#64;socket</span></code>).</p></li>
+<li><p><span class="target" id="index-6"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">MPD_PORT</span></code>: the port number; defaults to 6600.</p></li>
+<li><p><span class="target" id="index-7"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">MPD_TIMEOUT</span></code>: timeout for connecting to MPD and for waiting
+for MPD’s response in seconds.  A good default is 30 seconds.</p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Client Developer’s Manual</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#client-libraries">Client Libraries</a></li>
+<li><a class="reference internal" href="#connecting-to-mpd">Connecting to MPD</a></li>
+<li><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="developer.html"
+                        title="previous chapter">Developer’s Manual</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="protocol.html"
+                        title="next chapter">Protocol</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/client.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="protocol.html" title="Protocol"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="developer.html" title="Developer’s Manual"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Music Player Daemon  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Client Developer’s Manual</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2003-2021 The Music Player Daemon Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+    </div>
+  </body>
+</html>

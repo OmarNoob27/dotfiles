@@ -1,0 +1,100 @@
+command=/home/omar/scripts/$BLOCK_NAME
+separator_block_width=15
+markup=pango
+
+#global font color
+color=#ebdbb2
+background=#282828
+
+[recordpid]
+interval=once
+signal=5
+label=<span color="#fc0328">   </span>
+
+
+[moc]
+interval=once
+signal=3
+label=<span color="#e06c75">   </span>
+
+[lang]
+command=xkb-switch | xargs echo  
+interval=once
+signal=15
+label=<span color="#00FF7B">   </span>
+
+[weather]
+command=curl -s 'wttr.in/{Tanta}?format=1'
+#command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo | awk -F+ '{print $2}'
+interval=3600
+#label=<span color="#ff0055">⛅ </span>
+
+[pacman]
+interval=3600
+signal=7
+
+[nettraf]
+interval=2
+
+#[wifidown]
+#interval=2
+
+#[wifiup]
+#interval=2
+
+#[net]
+#interval=2
+
+[batt]
+interval=2
+
+[gpuload]
+interval=3
+label=<span color="#29d398">  </span>
+separator=false
+
+[gputemp]
+interval=3
+label=<span color="#bf0404">  </span>
+
+
+
+[cpu]
+interval=2 
+label=<span color="#5499C7">  </span>
+separator=false
+
+[ram]
+interval=1 
+label=<span color="#FFC300">  </span>
+separator=false
+
+[cpu2]
+interval=2
+label=<span color="#D6331B">  </span>
+
+[backlight]
+interval=once
+signal=20
+label=<span color="#FFC300"> </span>
+
+[volbar2]
+interval=once
+signal=10
+background=#458588
+label=🎵
+
+
+#[volume]
+#interval=once
+#signal=10
+#background=#458588
+
+#[volbar]
+#interval=once
+#signal=10
+
+[clock]
+label=<span color="#2BBD8F"> </span>
+interval=30
+

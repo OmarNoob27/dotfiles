@@ -1,0 +1,111 @@
+# Reload sxhkd 
+shift + Escape
+	pkill -USR1 -x sxhkd
+#brave 
+super + shift + b 
+	brave 
+#ranger 
+shift + Return 
+	alacritty -e ranger
+#xkill 
+super + shift + x 
+	xkill
+#dolphin 
+super + shift + Return 
+  pcmanfm /home/omar
+	#dolphin /home/omar/ 
+#Vol up 
+XF86AudioRaiseVolume
+	amixer -q set Master 5%+ && pkill -RTMIN+10 i3blocks
+#Vol down 
+XF86AudioLowerVolume
+	amixer -q set Master 5%- && pkill -RTMIN+10 i3blocks
+#vol toggle 
+XF86AudioMute
+	amixer -q set Master toggle && pkill -RTMIN+10 i3blocks
+#light up 
+XF86MonBrightnessUp
+	backlight_control +10 && pkill -RTMIN+20 i3blocks
+#light down 
+XF86MonBrightnessDown
+	backlight_control -10 && pkill -RTMIN+20 i3blocks
+#dmenu 
+super + shift + d 
+	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+
+#lang 
+shift+ ctrl + l 
+	(setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ar || setxkbmap us && pkill -RTMIN+15 i3blocks
+#power 
+super + Escape 
+	/home/omar/scripts/power 
+#wallpaper 
+super + shift + i 
+	/home/omar/github/styli.sh/styli.sh 
+#firefox
+super + shift + f 
+    firefox 
+#yd
+#super + shift + y 
+#	yt-dlg
+#play pause 
+XF86AudioPlay
+	playerctl play-pause
+#play next 
+XF86AudioNext
+	playerctl next
+#play pre
+XF86AudioPrev 
+	 playerctl previous
+#play stop 
+XF86AudioStop 
+	playerctl stop
+#clipboard 
+super + d 
+	clipmenu -fn 'NotoMonoRegular:bold:pixelsize=15'
+#htop 
+super + shift + h 
+  /home/omar/scripts/resources
+#screeen record 
+super + shift + s 
+	/home/omar/scripts/recordscreen && pkill -RTMIN+5 i3blocks 
+#moc 
+super + shift + m 
+	/home/omar/scripts/mocdmenu
+#moc previous
+ctrl + XF86AudioPrev 
+	mocp -r && pkill -RTMIN+3 i3blocks 
+#moc next
+ctrl + XF86AudioNext 
+	mocp -f && pkill -RTMIN+3 i3blocks 
+#moc stop
+ctrl + XF86AudioPlay
+	mocp -G && pkill -RTMIN+3 i3blocks 
+#update moc 
+super + m 
+	pkill -RTMIN+3 i3blocks
+#mpv youtube 
+super + shift + p 
+ mpv $(xclip -o)
+#mp3-youtube-dl 
+super + shift + y
+    /home/omar/scripts/ytdmenu
+#screenshot 
+Print
+    /home/omar/scripts/screendmenu
+#note
+super + shift + n 
+    /home/omar/github/dmscripts/scripts/dm-note
+#kill process 
+super + shift + k 
+    /home/omar/github/dmscripts/scripts/dm-kill
+#websearch 
+super + shift + w 
+    /home/omar/github/dmscripts/scripts/dm-websearch
+#mount usb 
+super + shift + u 
+   alacritty -e /home/omar/scripts/dmenuusb
+    
+#github disktop
+super + shift + g 
+    github-desktop

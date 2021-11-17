@@ -1,0 +1,25 @@
+sw_volume: 100
+audio_device_state:1:pulse audio
+audio_device_state:1:toggle_visualizer
+state: play
+current: 1
+time: 83.296000
+random: 0
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:7bibi-zy-el2mr.mp3
+1:7yrana-lah.mp3
+2:a7la-w-nos.mp3
+3:amentak.mp3
+4:asyad-elsot.mp3
+5:7fla_2.mp3
+6:7nenk-7neny.mp3
+7:Dream_coding.mp3
+8:7fla.mp3
+9:el-dhab.mp3
+playlist_end

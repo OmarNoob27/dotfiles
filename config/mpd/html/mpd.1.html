@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>mpd &#8212; Music Player Daemon  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Music Player Daemon  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mpd</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="mpd">
+<h1>mpd<a class="headerlink" href="#mpd" title="Permalink to this headline">¶</a></h1>
+<section id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">mpd</span></code> [options] [CONF_FILE]</p>
+</section>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>MPD is a daemon for playing music. Music is played through the configured audio output(s) (which are generally local, but can be remote). The daemon stores info about all available music, and this info can be easily searched and retrieved. Player control, info retrieval, and playlist management can all be managed remotely.</p>
+<p>MPD searches for a config file in <code class="docutils literal notranslate"><span class="pre">$XDG_CONFIG_HOME/mpd/mpd.conf</span></code>
+then <code class="docutils literal notranslate"><span class="pre">~/.mpdconf</span></code> then <code class="docutils literal notranslate"><span class="pre">~/.mpd/mpd.conf</span></code> then <code class="docutils literal notranslate"><span class="pre">/etc/mpd.conf</span></code> or uses <code class="docutils literal notranslate"><span class="pre">CONF_FILE</span></code>.</p>
+<p>Read more about MPD at <a class="reference external" href="http://www.musicpd.org/">http://www.musicpd.org/</a></p>
+</section>
+<section id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h2>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-mpd-help">
+<span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-mpd-help" title="Permalink to this definition">¶</a></dt>
+<dd><p>Output a brief help message.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-mpd-kill">
+<span class="sig-name descname"><span class="pre">--kill</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-mpd-kill" title="Permalink to this definition">¶</a></dt>
+<dd><p>Kill the currently running mpd session. The pid_file parameter must be specified in the config file for this to work.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-mpd-no-config">
+<span class="sig-name descname"><span class="pre">--no-config</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-mpd-no-config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don’t read from the configuration file.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-mpd-no-daemon">
+<span class="sig-name descname"><span class="pre">--no-daemon</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-mpd-no-daemon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Don’t detach from console.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-mpd-stderr">
+<span class="sig-name descname"><span class="pre">--stderr</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-mpd-stderr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print messages to stderr.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-mpd-verbose">
+<span class="sig-name descname"><span class="pre">--verbose</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-mpd-verbose" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verbose logging.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-mpd-version">
+<span class="sig-name descname"><span class="pre">--version</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-mpd-version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print version information.</p>
+</dd></dl>
+
+</section>
+<section id="files">
+<h2>FILES<a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<dl class="simple">
+<dt><code class="file docutils literal notranslate"><span class="pre">$XDG_CONFIG_HOME/mpd/mpd.conf</span></code></dt><dd><p>User configuration file (usually <code class="file docutils literal notranslate"><span class="pre">~/.config/mpd/mpd.conf</span></code>).</p>
+</dd>
+<dt><code class="file docutils literal notranslate"><span class="pre">/etc/mpd.conf</span></code></dt><dd><p>Global configuration file.</p>
+</dd>
+</dl>
+</section>
+<section id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Permalink to this headline">¶</a></h2>
+<p><em class="manpage">mpd.conf(5)</em>, <em class="manpage">mpc(1)</em></p>
+</section>
+<section id="bugs">
+<h2>BUGS<a class="headerlink" href="#bugs" title="Permalink to this headline">¶</a></h2>
+<p>If you find a bug, please report it at <a class="reference external" href="https://github.com/MusicPlayerDaemon/MPD/issues/">https://github.com/MusicPlayerDaemon/MPD/issues/</a></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">mpd</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a></li>
+<li><a class="reference internal" href="#files">FILES</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+<li><a class="reference internal" href="#bugs">BUGS</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mpd.1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="nav-item nav-item-0"><a href="index.html">Music Player Daemon  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mpd</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2003-2021 The Music Player Daemon Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+    </div>
+  </body>
+</html>
