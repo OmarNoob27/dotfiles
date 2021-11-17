@@ -345,7 +345,7 @@ end
 function v
     doas nvim $argv
 end
-
+alias sp='sh /home/omar/scripts/fzf-ueberzogen.sh'
 
 
 
