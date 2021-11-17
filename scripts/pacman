@@ -1,0 +1,11 @@
+#!/bin/bash 
+case $BLOCK_BUTTON in
+	1) alacritty -e doas pacman -Syuu ;;  # left click
+	3) pamac-manager ;;  # right click
+#	2) whatever_you_want_to_run ;;  # middle click
+#	4) whatever_you_want_to_run ;;  # scroll up
+#	5) whatever_you_want_to_run ;;  # scroll down
+esac
+
+echo 🎁 $(checkupdates | wc -l)
+
