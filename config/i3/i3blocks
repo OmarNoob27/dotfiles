@@ -81,7 +81,7 @@ label=<span color="#FFC300"> </span>
 [volbar2]
 interval=once
 signal=10
-background=#458588
+#background=#458588
 label=🎵
 
 

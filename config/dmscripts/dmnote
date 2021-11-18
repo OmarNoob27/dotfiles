@@ -1,0 +1,11 @@
+https://gitlab.com/dwt1/dmscripts/-/tree/master/scripts
+ffmpeg -video_size 2880x1800 -framerate 30 -f x11grab -i :0.0 -f pulse -ac 2 -i 0 -f pulse -ac 2 -i 1 output.mkv
+ffmpeg -f pulse -i default -acodec aac foo.aac
+https://www.youtube.com/watch?v=ksLQsDLsR8I
+[I] ◆ ~ ❯❯❯
+https://www.youtube.com/watch?v=q5oGq-Mqii8
+https://fishshell.com/docs/current/interactive.html
+beginning-of-line and end of line
+https://www.youtube.com/watch?v=on1AzaZzQ7k&t=584s
+https://github.com/LukeSmithxyz/voidrice/blob/master/.config/sxiv/exec/key-handler
+to authentication to git : https://www.youtube.com/watch?v=ytSoabxSQ6E

@@ -319,6 +319,13 @@ alias g='cd ~/Documents/GitHub'
 alias gd='cd /home/omar/Documents/Github/dotfiles'
 alias pmg='git pull'
 alias ex='extract'
+alias sp='sh /home/omar/scripts/fzf-ueberzogen.sh'
+alias H='history | fzf | xclip -selection clipboard'
+alias img='sxiv * &'
+alias dc='cd ~/.config'
+alias ci3='cd ~/.config/i3'
+alias mem='ps axh -o cmd:15,%mem --sort=-%mem | head | string trim'
+alias cpu='ps axh -o cmd:15,%cpu --sort=-%cpu | head'
 #alias o='fzf | xargs doas nvim'
 #fzf with fish 
 #search pkg with packman and install it 
@@ -345,7 +352,3 @@ end
 function v
     doas nvim $argv
 end
-alias sp='sh /home/omar/scripts/fzf-ueberzogen.sh'
-
-
-

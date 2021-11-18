@@ -109,3 +109,6 @@ super + shift + u
 #github disktop
 super + shift + g 
     github-desktop
+#sxiv 
+super + p 
+    ~/scripts/sxivranger
