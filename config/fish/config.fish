@@ -326,6 +326,7 @@ alias dc='cd ~/.config'
 alias ci3='cd ~/.config/i3'
 alias mem='ps axh -o cmd:15,%mem --sort=-%mem | head | string trim'
 alias cpu='ps axh -o cmd:15,%cpu --sort=-%cpu | head'
+alias bup='sh /home/omar/scripts/gitupload'
 #alias o='fzf | xargs doas nvim'
 #fzf with fish 
 #search pkg with packman and install it 

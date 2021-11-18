@@ -643,11 +643,11 @@ bar {
     ##STOP THEMING BAR
 
     ##START THEMING WM
-    # Theme name : ArcoLinux Default
+    #Theme name : ArcoLinux Var Sulpher
 
     # Window color settings
     # class                 border  backgr. text    indicator
-    #client.focused          #353439 #6790EB #e5e5e5 #6790EB
+   #client.focused          #353439 #6790EB #e5e5e5 #6790EB
     client.focused          #353439 #98c379  #e5e5e5 #98c379
     client.unfocused        #222222 #222222 #aaaaaa #222222
     client.focused_inactive #222222 #222222 #a9a9a9 #222222
@@ -665,7 +665,7 @@ bar {
     ##STOP THEMING WM
 
 
-#my theme 
+##my theme 
 
     ##STOP THEMING WM
 
