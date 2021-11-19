@@ -7,5 +7,5 @@ case $BLOCK_BUTTON in
 #	5) whatever_you_want_to_run ;;  # scroll down
 esac
 
-echo 🎁 $(checkupdates | wc -l)
+echo 🐧 $(checkupdates | wc -l)
 
