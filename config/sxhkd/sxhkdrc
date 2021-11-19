@@ -85,8 +85,11 @@ ctrl + XF86AudioPlay
 super + m 
 	pkill -RTMIN+3 i3blocks
 #mpv youtube 
-super + shift + p 
+super + p 
  mpv $(xclip -o)
+#sxiv via dmenu  
+super + shift + p 
+    ~/scripts/dmenu_sxiv
 #mp3-youtube-dl 
 super + shift + y
     /home/omar/scripts/ytdmenu
@@ -109,9 +112,6 @@ super + shift + u
 #github disktop
 super + shift + g 
     github-desktop
-#sxiv 
-super + p 
-    ~/scripts/sxivranger
 #youtube in terminal 
 super + y 
     xfce4-terminal 

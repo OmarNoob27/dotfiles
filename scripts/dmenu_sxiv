@@ -1,0 +1,14 @@
+#!/bin/bash
+
+while true; do
+    open=$(ls --group-directories-first --file-type | dmenu "$@")
+    if [[ -d "$open" ]]; then
+        cd "$open"
+    else
+        if [[ "$open" != "" ]]; then
+            cd $open
+            sxiv *
+        fi
+        exit 0
+    fi
+done

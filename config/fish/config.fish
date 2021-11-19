@@ -328,6 +328,8 @@ alias mem='ps axh -o cmd:15,%mem --sort=-%mem | head | string trim'
 alias cpu='ps axh -o cmd:15,%cpu --sort=-%cpu | head'
 alias bup='sh /home/omar/scripts/gitupload'
 alias y='ytfzf -ml'
+alias cds='cd ~/scripts'
+alias cdcs='cd ~/.cache/styli.sh'
 
 #alias o='fzf | xargs doas nvim'
 #fzf with fish 
