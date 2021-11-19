@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#sxiv via dmenu is opened only if directory existing 
 while true; do
     open=$(ls --group-directories-first --file-type | dmenu "$@")
     if [[ -d "$open" ]]; then

@@ -328,6 +328,7 @@ alias mem='ps axh -o cmd:15,%mem --sort=-%mem | head | string trim'
 alias cpu='ps axh -o cmd:15,%cpu --sort=-%cpu | head'
 alias bup='sh /home/omar/scripts/gitupload'
 alias y='ytfzf -ml'
+alias yy='ytfzf -t'
 alias cds='cd ~/scripts'
 alias cdcs='cd ~/.cache/styli.sh'
 
