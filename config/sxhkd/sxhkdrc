@@ -112,3 +112,6 @@ super + shift + g
 #sxiv 
 super + p 
     ~/scripts/sxivranger
+#youtube in terminal 
+super + y 
+    xfce4-terminal 

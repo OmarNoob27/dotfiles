@@ -322,11 +322,13 @@ alias ex='extract'
 alias sp='sh /home/omar/scripts/fzf-ueberzogen.sh'
 alias H='history | fzf | xclip -selection clipboard'
 alias img='sxiv * &'
-alias dc='cd ~/.config'
-alias ci3='cd ~/.config/i3'
+alias cdc='cd ~/.config'
+alias cdi='cd ~/.config/i3'
 alias mem='ps axh -o cmd:15,%mem --sort=-%mem | head | string trim'
 alias cpu='ps axh -o cmd:15,%cpu --sort=-%cpu | head'
 alias bup='sh /home/omar/scripts/gitupload'
+alias y='ytfzf -ml'
+
 #alias o='fzf | xargs doas nvim'
 #fzf with fish 
 #search pkg with packman and install it 

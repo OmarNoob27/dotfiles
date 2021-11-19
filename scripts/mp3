@@ -1,7 +1,12 @@
 #!/bin/bash
 neofetch 
 cd ~/ffmpeg 
-echo ---------------
+echo "---------------------------------------------"
 echo "✘ ❯❯ $(pwd)"
-youtube-dl --extract-audio --audio-format mp3 $(xclip -o)
+echo "---------------------------------------------"
+read -p '❯❯❯ Enter name of file : ' name 
+echo "---------------------------------------------"
+youtube-dl --extract-audio --audio-format mp3 $(xclip -o) -o $name.mp3
+
+
 
