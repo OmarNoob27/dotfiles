@@ -115,3 +115,13 @@ super + shift + g
 #youtube in terminal 
 super + y 
     xfce4-terminal 
+#youtube via mpv pause
+alt + XF86AudioPlay
+    playerctl play-pause -p mpv
+#youtube via mpv next
+alt + XF86AudioNext
+    playerctl next -p mpv
+#youtube via mpv previous
+alt + XF86AudioPrev 
+	 playerctl previous -p mpv 
+

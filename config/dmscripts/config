@@ -52,10 +52,10 @@ esac
 bookman_show_source=1
 
 # dm-sounds
-sounds_dir="${HOME}/.config/dmscripts/dmsounds"
+#sounds_dir="${HOME}/.config/dmscripts/dmsounds"
 
 # dm-setbg
-setbg_dir="${HOME}/Pictures/Wallpapers"
+#setbg_dir="${HOME}/Pictures/Wallpapers"
 # Set this to 1 if you want to use imv and wayland, 0 if you want to use sxiv
 # Note that sxiv is X11 only, you need to mark the image you want to use.
 use_imv=1 
@@ -71,7 +71,7 @@ note_dir="${HOME}/.config/dmscripts/dmnote"
 declare -A confedit_list
 confedit_list[confedit]="$HOME/.config/dmscripts/config"
 confedit_list[alacritty]="$HOME/.config/alacritty/alacritty.yml"
-confedit_list[awesome]="$HOME/.config/awesome/rc.lua"
+#confedit_list[awesome]="$HOME/.config/awesome/rc.lua"
 confedit_list[bash]="$HOME/.bashrc"
 #confedit_list[broot]="$HOME/.config/broot/conf.toml"
 #confedit_list[bspwm]="$HOME/.config/bspwm/bspwmrc"
@@ -83,6 +83,8 @@ confedit_list[fish]="$HOME/.config/fish/config.fish"
 confedit_list[i3]="$HOME/.config/i3/config"
 confedit_list[i3_blocks]="$HOME/.config/i3/i3blocks"
 confedit_list[ranger_rc]="$HOME/.config/ranger/rc.conf"
+confedit_list[sxiv]="$HOME/.config/sxiv/exec/key-handler"
+confedit_list[zathura]="$HOME/.config/zathura/zathurarc"
 confedit_list[moc]="$HOME/.moc/config"
 confedit_list[moc_keymap]="$HOME/.moc/keymap"
 #confedit_list[ncmpcpp]="$HOME/.config/ncmpcpp/config"
