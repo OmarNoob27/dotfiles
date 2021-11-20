@@ -1,9 +1,9 @@
 # dotfiles
-My Operating system : Linux 
-Distributiin : Arch
-Workflow : 
+- My Operating system : Linux 
+- Distribution : Arch
+- Workflow : 
 - window manager : dwm > i3> qtile > xmonad > qtile > i3 
-Dynamic wm : dwm > polybar >  i3blocks 
+- Dynamic wm : dwm > polybar >  i3blocks 
 - text editor : nano > vim > neovim 
 - command file manager : lf > ranger
 - gui file manager : pcmanfm > dolphin > pcmanfm 
@@ -14,7 +14,7 @@ Dynamic wm : dwm > polybar >  i3blocks
 - theme : style & pywal & qt5ct & kvantummanager 
 - browser : chrome > firefox > brave 
 - search engine : google > duckduckgo
--firewall : guwf 
+- firewall : guwf 
 - media player : moc > mpd > moc
 - notification : xcfe4-notifi
 - photo viewer : sxiv 
