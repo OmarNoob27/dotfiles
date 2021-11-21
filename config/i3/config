@@ -252,6 +252,7 @@ exec --no-startup-id volumeicon
 #exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
 #my config 
 exec --no-startup-id feh --bg-fill /home/omar/.cache/styli.sh/wallpaper.jpg & 
+#exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id sxhkd 
 exec --no-startup-id clipmenud
 exec --no-startup-id xhost + 
@@ -712,7 +713,7 @@ bar {
 
 # The right button toggles floating
 # bindsym button3 floating toggle
-# bindsym $mod+button3 floating toggle
+#bindsym $mod+button3 floating toggle
 
 # The side buttons move the window around
 # bindsym button9 move left

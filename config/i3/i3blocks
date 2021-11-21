@@ -82,7 +82,7 @@ label=<span color="#FFC300"> </span>
 interval=once
 signal=10
 #background=#458588
-label=🎵
+label=<span color="#e06c75"> Vol </span>
 
 
 #[volume]

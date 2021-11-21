@@ -331,7 +331,7 @@ alias y='ytfzf -ml'
 alias yy='ytfzf -t'
 alias cds='cd ~/scripts'
 alias cdcs='cd ~/.cache/styli.sh'
-
+alias df='df -h'
 #alias o='fzf | xargs doas nvim'
 #fzf with fish 
 #search pkg with packman and install it 
