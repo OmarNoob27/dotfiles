@@ -260,7 +260,7 @@ alias tozsh="sudo chsh $USER -s /bin/zsh && echo 'Now log out.'"
 alias tofish="sudo chsh $USER -s /bin/fish && echo 'Now log out.'"
 
 # bare git repo alias for dotfiles
-alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+#alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
 # termbin
 alias tb="nc termbin.com 9999"
@@ -297,9 +297,12 @@ alias d='doas'
 alias pmi='doas pacman -S'
 alias pmu='doas pacman -Syyu'
 alias pmuu='paru -Syu'
-alias pmr='doas pacman -R'
+alias pmr='doas pacman -Rs'
+alias pmR='doas pacman -Rns' #to remove config file for program 
 alias pmii='paru -S'
 alias pmq='doas pacman -Q'
+alias pmn='pacman -Q | wc -l'
+alias pmc='pacman -Sc' #clean the cache after upgrade my system 
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 alias e='exit'

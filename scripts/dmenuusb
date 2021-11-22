@@ -31,7 +31,7 @@ if [ "$ChosenMenu" = "$MenuMount" ]; then
 
     ### Implement a way to exclude already mounted locations.
 
-    Directories=$(find /mnt -maxdepth 1 -type d 2>/dev/null)
+    Directories=$(find ~/cell -maxdepth 1 -type d 2>/dev/null)
     MountPoint=$(printf '%s' "$Directories" \
         | dmenu -i -l 10 -p 'Type in mount point:')
     [ -z "$MountPoint" ] && exit 1
