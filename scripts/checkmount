@@ -1,0 +1,8 @@
+#!/bin/bash 
+#~/cell is mount point for usb  and android 
+if [ "$(ls -A ~/cell)" ]; then
+    sh /home/omar/scripts/dmenuumount
+else 
+    sh /home/omar/scripts/dmenumount
+fi 
+
