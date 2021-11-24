@@ -303,6 +303,7 @@ alias pmii='paru -S'
 alias pmq='doas pacman -Q'
 alias pmn='pacman -Q | wc -l'
 alias pmc='pacman -Sc' #clean the cache after upgrade my system 
+alias pmg='pamac-manager'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 alias e='exit'
@@ -320,7 +321,7 @@ alias l.="ls -A | egrep '^\.'"
 alias vim='doas nvim'
 alias g='cd ~/Documents/GitHub'
 alias gd='cd /home/omar/Documents/Github/dotfiles'
-alias pmg='git pull'
+alias pmug='git pull'
 alias ex='extract'
 alias sp='sh /home/omar/scripts/fzf-ueberzogen.sh'
 alias H='history | fzf | xclip -selection clipboard'
@@ -335,6 +336,8 @@ alias yy='ytfzf -t'
 alias cds='cd ~/scripts'
 alias cdcs='cd ~/.cache/styli.sh'
 alias df='df -h'
+alias printer='system-config-printer'
+alias printerinstall='hp-setup -u'
 #alias o='fzf | xargs doas nvim'
 #fzf with fish 
 #search pkg with packman and install it 
