@@ -2,12 +2,12 @@
 #OPT=$(echo -e "lock\nlogout\nreboot\nsuspend\nhibernate\nshutdown" | dmenu -i -p "Choose action: ")
 OPT=$(echo -e "lock\nlogout\nreboot\nsuspend\nhibernate\nshutdown" | dmenu -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=16' -p "Choose action: ")
 case $OPT in
-	lock ) [ "$(printf "No\\nYes" | dmenu -i -p "Really lock?")" = "Yes" ] && betterlockscreen -l dimblur -- --time-str="%H:%M" ;;
-	logout ) [ "$(printf "No\\nYes" | dmenu -i -p "Really logout?")" = "Yes" ] && xdotool key "super+shift+q" ;; 
-	reboot) [ "$(printf "No\\nYes" | dmenu -i -p "Really reboot?")" = "Yes" ] && reboot  ;;
-	suspend) [ "$(printf "No\\nYes" | dmenu -i -p "Really suspend?")" = "Yes" ] && systemctl suspend   ;;
-	hibernate ) [ "$(printf "No\\nYes" | dmenu -i -p "Really hibernate?")" = "Yes" ] && systemctl hibernate ;;
-	shutdown) [ "$(printf "No\\nYes" | dmenu -i -p "Really shutdown?")" = "Yes" ] && shutdown now ;;
+	lock ) [ "$(printf "No\\nYes" | dmenu -i -fn 'NotoMonoRegular:bold:pixelsize=16' -p "Really lock?")" = "Yes" ] && betterlockscreen -l dimblur -- --time-str="%H:%M" ;;
+	logout ) [ "$(printf "No\\nYes" | dmenu -i -fn 'NotoMonoRegular:bold:pixelsize=16' -p "Really logout?")" = "Yes" ] && xdotool key "super+shift+q" ;; 
+	reboot) [ "$(printf "No\\nYes" | dmenu -i -fn 'NotoMonoRegular:bold:pixelsize=16' -p "Really reboot?")" = "Yes" ] && reboot  ;;
+	suspend) [ "$(printf "No\\nYes" | dmenu -i -fn 'NotoMonoRegular:bold:pixelsize=16' -p "Really suspend?")" = "Yes" ] && systemctl suspend   ;;
+	hibernate ) [ "$(printf "No\\nYes" | dmenu -i -fn 'NotoMonoRegular:bold:pixelsize=16' -p "Really hibernate?")" = "Yes" ] && systemctl hibernate ;;
+	shutdown) [ "$(printf "No\\nYes" | dmenu -i -fn 'NotoMonoRegular:bold:pixelsize=16' -p "Really shutdown?")" = "Yes" ] && shutdown now ;;
 	*) ;;
 esac
 
