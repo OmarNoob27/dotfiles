@@ -195,3 +195,55 @@ Nov 10 19:03 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
 Nov 10 19:03 : ffmpeg/opus: Could not update timestamps for skipped samples.
 Nov 10 19:04 : player: played "7bibi-zy-el2mr.mp3"
 Nov 10 19:05 : player: played "7yrana-lah.mp3"
+Nov 25 23:48 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:48 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:48 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 25 23:50 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:50 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:50 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 25 23:50 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:50 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:50 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 25 23:50 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:50 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:51 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:51 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:51 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 25 23:51 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:51 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:51 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 25 23:51 : player: played "samoray.mp3"
+Nov 25 23:51 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:51 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:51 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 25 23:53 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:53 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:53 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 25 23:54 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:54 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:56 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:56 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:56 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 25 23:56 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:56 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:56 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 25 23:56 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:56 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:56 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 25 23:56 : mad: input does not appear to be a mp3 bit stream
+[src/libmpg123/parse.c:skip_junk():1276] error: Giving up searching valid MPEG header after 65536 bytes of junk.
+Nov 25 23:56 : mpg123: mpg123_getformat() failed: A generic mpg123 error.
+Nov 25 23:56 : ffmpeg/opus: Could not update timestamps for skipped samples.
+Nov 25 23:57 : player: played "Ahla_7aga.mp3"

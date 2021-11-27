@@ -2,8 +2,8 @@ sw_volume: 100
 audio_device_state:1:pulse audio
 audio_device_state:1:toggle_visualizer
 state: play
-current: 1
-time: 83.296000
+current: 10
+time: 13.619000
 random: 0
 repeat: 0
 single: 0
@@ -22,4 +22,53 @@ playlist_begin
 7:Dream_coding.mp3
 8:7fla.mp3
 9:el-dhab.mp3
+10:Ahla_7aga.mp3
+11:7bibi-w-elzaman.mp3
+12:samoray.mp3
+13:sebhm.mp3
+14:7bibi-w-elzaman.mp3
+15:7bibi-zy-el2mr.mp3
+16:7fla.mp3
+17:7fla_2.mp3
+18:7nenk-7neny.mp3
+19:7yrana-lah.mp3
+20:Ahla_7aga.mp3
+21:Dream_coding.mp3
+22:a7la-w-nos.mp3
+23:ahla-ayam-el3mr.mp3
+24:amentak.mp3
+25:asyad-elsot.mp3
+26:bsm-el7ob.mp3
+27:coding.mp3
+28:dqet-babi.mp3
+29:dwara-elayam.mp3
+30:el-dhab.mp3
+31:el-lela-dia.mp3
+32:el-lela-ya-smra.mp3
+33:el7ob-shater.mp3
+34:enta-gherhm.mp3
+35:eskot.mp3
+36:etaal.mp3
+37:fakern-ya-7ob.mp3
+38:fr7et-rgo3ak.mp3
+39:ghlaba-fe-el7b.mp3
+40:hal-3ndky-shak.mp3
+41:kda-kfya.mp3
+42:lw-htseb.mp3
+43:m3ndksh_fkra.mp3
+44:maedarsh_al_nasian.mp3
+45:mn-el3ashm.mp3
+46:s3ad.mp4
+47:sahran.mp3
+48:samoray.mp3
+49:sebhm.mp3
+50:shababek.mp3
+51:talea_mooda.mp3
+52:trakny-w-ghab.mp3
+53:ya-3mrna2.mp3
+54:ya-7ob.mp3
+55:ya-kanzy.mp3
+56:ya-lel-el3ashqen.mp3
+57:yah-3la-elzman.mp3
+58:zy-manti-remix.mp3
 playlist_end

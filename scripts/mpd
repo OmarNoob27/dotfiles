@@ -1,25 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
-PREFIX_PLAY=' '
-PREFIX_PAUSE=' '
+# This loop will update the mpd statusbar module whenever a command changes the
+# music player's status. mpd must be running on X's start for this to work.
 
-get_mpd()
-{
-	current_song="$(mpc current)"
-
-	if [[ "$current_song" = "" ]]; then
-		echo " "
-		exit 0
-	else
-		playpause=$(mpc | awk '/\[.*]/{split($0, a, " "); print a[1]}')
-		if [[ "$playpause" = "[playing]" ]]; then
-			current_song="$PREFIX_PLAY $current_song"
-		elif [[ "$playpause" = "[paused]" ]]; then
-			current_song="$PREFIX_PAUSE $current_song"
-		fi
-	fi
-
-	echo "$current_song"
-}
-
-get_mpd
+while : ; do
+	mpc idle >/dev/null && kill -45 "$(pidof "${STATUSBAR:-i3blocks}")" || break
+done

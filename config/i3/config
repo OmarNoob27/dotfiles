@@ -251,7 +251,8 @@ exec --no-startup-id volumeicon
 # feh sets wallpaper
 #exec --no-startup-id feh --bg-fill /usr/share/backgrounds/arcolinux/arco-wallpaper.jpg &
 #my config 
-exec --no-startup-id feh --bg-fill /home/omar/.cache/styli.sh/wallpaper.jpg & 
+#exec --no-startup-id feh --bg-fill /home/omar/.cache/styli.sh/wallpaper.jpg & 
+exec --no-startup-id feh --bg-fill /home/omar/.cache/wall & 
 #exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id sxhkd 
 exec --no-startup-id clipmenud
@@ -262,7 +263,7 @@ exec --no-startup-id xhost +
 
 ################# system applications       
 
-#exec --no-startup-id xfce4-power-manager &
+exec --no-startup-id xfce4-power-manager &
 # ommitted next line to get super key to bring up the menu in xfce and avoid error then in i3
 # IF xfsettingsd is activated you can not change themes
 # exec --no-startup-id xfsettingsd &

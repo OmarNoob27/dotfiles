@@ -300,9 +300,9 @@ alias pmuu='paru -Syu'
 alias pmr='doas pacman -Rs'
 alias pmR='doas pacman -Rns' #to remove config file for program 
 alias pmii='paru -S'
-alias pmq='doas pacman -Q'
+alias pmq='pacman -Qq'
 alias pmn='pacman -Q | wc -l'
-alias pmc='pacman -Sc' #clean the cache after upgrade my system 
+alias pmc='doas pacman -Sc' #clean the cache after upgrade my system 
 alias pmg='pamac-manager'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -365,3 +365,7 @@ end
 function v
     doas nvim $argv
 end
+#open file manger from the current dir 
+function r 
+    alacritty -e ranger $pwd & 
+end 

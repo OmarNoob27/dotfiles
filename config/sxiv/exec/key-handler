@@ -38,6 +38,26 @@ do
 			notify-send "$(readlink -f "$file") copied to clipboard" & ;;
 	"d")
 		[ "$(printf "No\\nYes" | dmenu -i -p "Really delete $file?")" = "Yes" ] && rm "$file" && notify-send "$file deleted." ;;
+  "x")
+    xclip -selection clipboard -target image/png "$file" &&
+    notify-send "$file has been copied to clipboard." && exit 0 
+    ;;
+  "w") 
+      xwallpaper --stretch "$file" &&
+      cp "$file" ~/.cache/wall
+      notify-send "$file has been set as your wallpaper." && exit 0
+      #filename=$HOME/.cache/wall
+      #if [ ! -f $filename ]; then
+      #  touch $filename
+      #fi
+      #echo "$file" > $HOME/.cache/wall &&
+    ;;
+  "g")
+     pacman -Qq "gimp" >/dev/null 2>&1 && gimp "$file" ||
+     notify-send "ERROR" "\nGimp is not installed! Install gimp if you want to use this function in sxiv:\n\nsudo pacman -S gimp" && 
+     exit 1;
+     ;;
+
 	#"g")	ifinstalled gimp && setsid -f gimp "$file" ;;
 	#"i")	notify-send "File information" "$(mediainfo "$file")" ;;
         esac

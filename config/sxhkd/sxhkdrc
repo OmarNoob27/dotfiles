@@ -25,10 +25,10 @@ XF86AudioMute
 	amixer -q set Master toggle && pkill -RTMIN+10 i3blocks
 #light up 
 XF86MonBrightnessUp
-	backlight_control +10 && pkill -RTMIN+20 i3blocks
+	backlight_control +5 && pkill -RTMIN+20 i3blocks
 #light down 
 XF86MonBrightnessDown
-	backlight_control -10 && pkill -RTMIN+20 i3blocks
+	backlight_control -5 && pkill -RTMIN+20 i3blocks
 #dmenu 
 super + shift + d 
 	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
@@ -125,4 +125,4 @@ alt + XF86AudioPlay
 #youtube via mpv previous
 #alt + XF86AudioPrev 
 #	 playerctl previous -p mpv 
-
+#open ranger from pwd 
