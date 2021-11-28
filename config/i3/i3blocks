@@ -33,8 +33,8 @@ interval=3600
 interval=3600
 signal=7
 
-[uptime]
-interval=60
+#[uptime]
+#interval=60
 
 [nettraf]
 interval=2
@@ -54,23 +54,18 @@ interval=2
 [gpuload]
 interval=3
 label=<span color="#29d398">  </span>
-separator=false
 
 [gputemp]
 interval=3
 label=<span color="#bf0404">  </span>
 
-
-
 [cpu]
 interval=2 
 label=<span color="#5499C7">  </span>
-separator=false
 
 [ram]
 interval=1 
 label=<span color="#FFC300">  </span>
-separator=false
 
 [cpu2]
 interval=2

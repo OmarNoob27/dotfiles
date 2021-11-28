@@ -44,7 +44,7 @@ do
     ;;
   "w") 
       xwallpaper --stretch "$file" &&
-      cp "$file" ~/.cache/wall
+      cp "$file" ~/.cache/wallpaper 
       notify-send "$file has been set as your wallpaper." && exit 0
       #filename=$HOME/.cache/wall
       #if [ ! -f $filename ]; then

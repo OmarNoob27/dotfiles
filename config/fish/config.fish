@@ -307,7 +307,7 @@ alias pmg='pamac-manager'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 alias e='exit'
-alias cft='./mp4_2_mp3.sh'
+alias tomp3='sh ~/scripts/tomp3.sh'
 alias install='makepkg -si'
 alias mk='mkdir'
 alias config='/home/omar/github/dmscripts/scripts/dm-confedit'
