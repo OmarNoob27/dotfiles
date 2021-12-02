@@ -22,16 +22,19 @@ command=xkb-switch | xargs echo
 interval=once
 signal=15
 label=<span color="#00FF7B">   </span>
+color=#d19a66
 
 [weather]
 command=curl -s 'wttr.in/{Tanta}?format=1'
 #command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo | awk -F+ '{print $2}'
 interval=3600
+color=#61afef
 #label=<span color="#ff0055">⛅ </span>
 
 [pacman]
 interval=3600
 signal=7
+color=#c678dd
 
 #[uptime]
 #interval=60
@@ -50,14 +53,17 @@ interval=2
 
 [batt]
 interval=2
+color=#98c379
 
 [gpuload]
 interval=3
 label=<span color="#29d398">  </span>
+color=#56b6c2
 
 [gputemp]
 interval=3
 label=<span color="#bf0404">  </span>
+color=#e06c75
 
 [cpu]
 interval=2 
@@ -66,10 +72,12 @@ label=<span color="#5499C7">  </span>
 [ram]
 interval=1 
 label=<span color="#FFC300">  </span>
+color=#56b6c2
 
 [cpu2]
 interval=2
 label=<span color="#D6331B">  </span>
+color=#e06c75
 
 [backlight]
 interval=once
@@ -80,19 +88,12 @@ label=<span color="#FFC300"> </span>
 interval=once
 signal=10
 #background=#458588
-label=<span color="#e06c75"> Vol </span>
-
-
-#[volume]
-#interval=once
-#signal=10
-#background=#458588
-
-#[volbar]
-#interval=once
-#signal=10
+label=<span color="#d19a66"> Vol </span>
+color=#61afef
 
 [clock]
 label=<span color="#2BBD8F"> </span>
 interval=30
+color=#d19a66
+
 

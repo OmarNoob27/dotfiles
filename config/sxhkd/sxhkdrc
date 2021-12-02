@@ -4,16 +4,12 @@ shift + Escape
 #brave 
 super + shift + b 
 	brave 
-#ranger 
-shift + Return 
-	alacritty -e ranger
+#file manger from terminal  
+shift + Return
+  pcmanfm /home/omar
 #xkill 
 super + shift + x 
 	xkill
-#dolphin 
-super + shift + Return 
-  pcmanfm /home/omar
-	#dolphin /home/omar/ 
 #Vol up 
 XF86AudioRaiseVolume
 	amixer -q set Master 5%+ && pkill -RTMIN+10 i3blocks
@@ -129,3 +125,6 @@ alt + XF86AudioPlay
 #alt + XF86AudioPrev 
 #	 playerctl previous -p mpv 
 #open ranger from pwd 
+#zoom 
+super + shift + z 
+    zoom

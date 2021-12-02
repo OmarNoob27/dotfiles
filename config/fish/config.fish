@@ -15,20 +15,18 @@ set -U fish_user_paths $HOME/.local/bin $HOME/Applications $fish_user_paths
 ### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
 set TERM "alacritty"                         # Sets the terminal type
-set EDITOR "nvim"                 # $EDITOR use Emacs in terminal
-set VISUAL "nvim"              # $VISUAL use Emacs in GUI mode
-
-### SET MANPAGER
-### Uncomment only one of these!
+set EDITOR "nvim"
+set VISUAL "nvim"
+#export EDITOR=/usr/bin/nvim
 
 ### "bat" as manpager
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 ### "vim" as manpager
-# set -x MANPAGER '/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
+#set -x MANPAGER '/bin/bash -c "vim -MRn -c \"set buftype=nofile showtabline=0 ft=man ts=8 nomod nolist norelativenumber nonu noma\" -c \"normal L\" -c \"nmap q :qa<CR>\"</dev/tty <(col -b)"'
 
 ### "nvim" as manpager
-# set -x MANPAGER "nvim -c 'set ft=man' -"
+#set -x MANPAGER "nvim -c 'set ft=man' -"
 
 ### SET EITHER DEFAULT EMACS MODE OR VI MODE ###
 function fish_user_key_bindings
@@ -221,17 +219,17 @@ alias .4='cd ../../../..'
 alias .5='cd ../../../../..'
 
 # git
-alias addup='git add -u'
-alias addall='git add .'
-alias branch='git branch'
-alias checkout='git checkout'
-alias clone='git clone'
-alias commit='git commit -m'
-alias fetch='git fetch'
-alias pull='git pull origin'
-alias push='git push origin'
-alias tag='git tag'
-alias newtag='git tag -a'
+#alias addup='git add -u'
+#alias addall='git add .'
+#alias branch='git branch'
+#alias checkout='git checkout'
+#alias clone='git clone'
+#alias commit='git commit -m'
+#alias fetch='git fetch'
+#alias pull='git pull origin'
+#alias push='git push origin'
+#alias tag='git tag'
+#alias newtag='git tag -a'
 
 # get error messages from journalctl
 alias jctl="journalctl -p 3 -xb"
@@ -309,7 +307,7 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 alias e='exit'
 alias tomp3='sh ~/scripts/tomp3.sh'
 alias install='makepkg -si'
-alias mk='mkdir'
+alias md='mkdir'
 alias config='/home/omar/github/dmscripts/scripts/dm-confedit'
 alias blk='lsblk'
 #list
@@ -339,6 +337,11 @@ alias cdcs='cd ~/.cache/styli.sh'
 alias df='duf'
 alias printer='system-config-printer'
 alias printerinstall='hp-setup -u'
+alias pdfe='okular'
+alias lf='lfrun'
+alias vim='nvim'
+alias plug='cd ~/.config/nnn/plugins'
+
 #alias o='fzf | xargs doas nvim'
 #fzf with fish 
 #search pkg with packman and install it 
@@ -367,5 +370,24 @@ function v
 end
 #open file manger from the current dir 
 function r 
-    alacritty -e ranger $pwd & 
+    alacritty -e lf $pwd & 
 end 
+
+#lf file manger 
+#alias lf='lfrun'
+#alias l='lfrun'
+
+#my config for nnn file manger 
+alias nnn='nnn -ed'
+alias n='nnn -ed'
+#alias ls='nnn -de'
+export NNN_PLUG='p:mocq;s:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;j:autojump;x:!doas chmod +x $nnn'
+export NNN_OPENER=nnnopen
+export NNN_COLORS='1267'
+#export NNN_FCOLORS='c1e2272e006033f7c6d6abc4'
+export NNN_FCOLORS='c1e2E62e006033f7c6d6abc4'
+export NNN_FIFO=/tmp/nnn.fifo
+#export NNN_BMS="h:~;g:~/Documents/Github/dotfiles;a:~/aur;c:~/cell"
+#export NNN_ORDER="d:~"
+
+

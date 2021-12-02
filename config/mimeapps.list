@@ -106,3 +106,5 @@ image/jpg=sxiv.desktop
 video/mp4=mpv.desktop;
 video/x-matroska=mpv.desktop;
 audio/mpeg=mpv.desktop;
+application/json=nvim.desktop;
+text/*=nvim.desktop;

@@ -43,6 +43,8 @@ do
      ;;
         esac
 done
+
+
 <<comment 
 #default config via arch linux 
 rotate() {
