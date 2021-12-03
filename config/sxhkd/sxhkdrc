@@ -6,6 +6,9 @@ super + shift + b
 	brave 
 #file manger from terminal  
 shift + Return
+    alacritty -e nnn -de  
+#file manger gui 
+shift + super + Return
   pcmanfm /home/omar
 #xkill 
 super + shift + x 

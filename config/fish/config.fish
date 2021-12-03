@@ -14,7 +14,7 @@ set -U fish_user_paths $HOME/.local/bin $HOME/Applications $fish_user_paths
 
 ### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
-set TERM "alacritty"                         # Sets the terminal type
+set TERMINAL "alacritty"                         # Sets the terminal type
 set EDITOR "nvim"
 set VISUAL "nvim"
 #export EDITOR=/usr/bin/nvim
@@ -382,14 +382,15 @@ end
 #alias l='lfrun'
 
 #my config for nnn file manger 
-alias nnn='nnn -ed'
-alias n='nnn -ed'
+#alias nnn='nnn -ed'
+#alias nn='nnn -ed'
+#alias n='nnn -ed'
 export NNN_PLUG='p:mocq;i:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;j:autojump;x:!doas chmod +x $nnn;s:!bash -i*' #to play this plug press ; then choose option 
 export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;c:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;C:~/.config;p:~/pins" #to play this plug press b then choose option 
 export NNN_OPENER=nnnopen
 export NNN_TMPFILE='/tmp/.lastd'
-#export NNN_COLORS='1267'
-export NNN_COLORS="2136"
+export NNN_COLORS='1267'
+#export NNN_COLORS="2136"
 export NNN_FCOLORS='c1e26168E66033f7c6d6abc4'
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_TRASH=1 #to use trash (needs trash-cli) instead of delete. the trash's directory : /home/omar/.local/share/Trash/files
