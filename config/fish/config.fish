@@ -385,7 +385,7 @@ end
 alias nnn='nnn -ed'
 alias n='nnn -ed'
 export NNN_PLUG='p:mocq;i:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;j:autojump;x:!doas chmod +x $nnn;s:!bash -i*' #to play this plug press ; then choose option 
-export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;c:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;C:~/.config;p:~/pins" #to use this plug press B to add directory to bookmark and to play this plug press b then choose option 
+export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;c:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;C:~/.config;p:~/pins" #to play this plug press b then choose option 
 export NNN_OPENER=nnnopen
 export NNN_TMPFILE='/tmp/.lastd'
 #export NNN_COLORS='1267'
