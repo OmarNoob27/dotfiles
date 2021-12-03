@@ -5,7 +5,7 @@
 - window manager : dwm > i3> qtile > xmonad > qtile > i3 
 - Dynamic wm : dwm > polybar >  i3blocks 
 - text editor : nano > vim > neovim 
-- command file manager : lf > ranger
+- cli file manager : lf > ranger > nnn 
 - gui file manager : pcmanfm > dolphin > pcmanfm 
 - terminal : st > alacritty > st > terminator > alacritty 
 - shell : bash  > fish 

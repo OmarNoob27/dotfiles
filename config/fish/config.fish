@@ -340,8 +340,12 @@ alias printerinstall='hp-setup -u'
 alias pdfe='okular'
 alias lf='lfrun'
 alias vim='nvim'
-alias plug='cd ~/.config/nnn/plugins'
-
+alias gn='cd ~/.config/nnn'
+alias tl='trash-list' 
+alias tr='trash-restore'
+alias rm='trash-put'
+alias td='cd ~/.local/share/Trash/files'
+alias te='trash-empty'
 #alias o='fzf | xargs doas nvim'
 #fzf with fish 
 #search pkg with packman and install it 
@@ -380,14 +384,14 @@ end
 #my config for nnn file manger 
 alias nnn='nnn -ed'
 alias n='nnn -ed'
-#alias ls='nnn -de'
-export NNN_PLUG='p:mocq;s:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;j:autojump;x:!doas chmod +x $nnn'
+export NNN_PLUG='p:mocq;i:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;j:autojump;x:!doas chmod +x $nnn;s:!bash -i*' #to play this plug press ; then choose option 
+export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;c:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots" #to play this plug press b then choose option 
 export NNN_OPENER=nnnopen
-export NNN_COLORS='1267'
-#export NNN_FCOLORS='c1e2272e006033f7c6d6abc4'
-export NNN_FCOLORS='c1e2E62e006033f7c6d6abc4'
+export NNN_TMPFILE='/tmp/.lastd'
+#export NNN_COLORS='1267'
+export NNN_COLORS="2136"
+export NNN_FCOLORS='c1e26068E66033f7c6d6abc4'
 export NNN_FIFO=/tmp/nnn.fifo
-#export NNN_BMS="h:~;g:~/Documents/Github/dotfiles;a:~/aur;c:~/cell"
-#export NNN_ORDER="d:~"
+export NNN_TRASH=1 #to use trash (needs trash-cli) instead of delete. the trash's directory : /home/omar/.local/share/Trash/files
 
 
