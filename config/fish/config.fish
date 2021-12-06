@@ -1,13 +1,3 @@
-# |  _ \_   _|  Derek Taylor (DistroTube)
-# | | | || |    http://www.youtube.com/c/DistroTube
-# | |_| || |    http://www.gitlab.com/dwt1/
-# |____/ |_|
-#
-# My fish config. Not much to see here; just some pretty standard stuff.
-
-### ADDING TO THE PATH
-# First line removes the path; second line sets it.  Without the first line,
-# your path gets massive and fish becomes very slow.
 set -e fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $HOME/Applications $fish_user_paths
 
@@ -346,9 +336,8 @@ alias tr='trash-restore'
 alias rm='trash-put'
 alias td='cd ~/.local/share/Trash/files'
 alias te='trash-empty'
-
-#alias o='fzf | xargs doas nvim'
-#fzf with fish 
+alias rk='pulseaudio -k; pulseaudio --start'
+alias pulse='doas nvim /etc/pulse/default.pa'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S
@@ -382,7 +371,6 @@ alias n='nnn -e'
 export NNN_PLUG='p:mocq;i:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;x:!doas chmod +x $nnn;k:pskill;K:!pkill mpv;s:!bash -i*;d:xdgdefault' #to play this plug press ; then choose option 
 export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;c:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;C:~/.config;p:~/pins;m:~/Music" #to play this plug press b then choose option 
 export NNN_OPENER=nnnopen #nnnopen path : ~/.bin 
-#export NNN_PLUG='m:-!&mousepad $nnn'
 #export NNN_OPENER=nuke 
 export NNN_TMPFILE='/tmp/.lastd'
 export NNN_COLORS='1267'
