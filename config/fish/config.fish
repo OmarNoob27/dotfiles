@@ -327,7 +327,8 @@ alias cdcs='cd ~/.cache/styli.sh'
 alias df='duf'
 alias printer='system-config-printer'
 alias printerinstall='hp-setup -u'
-alias pdfe='okular'
+alias epdf='okular'
+alias topdf='sh ~/scripts/topdf.sh'
 alias lf='lfrun'
 alias vim='nvim'
 alias gn='cd ~/.config/nnn'
@@ -338,6 +339,7 @@ alias td='cd ~/.local/share/Trash/files'
 alias te='trash-empty'
 alias rk='pulseaudio -k; pulseaudio --start'
 alias pulse='doas nvim /etc/pulse/default.pa'
+alias gs='cd ~/scripts'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S
@@ -368,8 +370,8 @@ end
 alias nnn='nnn -e'
 alias nn='nnn -e'
 alias n='nnn -e'
-export NNN_PLUG='p:mocq;i:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;x:!doas chmod +x $nnn;k:pskill;K:!pkill mpv;s:!bash -i*;d:xdgdefault' #to play this plug press ; then choose option 
-export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;c:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;C:~/.config;p:~/pins;m:~/Music" #to play this plug press b then choose option 
+export NNN_PLUG='p:mocq;i:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;x:!doas chmod +x $nnn;k:pskill;K:!pkill mpv;s:!bash -i*' #to play this plug press ; then choose option 
+export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;C:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;c:~/.config;p:~/pins;m:~/Music" #to play this plug press b then choose option 
 export NNN_OPENER=nnnopen #nnnopen path : ~/.bin 
 #export NNN_OPENER=nuke 
 export NNN_TMPFILE='/tmp/.lastd'

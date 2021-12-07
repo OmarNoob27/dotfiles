@@ -6,7 +6,7 @@ super + shift + b
 	brave 
 #file manger from terminal  
 shift + Return
-    alacritty -e nnn -de  
+    ~/scripts/nnn.sh
 #file manger gui 
 shift + super + Return
   pcmanfm /home/omar
@@ -41,6 +41,9 @@ super + Escape
 #wallpaper 
 super + shift + i 
 	/home/omar/github/styli.sh/styli.sh 
+#move wall 
+super + i 
+    ~/scripts/wall.sh
 #firefox
 super + shift + f 
     firefox 
