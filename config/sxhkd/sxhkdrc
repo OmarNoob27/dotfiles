@@ -40,7 +40,7 @@ super + Escape
 	/home/omar/scripts/power 
 #wallpaper 
 super + shift + i 
-	/home/omar/github/styli.sh/styli.sh 
+	/home/omar/github/styli.sh/styli.sh && notify-send "Changing wallpaper is done." && exit 0 
 #move wall 
 super + i 
     ~/scripts/wall.sh

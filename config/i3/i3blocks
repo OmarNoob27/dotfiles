@@ -82,7 +82,8 @@ color=#e06c75
 [backlight]
 interval=once
 signal=20
-label=<span color="#FFC300"> </span>
+#label=<span color="#FFC300"> </span>
+label=<span color="#f1fa8c"> </span>
 
 [volbar2]
 interval=once
