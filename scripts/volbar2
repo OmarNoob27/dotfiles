@@ -9,7 +9,6 @@ case $BLOCK_BUTTON in
 esac
 
 
-
 vol="$(ponymix | grep sink -A 2 | grep Volume | cut -c 16-)"
  
 num="$(echo $vol | sed 's/%//g')"

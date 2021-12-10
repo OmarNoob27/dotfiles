@@ -51,19 +51,37 @@ interval=2
 #[net]
 #interval=2
 
-[batt]
+
+[battery]
 interval=2
 color=#98c379
+#color=#ff5555
+#border=#ff5555
+border=#98c379
+border_top=0
+border_right=0
+border_bottom=1
+border_left=0
 
-[gpuload]
+[gpu_stats]
+command=nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{ printf "%02i<span color=\"#ffb86c\">% </span>", $0}' && nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits | awk '{ printf " %i<span color=\"#ffb86c\">°C</span>\n", $0}'
+label=<span color="#ffb86c"> </span>
 interval=3
-label=<span color="#29d398">  </span>
-color=#56b6c2
+border=#ffb86c
+border_top=0
+border_right=0
+border_bottom=1
+border_left=0
 
-[gputemp]
-interval=3
-label=<span color="#bf0404">  </span>
-color=#e06c75
+#[gpuload]
+#interval=3
+#label=<span color="#29d398">  </span>
+#color=#56b6c2
+
+#[gputemp]
+#interval=3
+#label=<span color="#bf0404">  </span>
+#color=#e06c75
 
 [cpu]
 interval=2 
@@ -91,10 +109,17 @@ signal=10
 #background=#458588
 label=<span color="#d19a66"> Vol </span>
 color=#61afef
+border=#61afef
+border_top=0
+border_right=0
+border_bottom=1
+border_left=0
+
 
 [clock]
 label=<span color="#2BBD8F"> </span>
 interval=30
 color=#d19a66
+
 
 
