@@ -23,6 +23,12 @@ interval=once
 signal=15
 label=<span color="#00FF7B">   </span>
 color=#d19a66
+border=#d19a66
+border_top=0
+border_right=0
+border_bottom=1
+border_left=0
+
 
 [weather]
 command=curl -s 'wttr.in/{Tanta}?format=1'
@@ -35,6 +41,12 @@ color=#61afef
 interval=3600
 signal=7
 color=#c678dd
+border=#c678dd
+border_top=0
+border_right=0
+border_bottom=1
+border_left=0
+
 
 #[uptime]
 #interval=60
@@ -102,6 +114,12 @@ interval=once
 signal=20
 #label=<span color="#FFC300"> </span>
 label=<span color="#f1fa8c"> </span>
+border=#f1fa8c
+border_top=0
+border_right=0
+border_bottom=1
+border_left=0
+
 
 [volbar2]
 interval=once
