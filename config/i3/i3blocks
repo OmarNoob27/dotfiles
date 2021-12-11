@@ -84,11 +84,15 @@ border_top=0
 border_right=0
 border_bottom=1
 border_left=0
+separator=false
 
-#[gpuload]
-#interval=3
-#label=<span color="#29d398">  </span>
-#color=#56b6c2
+[gpuload]
+interval=3
+border=#ffb86c
+border_top=0
+border_right=0
+border_bottom=1
+border_left=0
 
 #[gputemp]
 #interval=3

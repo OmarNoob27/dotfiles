@@ -91,6 +91,7 @@ x-scheme-handler/mailto=exo-mail-reader.desktop
 x-scheme-handler/mailto=exo-mail-reader.desktop
 x-scheme-handler/trash=exo-file-manager.desktop
 x-scheme-handler/unknown=firefox.desktop
+x-scheme-handler/tg=userapp-Telegram Desktop-H0FHE1.desktop;
 
 [Default Applications]
 text/html=brave-browser.desktop
@@ -108,3 +109,4 @@ video/x-matroska=mpv.desktop;
 audio/mpeg=mpv.desktop;
 application/json=nvim.desktop;
 text/*=nvim.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-H0FHE1.desktop
