@@ -71,6 +71,8 @@ super + shift + h
 #screeen record 
 super + shift + s 
 	/home/omar/scripts/recordscreen && pkill -RTMIN+5 i3blocks 
+	#simplescreenrecorder
+
 #screeen record with size  
 super + s 
 	/home/omar/scripts/recordscreen_size && pkill -RTMIN+5 i3blocks 
