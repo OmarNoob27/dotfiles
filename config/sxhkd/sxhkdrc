@@ -89,7 +89,7 @@ ctrl + XF86AudioNext
 ctrl + XF86AudioPlay
 	mocp -G && pkill -RTMIN+3 i3blocks 
 #update moc 
-super + m 
+ctrl + m 
 	pkill -RTMIN+3 i3blocks
 #mpv youtube 
 super + p 

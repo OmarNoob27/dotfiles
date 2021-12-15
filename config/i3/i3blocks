@@ -10,6 +10,11 @@ background=#282828
 interval=once
 signal=5
 label=<span color="#fc0328">   </span>
+border=#fc0328
+border_top=0
+border_right=0
+border_bottom=1
+border_left=0
 
 
 [moc]
@@ -88,6 +93,7 @@ separator=false
 
 [gpuload]
 interval=3
+color=#ffb86c
 border=#ffb86c
 border_top=0
 border_right=0
@@ -102,6 +108,7 @@ border_left=0
 [cpu]
 interval=2 
 label=<span color="#5499C7">  </span>
+
 
 [ram]
 interval=1 
@@ -129,7 +136,7 @@ border_left=0
 interval=once
 signal=10
 #background=#458588
-label=<span color="#d19a66"> Vol </span>
+label=<span color="#d19a66">Vol </span>
 color=#61afef
 border=#61afef
 border_top=0

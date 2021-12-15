@@ -339,7 +339,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.95
+background_opacity: 0.90
 
 #selection:
   # This string contains all characters that are used as separators for
@@ -831,5 +831,5 @@ key_bindings:
   #
   #themes 
 import:
-  - /home/omar/github/alacritty-theme/themes/dracula.yaml
+  - /home/omar/github/alacritty-theme/themes/omni.yml
 

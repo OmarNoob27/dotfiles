@@ -342,6 +342,7 @@ alias rk='pulseaudio -k; pulseaudio --start'
 alias pulse='doas nvim /etc/pulse/default.pa'
 alias gs='cd ~/scripts'
 alias sbup='cp -r scripts/ scripts_backup/'
+alias ge='cd ~/enterprise'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S
@@ -369,11 +370,11 @@ end
 
 #my config for nnn file manger 
 #alias nnn='nnn -ed'
-alias nnn='nnn -e'
-alias nn='nnn -e'
-alias n='nnn -e'
+alias nnn='nnn -eRx'
+alias nn='nnn -eRx'
+alias n='nnn -eRx'
 export NNN_PLUG='p:mocq;i:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;x:!doas chmod +x $nnn;k:pskill;K:!pkill mpv;s:!bash -i*;o:fzopen' #to play this plug press ; then choose option 
-export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;C:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;c:~/.config;p:~/pins;m:~/Music" #to play this plug press b then choose option 
+export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;C:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;c:~/.config;p:~/pins;m:~/Music;e:~/enterprise" #to play this plug press b then choose option 
 export NNN_OPENER=nnnopen #nnnopen path : ~/.bin 
 #export NNN_OPENER=nuke 
 export NNN_TMPFILE='/tmp/.lastd'
