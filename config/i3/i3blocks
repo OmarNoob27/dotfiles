@@ -42,15 +42,15 @@ interval=3600
 color=#61afef
 #label=<span color="#ff0055">⛅ </span>
 
-#[pacman]
-#interval=3600
-#signal=7
-#color=#c678dd
-#border=#c678dd
-#border_top=0
-#border_right=0
-#border_bottom=1
-#border_left=0
+[pacman]
+interval=3600
+signal=7
+color=#c678dd
+border=#c678dd
+border_top=0
+border_right=0
+border_bottom=1
+border_left=0
 
 
 #[uptime]

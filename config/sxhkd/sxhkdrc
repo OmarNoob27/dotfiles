@@ -1,6 +1,10 @@
 # Reload sxhkd 
 shift + Escape
 	pkill -USR1 -x sxhkd
+#terminal 
+super + Return
+    alacritty
+    #prime-run alacritty
 #brave 
 super + shift + b 
 	brave 

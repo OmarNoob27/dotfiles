@@ -343,6 +343,10 @@ alias pulse='doas nvim /etc/pulse/default.pa'
 alias gs='cd ~/scripts'
 alias sbup='cp -r scripts/ scripts_backup/'
 alias ge='cd ~/enterprise'
+alias pr='proxychains'
+alias pf='proxychains firefox'
+alias toand='sh ~/scripts/android.sh'
+alias N='prime-run'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S
@@ -383,7 +387,3 @@ export NNN_FCOLORS='c1e26168E66033f7c6d6abc4'
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_TRASH=1 #to use trash (needs trash-cli) instead of delete. the trash's directory : /home/omar/.local/share/Trash/files
 export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)"
-
-
-
-
