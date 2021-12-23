@@ -7,7 +7,7 @@ case $BLOCK_BUTTON in
 #	5) pkill -RTMIN+3 i3blocks ;;  # scroll down
 esac
 
-name=$(mocp -Q %file | awk -F/ '{print $NF}')
+name=$(mocp -Q %file | awk -F/ '{print $NF}' | awk -F. '{print $1}' ) 
 if [[ ! -z $name ]]; then
     echo $name && pkill -RTMIN+3 i3blocks 
 else 

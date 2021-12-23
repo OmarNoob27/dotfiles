@@ -14,7 +14,7 @@
 - theme : style & pywal & qt5ct & kvantummanager 
 - browser : chrome > firefox > brave 
 - search engine : google > duckduckgo
-- firewall : guwf 
+- firewall : gufw 
 - media player : moc > mpd > moc
 - notification : xcfe4-notifi
 - photo viewer : sxiv 
