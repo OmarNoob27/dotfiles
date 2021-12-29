@@ -347,6 +347,12 @@ alias pr='proxychains'
 alias pf='proxychains firefox'
 alias toand='sh ~/scripts/android.sh'
 alias N='prime-run'
+alias power='tlpui'
+alias omar='su omar'
+alias root='su'
+alias cam='droidcam'
+alias m='cmatrix'
+alias mm='unimatrix'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S

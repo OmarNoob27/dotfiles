@@ -257,6 +257,7 @@ exec --no-startup-id feh --bg-fill /home/omar/.cache/styli.sh/wallpaper.jpg &
 exec_always --no-startup-id sxhkd 
 exec --no-startup-id clipmenud
 exec --no-startup-id xhost + 
+#exec --no-startup-id batterymon
 
 # Polybar
 #exec_always --no-startup-id ~/.config/polybar/launch.sh &
