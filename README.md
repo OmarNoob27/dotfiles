@@ -12,7 +12,7 @@
 - key binding : xbindkeys > sxhkd
 - scripts passing : dmenu 
 - theme : style & pywal & qt5ct & kvantummanager 
-- browser : chrome > firefox > brave 
+- browser : chrome > firefox > brave > qutebrowser 
 - search engine : google > duckduckgo
 - firewall : gufw 
 - media player : moc > mpd > moc

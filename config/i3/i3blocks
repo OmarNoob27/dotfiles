@@ -37,11 +37,11 @@ border_bottom=1
 border_left=0
 
 
-#[weather]
+[weather]
 #command=curl -s 'wttr.in/{Tanta}?format=1'
 ##command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo | awk -F+ '{print $2}'
-#interval=3600
-#color=#61afef
+interval=3600
+color=#61afef
 ##label=<span color="#ff0055">⛅ </span>
 
 [pacman]

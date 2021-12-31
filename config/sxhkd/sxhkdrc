@@ -140,3 +140,9 @@ alt + XF86AudioPlay
 #zoom 
 super + shift + z 
     zoom
+#emoji 
+super + o 
+    ~/scripts/dmenu_emoji.sh
+#qutebrowser 
+super + shift + o 
+    qutebrowser

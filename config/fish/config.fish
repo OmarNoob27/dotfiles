@@ -350,9 +350,12 @@ alias N='prime-run'
 alias power='tlpui'
 alias omar='su omar'
 alias root='su'
-alias cam='droidcam'
+alias cam='droidcam-cli -v adb 4747'
 alias m='cmatrix'
 alias mm='unimatrix'
+alias gx='cd /usr/share/xsessions'
+alias color='rgb-tui'
+
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S
