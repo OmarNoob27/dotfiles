@@ -355,6 +355,7 @@ alias m='cmatrix'
 alias mm='unimatrix'
 alias gx='cd /usr/share/xsessions'
 alias color='rgb-tui'
+alias ser='~/scripts/dmenu_service'
 
 #search pkg with packman and install it 
 function pmsi
