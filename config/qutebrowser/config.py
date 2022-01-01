@@ -376,14 +376,17 @@ c.fonts.prompts = 'default_size sans-serif'
 c.fonts.statusbar = '11pt "Source Code Pro"'
 
 # Bindings to use dmenu rather than qutebrowser's builtin search.
-#config.bind('O', 'spawn --userscript dmenu-open')
-config.bind('o', 'spawn --userscript dmenu-open --tab')
+config.bind('o', 'spawn --userscript dmenu-open')
+#config.bind('O', 'spawn --userscript dmenu-open --tab')
 #config.bind('D', 'spawn --userscript open_download --tab')
-
+config.bind('pa','bookmark-add')
+config.bind('pd','bookmark-del')
+config.bind('pl','bookmark-list')
 # Bindings for normal mode
 config.bind('M', 'hint links spawn mpv {hint-url}')
-config.bind('D', 'hint links spawn st -e youtube-dl {hint-url}')
+config.bind('D', 'hint links spawn alacritty -e youtube-dl {hint-url}')
 #config.bind('t', 'set-cmd-text -s :open -t')
+#config.bind('sp', "spawn --userscript qutepocket")
 config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
@@ -395,4 +398,3 @@ config.bind(',dr', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/
 config.bind(',gr', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/gruvbox/gruvbox-all-sites.css ""')
 config.bind(',sd', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/solarized-dark/solarized-dark-all-sites.css ""')
 config.bind(',sl', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/solarized-light/solarized-light-all-sites.css ""')
-
