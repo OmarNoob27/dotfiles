@@ -164,7 +164,7 @@ config.set('content.javascript.enabled', True, 'qute://*/*')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications.enabled', True, 'https://www.reddit.com')
+#config.set('content.notifications.enabled', True, 'https://www.reddit.com')
 
 # Allow websites to show notifications.
 # Type: BoolAsk
@@ -172,7 +172,7 @@ config.set('content.notifications.enabled', True, 'https://www.reddit.com')
 #   - true
 #   - false
 #   - ask
-config.set('content.notifications.enabled', True, 'https://www.youtube.com')
+#config.set('content.notifications.enabled', True, 'https://www.youtube.com')
 
 # Directory to save downloads to. If unset, a sensible OS-specific
 # default is used.
@@ -185,13 +185,14 @@ c.downloads.location.directory = '~/Downloads'
 #   - never: Always hide the tab bar.
 #   - multiple: Hide the tab bar if only one tab is open.
 #   - switching: Show the tab bar when switching tabs.
+#c.tabs.show = 'always'
 c.tabs.show = 'always'
 
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
 #default home 
 c.url.default_page = 'https://duckduckgo.com/'
-#c.url.start_pages = 'https://distro.tube/'
+c.url.start_pages = 'https://duckduckgo.com/'
 
 # Search engines which can be used via the address bar.  Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
@@ -378,6 +379,7 @@ c.fonts.statusbar = '11pt "Source Code Pro"'
 config.bind('o', 'spawn --userscript dmenu-open')
 #config.bind('O', 'spawn --userscript dmenu-open --tab')
 #config.bind('D', 'spawn --userscript open_download --tab')
+#config.bind('M', 'spawn --userscript view_in_mpv')
 config.bind('pa','bookmark-add')
 config.bind('pd','bookmark-del')
 config.bind('pl','bookmark-list')
@@ -389,6 +391,7 @@ config.bind('D', 'hint links spawn alacritty -e youtube-dl {hint-url}')
 config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
 config.bind('xx', 'config-cycle statusbar.show always never;; config-cycle tabs.show always never')
+config.bind('I','hint images spawn --output-messages wget -P "/home/omar/Downloads" {hint-url}')
 
 # Bindings for cycling through CSS stylesheets from Solarized Everything CSS:
 # https://github.com/alphapapa/solarized-everything-css
@@ -407,4 +410,29 @@ c.tabs.background = False
 c.tabs.close_mouse_button = 'right'
 c.tabs.favicons.show = 'always'
 c.tabs.indicator.width = 6
+c.content.blocking.method = 'adblock'
+c.content.blocking.adblock.lists = [
+        "https://easylist.to/easylist/easylist.txt",
+        "https://easylist.to/easylist/easyprivacy.txt",
+        "https://easylist.to/easylist/fanboy-social.txt",
+        "https://secure.fanboy.co.nz/fanboy-annoyance.txt",
+        "https://easylist-downloads.adblockplus.org/abp-filters-anti-cv.txt",
+        #"https://gitlab.com/curben/urlhaus-filter/-/raw/master/urlhaus-filter.txt",
+        "https://pgl.yoyo.org/adservers/serverlist.php?showintro=0;hostformat=hosts",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/legacy.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2020.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/filters-2021.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badware.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/privacy.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/badlists.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/annoyances.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/resource-abuse.txt",
+        "https://www.i-dont-care-about-cookies.eu/abp/",
+        "https://secure.fanboy.co.nz/fanboy-cookiemonster.txt",
+        "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"]
+c.content.pdfjs = True
+c.content.autoplay = False
+c.zoom.default = '100%'
+#c.auto_save.session = True
 
