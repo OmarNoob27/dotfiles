@@ -178,7 +178,6 @@ config.set('content.notifications.enabled', True, 'https://www.youtube.com')
 # default is used.
 # Type: Directory
 c.downloads.location.directory = '~/Downloads'
-
 # When to show the tab bar.
 # Type: String
 # Valid values:
@@ -399,4 +398,13 @@ config.bind(',gr', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/
 config.bind(',sd', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/solarized-dark/solarized-dark-all-sites.css ""')
 config.bind(',sl', 'config-cycle content.user_stylesheets ~/.config/qutebrowser/solarized-everything-css/css/solarized-light/solarized-light-all-sites.css ""')
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}', 'https://web.whatsapp.com/')
+c.downloads.position = 'bottom'
+c.scrolling.smooth = True
+c.statusbar.show = 'in-mode'
+c.statusbar.padding = {'bottom': 8, 'left': 8, 'right': 8, 'top': 8}
+c.statusbar.widgets = ['keypress', 'url', 'history', 'progress']
+c.tabs.background = False
+c.tabs.close_mouse_button = 'right'
+c.tabs.favicons.show = 'always'
+c.tabs.indicator.width = 6
 
