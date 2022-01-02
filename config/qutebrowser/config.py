@@ -191,8 +191,8 @@ c.tabs.show = 'always'
 # Setting default page for when opening new tabs or new windows with
 # commands like :open -t and :open -w .
 #default home 
-c.url.default_page = 'https://duckduckgo.com/'
-c.url.start_pages = 'https://duckduckgo.com/'
+c.url.default_page = 'https://html.duckduckgo.com/html/'
+c.url.start_pages = 'https://html.duckduckgo.com/html/'
 
 # Search engines which can be used via the address bar.  Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
@@ -410,7 +410,9 @@ c.tabs.background = False
 c.tabs.close_mouse_button = 'right'
 c.tabs.favicons.show = 'always'
 c.tabs.indicator.width = 6
-c.content.blocking.method = 'adblock'
+#c.content.blocking.method = 'adblock'
+c.content.blocking.method = 'both'
+c.content.blocking.enabled = True
 c.content.blocking.adblock.lists = [
         "https://easylist.to/easylist/easylist.txt",
         "https://easylist.to/easylist/easyprivacy.txt",
@@ -435,4 +437,13 @@ c.content.pdfjs = True
 c.content.autoplay = False
 c.zoom.default = '100%'
 #c.auto_save.session = True
-
+c.content.headers.accept_language = 'en-US,en;q=0.9'
+c.spellcheck.languages = ['en-US']
+c.content.tls.certificate_errors = "ask-block-thirdparty"
+# aliases
+#c.aliases['gf'] = 'open -t https://facebook.com'
+#c.aliases['gg'] = 'open -t https://www.google.com'
+#c.aliases['gy'] = 'open -t https://www.youtube.com/'
+#c.aliases['gs'] = 'open -t https://soundcloud.com/discover/'
+#c.aliases['gw'] = 'open -t https://web.whatsapp.com/'
+config.bind(',ls', 'session-load -f default')

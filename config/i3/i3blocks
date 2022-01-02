@@ -4,7 +4,8 @@ markup=pango
 
 #global font color
 color=#ebdbb2
-background=#282828
+#background=#282828
+background=#222d38
 
 [recordpid]
 interval=once
