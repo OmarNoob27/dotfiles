@@ -314,11 +314,11 @@ c.colors.tabs.bar.bg = '#121212'
 
 # Background color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.bg = '#282c34'
+c.colors.tabs.odd.bg = '#a7abb7'
 
 # Background color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.bg = '#282c34'
+c.colors.tabs.even.bg = '#a7abb7'
 
 # Background color of selected odd tabs.
 # Type: QtColor
@@ -332,11 +332,11 @@ c.colors.tabs.selected.even.bg = '#8d79ba'
 
 # Background color of pinned unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.pinned.odd.bg = 'seagreen'
+c.colors.tabs.pinned.odd.bg = '#bfbfbf'
 
 # Background color of pinned unselected even tabs.
 # Type: QtColor
-c.colors.tabs.pinned.even.bg = 'darkseagreen'
+c.colors.tabs.pinned.even.bg = '#bfbfbf'
 
 # Background color of pinned selected odd tabs.
 # Type: QtColor
@@ -407,9 +407,10 @@ c.statusbar.show = 'in-mode'
 c.statusbar.padding = {'bottom': 8, 'left': 8, 'right': 8, 'top': 8}
 c.statusbar.widgets = ['keypress', 'url', 'history', 'progress']
 c.tabs.background = False
-c.tabs.close_mouse_button = 'right'
-c.tabs.favicons.show = 'always'
+#c.tabs.close_mouse_button = 'right'
+c.tabs.close_mouse_button = 'middle'
 c.tabs.indicator.width = 6
+c.tabs.favicons.show = 'always'
 #c.content.blocking.method = 'adblock'
 c.content.blocking.method = 'both'
 c.content.blocking.enabled = True
@@ -435,7 +436,7 @@ c.content.blocking.adblock.lists = [
         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"]
 c.content.pdfjs = True
 c.content.autoplay = False
-c.zoom.default = '100%'
+c.zoom.default = '110%'
 #c.auto_save.session = True
 c.content.headers.accept_language = 'en-US,en;q=0.9'
 c.spellcheck.languages = ['en-US']
@@ -447,3 +448,5 @@ c.content.tls.certificate_errors = "ask-block-thirdparty"
 #c.aliases['gs'] = 'open -t https://soundcloud.com/discover/'
 #c.aliases['gw'] = 'open -t https://web.whatsapp.com/'
 config.bind(',ls', 'session-load -f default')
+#c.tabs.title.format = '{title_sep}{current_title}'
+c.tabs.title.format = '{perc}{title_sep}{current_title}'

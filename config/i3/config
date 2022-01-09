@@ -635,7 +635,7 @@ bar {
         background #1c1a25
         statusline #eeeeee
         #separator  #ebdbb2
-        separator  #458588
+        separator  #eaf08d
 
         # colorclass           border  backgr. text
        focused_workspace     #83a598 #458588 #ebdbb2

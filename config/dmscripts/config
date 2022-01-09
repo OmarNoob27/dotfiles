@@ -178,8 +178,8 @@ websearch[stackoverflow]="https://stackoverflow.com/search?q="
 # Think of these as your "subscribed channels", name the channel in the square brackets then put the channel URL in the quotation marks
 # Syntax: youtube_channels[name]="https://www.youtube.com/link/to/channel"
 
-declare -A youtube_channels
-youtube_channels[distrotube]="https://www.youtube.com/c/DistroTube/featured"
+#declare -A youtube_channels
+#youtube_channels[distrotube]="https://www.youtube.com/c/DistroTube/featured"
 
 # dm-colpick config
 declare -A colpick_list
