@@ -314,11 +314,12 @@ c.colors.tabs.bar.bg = '#121212'
 
 # Background color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.bg = '#a7abb7'
+#c.colors.tabs.odd.bg = '#a7abb7'
+c.colors.tabs.odd.bg = '#1c1a25'
 
 # Background color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.bg = '#a7abb7'
+c.colors.tabs.even.bg = '#1c1a25'
 
 # Background color of selected odd tabs.
 # Type: QtColor
@@ -449,4 +450,4 @@ c.content.tls.certificate_errors = "ask-block-thirdparty"
 #c.aliases['gw'] = 'open -t https://web.whatsapp.com/'
 config.bind(',ls', 'session-load -f default')
 #c.tabs.title.format = '{title_sep}{current_title}'
-c.tabs.title.format = '{perc}{title_sep}{current_title}'
+c.tabs.title.format = '{audio}{perc}{title_sep}{current_title}'

@@ -13,7 +13,8 @@ shift + Return
     ~/scripts/nnn.sh
 #file manger gui 
 shift + super + Return
-  pcmanfm /home/omar
+    dolphin /home/omar
+  #pcmanfm /home/omar
 #xkill 
 super + shift + x 
 	xkill
@@ -68,7 +69,7 @@ XF86AudioStop
 	playerctl stop
 #clipboard 
 super + d 
-	clipmenu -fn 'NotoMonoRegular:bold:pixelsize=15'
+	clipmenu -fn 'NotoMonoRegular:bold:pixelsize=16'
 #htop 
 super + shift + h 
   /home/omar/scripts/resources
@@ -142,7 +143,11 @@ super + shift + z
     zoom
 #emoji 
 super + o 
-    ~/scripts/dmenu_emoji.sh
+    bemoji -f ~/scripts/emoji
+    #~/scripts/dmenu_emoji.sh
 #qutebrowser 
 super + shift + o 
     qutebrowser
+#kill mpv 
+super + v 
+    pkill mpv 

@@ -55,7 +55,7 @@ image/svg+xml=org.inkscape.Inkscape.desktop;ristretto.desktop;sublime_text.deskt
 image/vnd.adobe.photoshop=gimp.desktop;
 image/vnd.microsoft.icon=org.nomacs.ImageLounge.desktop;
 image/x-xcf=gimp.desktop;
-inode/directory=org.kde.dolphin.desktop;exo-file-manager.desktop;thunar
+inode/directory=nnn.desktop;org.kde.dolphin.desktop;exo-file-manager.desktop;thunar;
 text/css=sublime_text.desktop;code-oss.desktop;visual-studio-code.desktop;
 text/html=firefox.desktop;
 text/markdown=sublime_text.desktop;code-oss.desktop;visual-studio-code.desktop;
@@ -110,3 +110,5 @@ audio/mpeg=mpv.desktop;
 application/json=nvim.desktop;
 text/*=nvim.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-H0FHE1.desktop
+inode/directory=nnn.desktop;org.kde.dolphin.desktop;exo-file-manager.desktop;thunar;
+
