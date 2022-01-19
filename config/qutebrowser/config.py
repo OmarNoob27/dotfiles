@@ -437,7 +437,7 @@ c.content.blocking.adblock.lists = [
         "https://github.com/uBlockOrigin/uAssets/raw/master/filters/unbreak.txt"]
 c.content.pdfjs = True
 c.content.autoplay = False
-c.zoom.default = '110%'
+c.zoom.default = '150%'
 #c.auto_save.session = True
 c.content.headers.accept_language = 'en-US,en;q=0.9'
 c.spellcheck.languages = ['en-US']

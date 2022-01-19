@@ -110,5 +110,5 @@ audio/mpeg=mpv.desktop;
 application/json=nvim.desktop;
 text/*=nvim.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-H0FHE1.desktop
-inode/directory=nnn.desktop;org.kde.dolphin.desktop;exo-file-manager.desktop;thunar;
+inode/directory=org.kde.dolphin.desktop;exo-file-manager.desktop;thunar;
 

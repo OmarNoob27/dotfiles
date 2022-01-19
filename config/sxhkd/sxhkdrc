@@ -151,3 +151,9 @@ super + shift + o
 #kill mpv 
 super + v 
     pkill mpv 
+#find cursor 
+super + c 
+    xfce4-find-cursor
+#date 
+super + t 
+    kdialog --calendar date
