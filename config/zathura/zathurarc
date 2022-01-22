@@ -49,7 +49,7 @@ set completion-highlight-bg     "#81A1C1"
 set recolor-lightcolor          "#2E3440"
 set recolor-darkcolor           "#ECEFF4"
 
-set recolor                     "true"
+#set recolor                     "true"
 set recolor-keephue             "true"
 
 

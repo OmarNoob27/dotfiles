@@ -147,11 +147,7 @@ border_right=0
 border_bottom=1
 border_left=0
 
-
 [clock]
 label=<span color="#2BBD8F"> </span>
 interval=30
 color=#d19a66
-
-
-

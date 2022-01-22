@@ -355,9 +355,9 @@ alias m='cmatrix'
 alias mm='unimatrix'
 alias gx='cd /usr/share/xsessions'
 alias color='rgb-tui'
-alias ser='~/scripts/dmenu_service'
+alias sv='~/scripts/dmenu_service'
 alias ns='nvidia-smi'
-
+alias ft='xdg-mime query filetype'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S

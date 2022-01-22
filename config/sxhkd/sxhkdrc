@@ -7,12 +7,9 @@ super + Return
     #prime-run alacritty
 #brave 
 super + shift + b 
-	brave 
-#file manger from terminal  
-shift + Return
-    ~/scripts/nnn.sh
+	~/scripts/browser.sh
 #file manger gui 
-shift + super + Return
+shift + Return
     dolphin /home/omar
   #pcmanfm /home/omar
 #xkill 
@@ -43,6 +40,7 @@ shift+ ctrl + l
 #power 
 super + Escape 
 	/home/omar/scripts/power 
+  #arcolinux-logout
 #wallpaper 
 super + shift + i 
 	/home/omar/github/styli.sh/styli.sh && notify-send "Changing wallpaper is done." && exit 0 
@@ -50,8 +48,8 @@ super + shift + i
 super + i 
     ~/scripts/wall.sh
 #firefox
-super + shift + f 
-    firefox 
+#super + shift + f 
+#    firefox 
 #yd
 #super + shift + y 
 #	yt-dlg
@@ -146,8 +144,8 @@ super + o
     bemoji -f ~/scripts/emoji
     #~/scripts/dmenu_emoji.sh
 #qutebrowser 
-super + shift + o 
-    qutebrowser
+#super + shift + o 
+#    qutebrowser
 #kill mpv 
 super + v 
     pkill mpv 
