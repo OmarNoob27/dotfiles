@@ -638,7 +638,7 @@ bar {
         #separator  #ebdbb2
         separator  #eaf08d
 
-        # colorclass           border  backgr. text
+    #    # colorclass           border  backgr. text
        focused_workspace     #83a598 #458588 #ebdbb2
         active_workspace      #a9a9a9 #5f676a #eeeeee
         inactive_workspace    #584945 #282828 #928374
@@ -672,19 +672,6 @@ bar {
 
 
 ##my theme 
-
-    ##STOP THEMING WM
-
-    ##STOP THEMING WM
-
-
-
-    ##STOP THEMING WM
-
-    ##STOP THEMING WM
-
-    ##STOP THEMING WM
-
 
 
 

@@ -155,3 +155,6 @@ super + c
 #date 
 super + t 
     kdialog --calendar date
+#sxiv 
+super + shift + o 
+    ~/scripts/sxiv_clip.sh

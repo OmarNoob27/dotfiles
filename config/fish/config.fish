@@ -358,6 +358,8 @@ alias color='rgb-tui'
 alias sv='~/scripts/dmenu_service'
 alias ns='nvidia-smi'
 alias ft='xdg-mime query filetype'
+alias size='du -sh'
+alias rip='~/scripts/rip'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S
