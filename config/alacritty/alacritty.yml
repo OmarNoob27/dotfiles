@@ -831,5 +831,5 @@ key_bindings:
   #
   #themes 
 import:
-  - /home/omar/github/alacritty-theme/themes/omni.yml
+  - /home/omar/github/alacritty-theme/themes/darcula.yaml
 

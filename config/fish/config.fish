@@ -302,11 +302,11 @@ alias md='mkdir'
 alias config='/home/omar/github/dmscripts/scripts/dm-confedit'
 alias blk='lsblk'
 #list
-alias ls='ls --color=auto'
-alias la='ls -a'
-alias ll='ls -la'
-alias l='ls'
-alias l.="ls -A | egrep '^\.'"
+#alias ls='ls --color=auto'
+#alias la='ls -a'
+#alias ll='ls -la'
+#alias l='ls'
+#alias l.="ls -A | egrep '^\.'"
 alias vim='doas nvim'
 alias g='cd ~/Documents/GitHub'
 alias gd='cd /home/omar/Documents/Github/dotfiles'
@@ -361,6 +361,11 @@ alias ft='xdg-mime query filetype'
 alias size='du -sh'
 alias rip='~/scripts/rip' #to get public ip 
 alias ip='ip --color a' #to get private ip 
+alias ll='exa --group-directories-first  --icons -lh'
+alias la='exa --group-directories-first  --icons -lah'
+alias l='exa --group-directories-first  --icons'
+alias ls='exa --group-directories-first  --icons'
+
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S
