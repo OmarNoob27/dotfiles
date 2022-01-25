@@ -155,3 +155,6 @@ super + c
 #date 
 super + t 
     kdialog --calendar date
+#qutebrowser
+super + shift + o 
+    qutebrowser
