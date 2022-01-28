@@ -1,13 +1,12 @@
 #!/bin/bash
-OPT=$(echo -e "A_Clipboard\nA_Clipboard_Save\nA_Save\nActive_Clipboard\nActive_Save\nFull_Save" | dmenu -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=16' -p "Choose action: ")
+OPT=$(echo -e "S_clip\nS_save\nS_both\nA_clip\nA_save\nFull" | dmenu -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=16' -p "Choose action: ")
 case $OPT in
-	A_Clipboard ) maim -s | xclip -selection clipboard -t image/png ;;
-	A_Clipboard_Save ) maim -s | tee ~/screenshots/$(date +'%Y%m%d-%H%M%S').png | xclip -selection clipboard -t image/png  ;; 
-	A_Save) maim -s ~/screenshots/$(date +'%Y%m%d-%H%M%S').png  ;;
-	Active_Clipboard) maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png   ;;
-  Active_Save) maim -i $(xdotool getactivewindow) ~/screenshots/$(date +'%Y%m%d-%H%M%S').png ;;
-  #Full_Clipboard ) maim -i root | xclip -selection clipboard -t image/png ;;
-  Full_Save ) maim -i root ~/screenshots/$(date +'%Y%m%d-%H%M%S').png ;;
+	S_clip ) maim -s | xclip -selection clipboard -t image/png ;;
+	S_save) maim -s ~/screenshots/$(date +'%Y%m%d-%H%M%S').png  ;;
+	S_both ) maim -s | tee ~/screenshots/$(date +'%Y%m%d-%H%M%S').png | xclip -selection clipboard -t image/png ;; 
+	A_clip ) maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png   ;;
+  A_save) maim -i $(xdotool getactivewindow) ~/screenshots/$(date +'%Y%m%d-%H%M%S').png ;;
+  Full ) maim -i root ~/screenshots/$(date +'%Y%m%d-%H%M%S').png ;;
 	*) ;;
 esac
 

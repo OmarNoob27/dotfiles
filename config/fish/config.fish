@@ -365,6 +365,7 @@ alias ll='exa --group-directories-first  --icons -lh'
 alias la='exa --group-directories-first  --icons -lah'
 alias l='exa --group-directories-first  --icons'
 alias ls='exa --group-directories-first  --icons'
+alias hub='~/scripts/githubscripts/dm-hub'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S

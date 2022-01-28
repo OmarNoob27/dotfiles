@@ -106,9 +106,6 @@ super + shift + y
 #screenshot 
 Print
     /home/omar/scripts/screendmenu
-#note
-super + shift + n 
-    /home/omar/github/dmscripts/scripts/dm-note
 #kill process 
 super + shift + k 
     /home/omar/github/dmscripts/scripts/dm-kill
@@ -118,7 +115,6 @@ super + shift + w
 #mount usb 
 super + shift + u 
     alacritty -e /home/omar/scripts/checkmount
-   #alacritty -e /home/omar/scripts/dmenu_mount
     
 #github disktop
 super + shift + g 
@@ -129,23 +125,12 @@ super + y
 #youtube via mpv pause
 alt + XF86AudioPlay
     playerctl play-pause -p mpv
-#youtube via mpv next
-#alt + XF86AudioNext
-#    playerctl next -p mpv
-#youtube via mpv previous
-#alt + XF86AudioPrev 
-#	 playerctl previous -p mpv 
-#open ranger from pwd 
 #zoom 
 super + shift + z 
     zoom
 #emoji 
 super + o 
     bemoji -f ~/scripts/emoji
-    #~/scripts/dmenu_emoji.sh
-#qutebrowser 
-#super + shift + o 
-#    qutebrowser
 #kill mpv 
 super + v 
     pkill mpv 
@@ -155,6 +140,6 @@ super + c
 #date 
 super + t 
     kdialog --calendar date
-#qutebrowser
+#hub 
 super + shift + o 
-    qutebrowser
+    ~/scripts/githubscripts/dm-hub

@@ -51,9 +51,9 @@ main() {
   mkdir -p "${maim_dir}"
 
   declare -a modes=(
-  "Fullscreen"
-  "Active window"
   "Selected region"
+  "Active window"
+  "Fullscreen"
   )
   # Get monitors and their settings for maim
   
