@@ -113,8 +113,8 @@ super + shift + k
 super + shift + w 
     /home/omar/github/dmscripts/scripts/dm-websearch
 #mount usb 
-super + shift + u 
-    alacritty -e /home/omar/scripts/checkmount
+#super + shift + u 
+#    alacritty -e /home/omar/scripts/checkmount
     
 #github disktop
 super + shift + g 
