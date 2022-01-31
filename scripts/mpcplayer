@@ -2,7 +2,7 @@
 
 filter() { mpc | sed "/^volume:/d;s/\\&/&amp;/g;s/\\[paused\\].*/⏸/g;/\\[playing\\].*/d;/^ERROR/Q" | paste -sd ' ' -;}
 
-pidof -x mpd >/dev/null 2>&1 || sb-mpdup >/dev/null 2>&1 &
+pidof -x mpd >/dev/null 2>&1 || mpdup >/dev/null 2>&1 &
 
 case $BLOCK_BUTTON in
 	1) mpc status | filter ; setsid -f alacritty -e ncmpcpp ;;  #right click, pause/unpause

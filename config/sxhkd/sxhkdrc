@@ -79,21 +79,25 @@ super + shift + s
 #screeen record with size  
 super + s 
 	/home/omar/scripts/recordscreen_size && pkill -RTMIN+5 i3blocks 
+
+
 #moc 
-super + shift + m 
-	/home/omar/scripts/mocdmenu
+#super + shift + m 
+#	/home/omar/scripts/mocdmenu
 #moc previous
-ctrl + XF86AudioPrev 
-	mocp -r && pkill -RTMIN+3 i3blocks 
+#ctrl + XF86AudioPrev 
+#	  mocp -r && pkill -RTMIN+3 i3blocks 
 #moc next
-ctrl + XF86AudioNext 
-	mocp -f && pkill -RTMIN+3 i3blocks 
+#ctrl + XF86AudioNext 
+#	  mocp -f && pkill -RTMIN+3 i3blocks 
 #moc stop
-ctrl + XF86AudioPlay
-	mocp -G && pkill -RTMIN+3 i3blocks 
+#ctrl + XF86AudioPlay
+#	  mocp -G && pkill -RTMIN+3 i3blocks 
 #update moc 
-ctrl + m 
-	pkill -RTMIN+3 i3blocks
+#ctrl + m 
+#	pkill -RTMIN+3 i3blocks
+
+
 #mpv youtube 
 super + p 
  mpv $(xclip -o)
@@ -143,3 +147,18 @@ super + t
 #hub 
 super + shift + o 
     ~/scripts/githubscripts/dm-hub
+#nnn
+super + shift + Return
+    ~/nnn.sh
+#song
+super + shift + n 
+    ~/scripts/noti
+#mpd previous
+ctrl + XF86AudioPrev 
+	   playerctl previous --player=mpd #&& pkill -RTMIN+3 i3blocks 
+#mpd next
+ctrl + XF86AudioNext 
+	   playerctl next --player=mpd #&& pkill -RTMIN+3 i3blocks 
+#mpd stop
+ctrl + XF86AudioPlay
+    playerctl play-pause --player=mpd

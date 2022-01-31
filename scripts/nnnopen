@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env fish
 #path for this script : ~/.bin
 if [[ ! -f "$1" ]];then
 	exit

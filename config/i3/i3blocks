@@ -18,11 +18,11 @@ border_bottom=1
 border_left=0
 
 
-[moc]
-interval=once
-signal=3
-label=   
-color=#c678dd
+#[moc]
+#interval=once
+#signal=3
+#label=   
+#color=#c678dd
 
 
 [lang]
