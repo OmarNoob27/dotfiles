@@ -1,8 +1,0 @@
-TagLib: MPEG::Header::parse() -- MPEG header did not match MPEG synch.
-TagLib: MPEG::Properties::read() -- Could not find an MPEG frame in the stream.
-TagLib: MPEG::Header::parse() -- MPEG header did not match MPEG synch.
-TagLib: MPEG::Properties::read() -- Could not find an MPEG frame in the stream.
-writeCommonTags: couldn't write 'year' tag to 's3ad.mp4' as it's not a positive integer
-writeCommonTags: couldn't write 'track' tag to 's3ad.mp4' as it's not a positive integer
-writeCommonTags: couldn't write 'year' tag to 'saad.mp4' as it's not a positive integer
-writeCommonTags: couldn't write 'track' tag to 'saad.mp4' as it's not a positive integer

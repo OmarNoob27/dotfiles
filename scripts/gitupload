@@ -1,8 +1,12 @@
 #!/bin/bash 
 cd ~/.config/
-cp -r alacritty fish neofetch ranger sxhkd zathura htop mpv paru starship.toml vlc dmscripts i3 pcmanfm styli.sh yay sxiv mimeapps.list nnn mpd ncmpcpp /home/omar/Documents/Github/dotfiles/config
+cp -r alacritty fish neofetch ranger sxhkd zathura htop mpv paru starship.toml vlc dmscripts i3 pcmanfm styli.sh yay sxiv mimeapps.list nnn /home/omar/Documents/Github/dotfiles/config
 cd /home/omar/Documents/Github/dotfiles/config/dmscripts
 rm dmnote
 cp -r /home/omar/scripts/* /home/omar/Documents/Github/dotfiles/scripts 
 cp ~/.config/qutebrowser/quickmarks ~/.config/qutebrowser/config.py ~/Documents/Github/dotfiles/config/qutebrowser
 cp -r ~/.local/share/qutebrowser/userscripts ~/Documents/Github/dotfiles/config/qutebrowser/
+cp ~/.config/ncmpcpp/config ~/Documents/Github/dotfiles/config/ncmpcpp
+cp ~/.config/ncmpcpp/bindings ~/Documents/Github/dotfiles/config/ncmpcpp
+cp ~/.config/mpd/mpd.conf ~/Documents/Github/dotfiles/config/mpd
+
