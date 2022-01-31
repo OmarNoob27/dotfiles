@@ -15,7 +15,7 @@
 - browser : chrome > firefox > brave > qutebrowser 
 - search engine : google > duckduckgo
 - firewall : gufw 
-- media player : moc > mpd > moc
+- media player : moc > mpd > moc > mpd + ncmpcpp + mpDris2
 - notification : xcfe4-notifi
 - photo viewer : sxiv 
 - video player : mpv 
