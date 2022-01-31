@@ -151,8 +151,8 @@ super + shift + o
 super + shift + Return
     ~/nnn.sh
 #song
-super + shift + n 
-    ~/scripts/noti
+super + n 
+    notify-send -i ~/logo/music.jpeg "$(mpc -f %file% | awk 'NR==1 || /pattern/')"
 #mpd previous
 ctrl + XF86AudioPrev 
 	   playerctl previous --player=mpd #&& pkill -RTMIN+3 i3blocks 
@@ -162,3 +162,6 @@ ctrl + XF86AudioNext
 #mpd stop
 ctrl + XF86AudioPlay
     playerctl play-pause --player=mpd
+#ncmpcpp
+super + shift + n 
+    alacritty -e ncmpcpp
