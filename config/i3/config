@@ -255,8 +255,11 @@ exec --no-startup-id feh --bg-fill /home/omar/.cache/styli.sh/wallpaper.jpg &
 #exec --no-startup-id feh --bg-fill /home/omar/.cache/wallpaper & 
 #exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id sxhkd 
+
+#mpd
 exec --no-startup-id mpd
 exec --no-startup-id mpDris2
+
 exec --no-startup-id clipmenud
 exec --no-startup-id xhost + 
 #exec --no-startup-id batterymon

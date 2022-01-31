@@ -1,0 +1,1386 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>User’s Manual &#8212; Music Player Daemon  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/classic.css" />
+    
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Plugin reference" href="plugins.html" />
+    <link rel="prev" title="Music Player Daemon" href="index.html" /> 
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="plugins.html" title="Plugin reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Music Player Daemon"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Music Player Daemon  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User’s Manual</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="user-s-manual">
+<h1>User’s Manual<a class="headerlink" href="#user-s-manual" title="Permalink to this headline">¶</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Music Player Daemon (<strong class="program">MPD</strong>) is a flexible, powerful, server-side application for playing music. Through plugins and libraries it can play a variety of sound files while being controlled by its network protocol.</p>
+<p>This document is work in progress. Most of it may be incomplete yet. Please help!</p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<section id="installing-on-debian-ubuntu">
+<h3>Installing on Debian/Ubuntu<a class="headerlink" href="#installing-on-debian-ubuntu" title="Permalink to this headline">¶</a></h3>
+<p>Install the package <code class="file docutils literal notranslate"><span class="pre">mpd</span></code> via <strong class="program">apt</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>apt install mpd
+</pre></div>
+</div>
+<p>When installed this way, <strong class="program">MPD</strong> by default looks for music in <code class="file docutils literal notranslate"><span class="pre">/var/lib/mpd/music/</span></code>; this may not be correct. Look at your <code class="file docutils literal notranslate"><span class="pre">/etc/mpd.conf</span></code> file…</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Debian and Ubuntu are infamous for shipping heavily outdated
+software.  The <strong class="program">MPD</strong> version in their respective stable
+releases are usually too old to be supported by this project.
+Ironically, the <strong class="program">MPD</strong> version in Debian “<em>unstable</em>” is
+more stable than the version in Debian “<em>stable</em>”.</p>
+</div>
+</section>
+<section id="installing-on-android">
+<h3>Installing on Android<a class="headerlink" href="#installing-on-android" title="Permalink to this headline">¶</a></h3>
+<p>An experimental Android build is available on Google Play. After installing and launching it, <strong class="program">MPD</strong> will scan the music in your Music directory and you can control it as usual with a <strong class="program">MPD</strong> client.</p>
+<p>If you need to tweak the configuration, you can create a file called <code class="file docutils literal notranslate"><span class="pre">mpd.conf</span></code> on the data partition (the directory which is returned by Android’s <em class="dfn">getExternalStorageDirectory()</em> API function).</p>
+<p>ALSA is not available on Android; only the <a class="reference internal" href="plugins.html#sles-output"><span class="std std-ref">OpenSL ES</span></a> output plugin can be used for local playback.</p>
+</section>
+<section id="compiling-from-source">
+<h3>Compiling from source<a class="headerlink" href="#compiling-from-source" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://www.musicpd.org/download.html">Download the source tarball</a>
+and unpack it (or <a class="reference external" href="https://github.com/MusicPlayerDaemon/MPD">clone the git repository</a>):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>tar xf mpd-version.tar.xz
+cd mpd-version
+</pre></div>
+</div>
+<p>In any case, you need:</p>
+<ul class="simple">
+<li><p>a C++17 compiler (e.g. GCC 8 or clang 7)</p></li>
+<li><p><a class="reference external" href="http://mesonbuild.com/">Meson 0.56.0</a> and <a class="reference external" href="https://ninja-build.org/">Ninja</a></p></li>
+<li><p>Boost 1.58</p></li>
+<li><p>pkg-config</p></li>
+</ul>
+<p>Each plugin usually needs a codec library, which you also need to
+install. Check the <a class="reference internal" href="plugins.html"><span class="doc">Plugin reference</span></a> for details about required libraries</p>
+<p>For example, the following installs a fairly complete list of build dependencies on Debian Buster:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>apt install meson g++ \
+  libfmt-dev \
+  libpcre3-dev \
+  libmad0-dev libmpg123-dev libid3tag0-dev \
+  libflac-dev libvorbis-dev libopus-dev libogg-dev \
+  libadplug-dev libaudiofile-dev libsndfile1-dev libfaad-dev \
+  libfluidsynth-dev libgme-dev libmikmod-dev libmodplug-dev \
+  libmpcdec-dev libwavpack-dev libwildmidi-dev \
+  libsidplay2-dev libsidutils-dev libresid-builder-dev \
+  libavcodec-dev libavformat-dev \
+  libmp3lame-dev libtwolame-dev libshine-dev \
+  libsamplerate0-dev libsoxr-dev \
+  libbz2-dev libcdio-paranoia-dev libiso9660-dev libmms-dev \
+  libzzip-dev \
+  libcurl4-gnutls-dev libyajl-dev libexpat-dev \
+  libasound2-dev libao-dev libjack-jackd2-dev libopenal-dev \
+  libpulse-dev libshout3-dev \
+  libsndio-dev \
+  libmpdclient-dev \
+  libnfs-dev \
+  libupnp-dev \
+  libavahi-client-dev \
+  libsqlite3-dev \
+  libsystemd-dev \
+  libgtest-dev \
+  libboost-dev \
+  libicu-dev \
+  libchromaprint-dev \
+  libgcrypt20-dev
+</pre></div>
+</div>
+<p>Now configure the source tree:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meson . output/release --buildtype=debugoptimized -Db_ndebug=true
+</pre></div>
+</div>
+<p>The following command shows a list of compile-time options:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meson configure output/release
+</pre></div>
+</div>
+<p>NB: Check the sysconfdir setting to determine where mpd will look for mpd.conf; if you expect mpd to look for /etc/mpd.conf the sysconfdir must be ‘/etc’ (i.e., not ‘etc’ which will result in mpd looking for /usr/local/etc/mpd.conf):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>meson configure output/release |grep sysconfdir
+</pre></div>
+</div>
+<p>If this is not /etc (or another path you wish to specify):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>$ meson configure output/release -Dsysconfdir=&#39;/etc&#39; ; meson configure output/release |grep syscon
+ sysconfdir              /etc                                               Sysconf data directory
+</pre></div>
+</div>
+<p>When everything is ready and configured, compile:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ninja -C output/release
+</pre></div>
+</div>
+<p>And install:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ninja -C output/release install
+</pre></div>
+</div>
+</section>
+<section id="compiling-for-windows">
+<h3>Compiling for Windows<a class="headerlink" href="#compiling-for-windows" title="Permalink to this headline">¶</a></h3>
+<p>Even though it does not “feel” like a Windows application, <strong class="program">MPD</strong> works well under Windows. Its build process follows the “Linux style” and may seem awkward for Windows people (who are not used to compiling their software, anyway).</p>
+<p>Basically, there are two ways to compile <strong class="program">MPD</strong> for Windows:</p>
+<ul>
+<li><p>Build as described above: with <strong class="program">meson</strong> and
+<strong class="program">ninja</strong>.  To cross-compile from Linux, you need <a class="reference external" href="https://mesonbuild.com/Cross-compilation.html">a Meson
+cross file</a>.</p>
+<p>The remaining difficulty is installing all the external libraries.
+And <strong class="program">MPD</strong> usually needs many, making this method cumbersome
+for the casual user.</p>
+</li>
+<li><p>Build on Linux for Windows using <strong class="program">MPD</strong>’s library build script.</p></li>
+</ul>
+<p>This section is about the latter.</p>
+<p>You need:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://mingw-w64.org/doku.php">mingw-w64</a></p></li>
+<li><p><a class="reference external" href="http://mesonbuild.com/">Meson 0.56.0</a> and <a class="reference external" href="https://ninja-build.org/">Ninja</a></p></li>
+<li><p>cmake</p></li>
+<li><p>pkg-config</p></li>
+<li><p>quilt</p></li>
+</ul>
+<p>Just like with the native build, unpack the <strong class="program">MPD</strong> source
+tarball and change into the directory.  Then, instead of
+<strong class="program">meson</strong>, type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir -p output/win64
+cd output/win64
+../../win32/build.py --64 \
+  --buildtype=debugoptimized -Db_ndebug=true \
+  -Dwrap_mode=forcefallback
+</pre></div>
+</div>
+<p>This downloads various library sources, and then configures and builds
+<strong class="program">MPD</strong> (for x64; to build a 32 bit binary, pass
+<code class="code docutils literal notranslate"><span class="pre">--32</span></code>). The resulting EXE files is linked statically, i.e. it
+contains all the libraries already and you do not need carry DLLs
+around. It is large, but easy to use. If you wish to have a small
+mpd.exe with DLLs, you need to compile manually, without the
+<code class="file docutils literal notranslate"><span class="pre">build.py</span></code> script.</p>
+<p>The option <code class="docutils literal notranslate"><span class="pre">-Dwrap_mode=forcefallback</span></code> tells Meson to download and
+cross-compile several libraries used by MPD instead of looking for
+them on your computer.</p>
+</section>
+<section id="compiling-for-android">
+<h3>Compiling for Android<a class="headerlink" href="#compiling-for-android" title="Permalink to this headline">¶</a></h3>
+<p><strong class="program">MPD</strong> can be compiled as an Android app. It can be installed easily with Google Play, but if you want to build it from source, follow this section.</p>
+<p>You need:</p>
+<ul class="simple">
+<li><p>Android SDK</p></li>
+<li><p><a class="reference external" href="https://developer.android.com/ndk/downloads">Android NDK r23</a></p></li>
+<li><p><a class="reference external" href="http://mesonbuild.com/">Meson 0.56.0</a> and <a class="reference external" href="https://ninja-build.org/">Ninja</a></p></li>
+<li><p>cmake</p></li>
+<li><p>pkg-config</p></li>
+<li><p>quilt</p></li>
+</ul>
+<p>Just like with the native build, unpack the <strong class="program">MPD</strong> source
+tarball and change into the directory.  Then, instead of
+<strong class="program">meson</strong>, type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mkdir -p output/android
+cd output/android
+../../android/build.py SDK_PATH NDK_PATH ABI \
+  --buildtype=debugoptimized -Db_ndebug=true \
+  -Dwrap_mode=forcefallback \
+  -Dandroid_debug_keystore=$HOME/.android/debug.keystore
+ninja android/apk/mpd-debug.apk
+</pre></div>
+</div>
+<p><span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">SDK_PATH</span></code> is the absolute path where you installed the
+Android SDK; <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">NDK_PATH</span></code> is the Android NDK installation path;
+ABI is the Android ABI to be built, e.g. “<code class="code docutils literal notranslate"><span class="pre">arm64-v8a</span></code>”.</p>
+<p>This downloads various library sources, and then configures and builds <strong class="program">MPD</strong>.</p>
+</section>
+</section>
+<section id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<section id="the-configuration-file">
+<h3>The Configuration File<a class="headerlink" href="#the-configuration-file" title="Permalink to this headline">¶</a></h3>
+<p><strong class="program">MPD</strong> reads its configuration from a text file. Usually, that is <code class="file docutils literal notranslate"><span class="pre">/etc/mpd.conf</span></code>, unless a different path is specified on the command line. If you run <strong class="program">MPD</strong> as a user daemon (and not as a system daemon), the configuration is read from <code class="file docutils literal notranslate"><span class="pre">$XDG_CONFIG_HOME/mpd/mpd.conf</span></code> (usually <code class="file docutils literal notranslate"><span class="pre">~/.config/mpd/mpd.conf</span></code>). On Android, <code class="file docutils literal notranslate"><span class="pre">mpd.conf</span></code> will be loaded from the top-level directory of the data partition.</p>
+<p>Each line in the configuration file contains a setting name and its value, e.g.:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">connection_timeout</span> <span class="pre">&quot;5&quot;</span></code></p>
+<p>For settings which specify a filesystem path, the tilde is expanded:</p>
+<p><code class="code docutils literal notranslate"><span class="pre">music_directory</span> <span class="pre">&quot;~/Music&quot;</span></code></p>
+<p>Some of the settings are grouped in blocks with curly braces, e.g. per-plugin settings:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>audio_output {
+    type &quot;alsa&quot;
+    name &quot;My ALSA output&quot;
+    device &quot;iec958:CARD=Intel,DEV=0&quot;
+    mixer_control &quot;PCM&quot;
+}
+</pre></div>
+</div>
+<p>The <code class="code docutils literal notranslate"><span class="pre">include</span></code> directive can be used to include settings from
+another file; the given file name is relative to the current file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>include &quot;other.conf&quot;
+</pre></div>
+</div>
+<p>You can use <code class="code docutils literal notranslate"><span class="pre">include_optional</span></code> instead if you want the included file
+to be optional; the directive will be ignored if the file does not exist:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>include_optional &quot;may_not_exist.conf&quot;
+</pre></div>
+</div>
+</section>
+<section id="configuring-the-music-directory">
+<h3>Configuring the music directory<a class="headerlink" href="#configuring-the-music-directory" title="Permalink to this headline">¶</a></h3>
+<p>When you play local files, you should organize them within a directory called the “music directory”. This is configured in <strong class="program">MPD</strong> with the music_directory setting.</p>
+<p>By default, <strong class="program">MPD</strong> follows symbolic links in the music directory. This behavior can be switched off: <code class="code docutils literal notranslate"><span class="pre">follow_outside_symlinks</span></code> controls whether <strong class="program">MPD</strong> follows links pointing to files outside of the music directory, and <code class="code docutils literal notranslate"><span class="pre">follow_inside_symlinks</span></code> lets you disable symlinks to files inside the music directory.</p>
+<p>Instead of using local files, you can use storage plugins to access
+files on a remote file server. For example, to use music from the
+SMB/CIFS server “<code class="file docutils literal notranslate"><span class="pre">myfileserver</span></code>” on the share called “Music”,
+configure the music directory “<code class="file docutils literal notranslate"><span class="pre">smb://myfileserver/Music</span></code>”. For
+a recipe, read the Satellite <strong class="program">MPD</strong> section <a class="reference internal" href="#satellite"><span class="std std-ref">Satellite setup</span></a>.</p>
+<p>You can also use multiple storage plugins to assemble a virtual music directory consisting of multiple storages.</p>
+</section>
+<section id="configuring-database-plugins">
+<h3>Configuring database plugins<a class="headerlink" href="#configuring-database-plugins" title="Permalink to this headline">¶</a></h3>
+<p>If a music directory is configured, one database plugin is used. To
+configure this plugin, add a <code class="code docutils literal notranslate"><span class="pre">database</span></code> block to
+<code class="file docutils literal notranslate"><span class="pre">mpd.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database {
+    plugin &quot;simple&quot;
+    path &quot;/var/lib/mpd/db&quot;
+}
+</pre></div>
+</div>
+<p>More information can be found in the <a class="reference internal" href="plugins.html#database-plugins"><span class="std std-ref">Database plugins</span></a>
+reference.</p>
+</section>
+<section id="configuring-neighbor-plugins">
+<h3>Configuring neighbor plugins<a class="headerlink" href="#configuring-neighbor-plugins" title="Permalink to this headline">¶</a></h3>
+<p>All neighbor plugins are disabled by default to avoid unwanted
+overhead. To enable (and configure) a plugin, add a <code class="code docutils literal notranslate"><span class="pre">neighbor</span></code>
+block to <code class="file docutils literal notranslate"><span class="pre">mpd.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>neighbors {
+    plugin &quot;smbclient&quot;
+}
+</pre></div>
+</div>
+<p>More information can be found in the <a class="reference internal" href="plugins.html#neighbor-plugin"><span class="std std-ref">Neighbor plugins</span></a> reference.</p>
+</section>
+<section id="configuring-input-plugins">
+<h3>Configuring input plugins<a class="headerlink" href="#configuring-input-plugins" title="Permalink to this headline">¶</a></h3>
+<p>To configure an input plugin, add an <code class="code docutils literal notranslate"><span class="pre">input</span></code> block to
+<code class="file docutils literal notranslate"><span class="pre">mpd.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>input {
+    plugin &quot;curl&quot;
+    proxy &quot;proxy.local&quot;
+}
+</pre></div>
+</div>
+<p>The following table lists the input options valid for all plugins:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>plugin</strong></p></td>
+<td><p>The name of the plugin</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>enabled yes|no</strong></p></td>
+<td><p>Allows you to disable a input plugin without recompiling. By default, all plugins are enabled.</p></td>
+</tr>
+</tbody>
+</table>
+<p>More information can be found in the <a class="reference internal" href="plugins.html#input-plugins"><span class="std std-ref">Input plugins</span></a> reference.</p>
+<section id="configuring-the-input-cache">
+<span id="input-cache"></span><h4>Configuring the Input Cache<a class="headerlink" href="#configuring-the-input-cache" title="Permalink to this headline">¶</a></h4>
+<p>The input cache prefetches queued song files before they are going to
+be played.  This has several advantages:</p>
+<ul class="simple">
+<li><p>risk of buffer underruns during playback is reduced because this
+decouples playback from disk (or network) I/O</p></li>
+<li><p>bulk transfers may be faster and more energy efficient than loading
+small chunks on-the-fly</p></li>
+<li><p>by prefetching several songs at a time, the hard disk can spin down
+for longer periods of time</p></li>
+</ul>
+<p>This comes at a cost:</p>
+<ul class="simple">
+<li><p>memory usage</p></li>
+<li><p>bulk transfers may reduce the performance of other applications
+which also want to access the disk (if the kernel’s I/O scheduler
+isn’t doing its job properly)</p></li>
+</ul>
+<p>To enable the input cache, add an <code class="docutils literal notranslate"><span class="pre">input_cache</span></code> block to the
+configuration file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>input_cache {
+    size &quot;1 GB&quot;
+}
+</pre></div>
+</div>
+<p>This allocates a cache of 1 GB.  If the cache grows larger than that,
+older files will be evicted.</p>
+<p>You can flush the cache at any time by sending <code class="docutils literal notranslate"><span class="pre">SIGHUP</span></code> to the
+<strong class="program">MPD</strong> process, see <a class="reference internal" href="#signals"><span class="std std-ref">Signals</span></a>.</p>
+</section>
+</section>
+<section id="configuring-decoder-plugins">
+<h3>Configuring decoder plugins<a class="headerlink" href="#configuring-decoder-plugins" title="Permalink to this headline">¶</a></h3>
+<p>Most decoder plugins do not need any special configuration. To
+configure a decoder, add a <code class="code docutils literal notranslate"><span class="pre">decoder</span></code> block to <code class="file docutils literal notranslate"><span class="pre">mpd.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>decoder {
+    plugin &quot;wildmidi&quot;
+    config_file &quot;/etc/timidity/timidity.cfg&quot;
+}
+</pre></div>
+</div>
+<p>The following table lists the decoder options valid for all plugins:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>plugin</strong></p></td>
+<td><p>The name of the plugin</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>enabled yes|no</strong></p></td>
+<td><p>Allows you to disable a decoder plugin without recompiling. By default, all plugins are enabled.</p></td>
+</tr>
+</tbody>
+</table>
+<p>More information can be found in the <a class="reference internal" href="plugins.html#decoder-plugins"><span class="std std-ref">Decoder plugins</span></a> reference.</p>
+</section>
+<section id="configuring-encoder-plugins">
+<h3>Configuring encoder plugins<a class="headerlink" href="#configuring-encoder-plugins" title="Permalink to this headline">¶</a></h3>
+<p>Encoders are used by some of the output plugins (such as shout). The
+encoder settings are included in the <code class="docutils literal notranslate"><span class="pre">audio_output</span></code> section, see <a class="reference internal" href="#config-audio-output"><span class="std std-ref">Configuring audio outputs</span></a>.</p>
+<p>More information can be found in the <a class="reference internal" href="plugins.html#encoder-plugins"><span class="std std-ref">Encoder plugins</span></a> reference.</p>
+</section>
+<section id="configuring-audio-outputs">
+<span id="config-audio-output"></span><h3>Configuring audio outputs<a class="headerlink" href="#configuring-audio-outputs" title="Permalink to this headline">¶</a></h3>
+<p>Audio outputs are devices which actually play the audio chunks produced by <strong class="program">MPD</strong>. You can configure any number of audio output devices, but there must be at least one. If none is configured, <strong class="program">MPD</strong> attempts to auto-detect. Usually, this works quite well with ALSA, OSS and on Mac OS X.</p>
+<p>To configure an audio output manually, add one or more
+<code class="code docutils literal notranslate"><span class="pre">audio_output</span></code> blocks to <code class="file docutils literal notranslate"><span class="pre">mpd.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>audio_output {
+    type &quot;alsa&quot;
+    name &quot;my ALSA device&quot;
+    device &quot;hw:0&quot;
+}
+</pre></div>
+</div>
+<p>The following table lists the audio_output options valid for all plugins:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>type</strong></p></td>
+<td><p>The name of the plugin</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>The name of the audio output. It is visible to the client. Some plugins also use it internally, e.g. as a name registered in the PULSE server.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>format samplerate:bits:channels</strong></p></td>
+<td><p>Always open the audio output with the specified audio format, regardless of the format of the input file. This is optional for most plugins.
+See <a class="reference internal" href="#audio-output-format"><span class="std std-ref">Global Audio Format</span></a> for a detailed description of the value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>enabled yes|no</strong></p></td>
+<td><p>Specifies whether this audio output is enabled when <strong class="program">MPD</strong> is started. By default, all audio outputs are enabled. This is just the default setting when there is no state file; with a state file, the previous state is restored.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>tags yes|no</strong></p></td>
+<td><p>If set to no, then <strong class="program">MPD</strong> will not send tags to this output. This is only useful for output plugins that can receive tags, for example the httpd output plugin.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>always_on yes|no</strong></p></td>
+<td><p>If set to yes, then <strong class="program">MPD</strong> attempts to keep this audio output always open. This may be useful for streaming servers, when you don’t want to disconnect all listeners even when playback is accidentally stopped.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>mixer_type hardware|software|null|none</strong></p></td>
+<td><p>Specifies which mixer should be used for this audio output: the
+hardware mixer (available for ALSA <a class="reference internal" href="plugins.html#alsa-plugin"><span class="std std-ref">alsa</span></a>, OSS
+<a class="reference internal" href="plugins.html#oss-plugin"><span class="std std-ref">oss</span></a> and PulseAudio <a class="reference internal" href="plugins.html#pulse-plugin"><span class="std std-ref">pulse</span></a>), the
+software mixer, the “<code class="samp docutils literal notranslate"><span class="pre">null</span></code>” mixer (allows setting the
+volume, but with no effect; this can be used as a trick to
+implement an external mixer, see <a class="reference internal" href="#external-mixer"><span class="std std-ref">External Mixer</span></a>) or no mixer
+(<code class="samp docutils literal notranslate"><span class="pre">none</span></code>). By default, the hardware mixer is used for
+devices which support it, and none for the others.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>filters “name,…</strong>”</p></td>
+<td><p>The specified configured filters are instantiated in the given
+order.  Each filter name refers to a <code class="docutils literal notranslate"><span class="pre">filter</span></code> block, see
+<a class="reference internal" href="#config-filter"><span class="std std-ref">Configuring filters</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>More information can be found in the <a class="reference internal" href="plugins.html#output-plugins"><span class="std std-ref">Output plugins</span></a> reference.</p>
+</section>
+<section id="configuring-filters">
+<span id="config-filter"></span><h3>Configuring filters<a class="headerlink" href="#configuring-filters" title="Permalink to this headline">¶</a></h3>
+<p>Filters are plugins which modify an audio stream.</p>
+<p>To configure a filter, add a <code class="code docutils literal notranslate"><span class="pre">filter</span></code> block to <code class="file docutils literal notranslate"><span class="pre">mpd.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>filter {
+    plugin &quot;volume&quot;
+    name &quot;software volume&quot;
+}
+</pre></div>
+</div>
+<p>Configured filters may then be added to the <code class="docutils literal notranslate"><span class="pre">filters</span></code> setting of an
+<code class="docutils literal notranslate"><span class="pre">audio_output</span></code> section, see <a class="reference internal" href="#config-audio-output"><span class="std std-ref">Configuring audio outputs</span></a>.</p>
+<p>The following table lists the filter options valid for all plugins:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>plugin</strong></p></td>
+<td><p>The name of the plugin</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>name</strong></p></td>
+<td><p>The name of the filter</p></td>
+</tr>
+</tbody>
+</table>
+<p>More information can be found in the <a class="reference internal" href="plugins.html#filter-plugins"><span class="std std-ref">Filter plugins</span></a> reference.</p>
+</section>
+<section id="configuring-playlist-plugins">
+<h3>Configuring playlist plugins<a class="headerlink" href="#configuring-playlist-plugins" title="Permalink to this headline">¶</a></h3>
+<p>Playlist plugins are used to load remote playlists (protocol commands
+load, listplaylist and listplaylistinfo). This is not related to
+<strong class="program">MPD</strong>’s <a class="reference internal" href="#stored-playlists"><span class="std std-ref">playlist directory</span></a>.</p>
+<p>To configure a playlist plugin, add a <code class="code docutils literal notranslate"><span class="pre">playlist_plugin</span></code> block to
+<code class="file docutils literal notranslate"><span class="pre">mpd.conf</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>playlist_plugin {
+    name &quot;m3u&quot;
+    enabled &quot;true&quot;
+}
+</pre></div>
+</div>
+<p>The following table lists the playlist_plugin options valid for all plugins:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>plugin</strong></p></td>
+<td><p>The name of the plugin</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>enabled yes|no</strong></p></td>
+<td><p>Allows you to disable a playlist plugin without recompiling. By default, all plugins are enabled.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>as_directory yes|no</strong></p></td>
+<td><p>With this option, a playlist file of this type is parsed during
+database update and converted to a virtual directory, allowing
+MPD clients to access individual entries.  By default, this is
+only enabled for the <a class="reference internal" href="plugins.html#cue-playlist"><span class="std std-ref">cue plugin</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+<p>More information can be found in the <a class="reference internal" href="plugins.html#playlist-plugins"><span class="std std-ref">Playlist plugins</span></a>
+reference.</p>
+</section>
+<section id="audio-format-settings">
+<h3>Audio Format Settings<a class="headerlink" href="#audio-format-settings" title="Permalink to this headline">¶</a></h3>
+<section id="global-audio-format">
+<span id="audio-output-format"></span><h4>Global Audio Format<a class="headerlink" href="#global-audio-format" title="Permalink to this headline">¶</a></h4>
+<p>The setting <code class="docutils literal notranslate"><span class="pre">audio_output_format</span></code> forces <strong class="program">MPD</strong> to use one
+audio format for all outputs.  Doing that is usually not a good idea.</p>
+<p>The value is specified as <code class="docutils literal notranslate"><span class="pre">samplerate:bits:channels</span></code>.</p>
+<p>Any of the three attributes may be an asterisk to specify that this
+attribute should not be enforced, example: <code class="docutils literal notranslate"><span class="pre">48000:16:*</span></code>.
+<code class="docutils literal notranslate"><span class="pre">*:*:*</span></code> is equal to not having a format specification.</p>
+<p>The following values are valid for bits: <code class="docutils literal notranslate"><span class="pre">8</span></code> (signed 8 bit integer
+samples), <code class="docutils literal notranslate"><span class="pre">16</span></code>, <code class="docutils literal notranslate"><span class="pre">24</span></code> (signed 24 bit integer samples padded to 32
+bit), <code class="docutils literal notranslate"><span class="pre">32</span></code> (signed 32 bit integer samples), <code class="docutils literal notranslate"><span class="pre">f</span></code> (32 bit floating
+point, -1.0 to 1.0), <code class="docutils literal notranslate"><span class="pre">dsd</span></code> means DSD (Direct Stream Digital). For
+DSD, there are special cases such as <code class="docutils literal notranslate"><span class="pre">dsd64</span></code>, which allows you to
+omit the sample rate (e.g. <code class="docutils literal notranslate"><span class="pre">dsd512:2</span></code> for stereo DSD512,
+i.e. 22.5792 MHz).</p>
+<p>The sample rate is special for DSD: <strong class="program">MPD</strong> counts the number
+of bytes, not bits. Thus, a DSD “bit” rate of 22.5792 MHz (DSD512) is
+2822400 from <strong class="program">MPD</strong>’s point of view (44100*512/8).</p>
+</section>
+<section id="resampler">
+<h4>Resampler<a class="headerlink" href="#resampler" title="Permalink to this headline">¶</a></h4>
+<p>Sometimes, music needs to be resampled before it can be played; for example, CDs use a sample rate of 44,100 Hz while many cheap audio chips can only handle 48,000 Hz. Resampling reduces the quality and consumes a lot of CPU. There are different options, some of them optimized for high quality and others for low CPU usage, but you can’t have both at the same time. Often, the resampler is the component that is responsible for most of <strong class="program">MPD</strong>’s CPU usage. Since <strong class="program">MPD</strong> comes with high quality defaults, it may appear that <strong class="program">MPD</strong> consumes more CPU than other software.</p>
+<p>Check the <a class="reference internal" href="plugins.html#resampler-plugins"><span class="std std-ref">Resampler plugins</span></a> reference for a list of resamplers
+and how to configure them.</p>
+</section>
+</section>
+<section id="client-connections">
+<h3>Client Connections<a class="headerlink" href="#client-connections" title="Permalink to this headline">¶</a></h3>
+<section id="listeners">
+<span id="id1"></span><h4>Listeners<a class="headerlink" href="#listeners" title="Permalink to this headline">¶</a></h4>
+<p>The setting <code class="code docutils literal notranslate"><span class="pre">bind_to_address</span></code> specifies which addresses
+<strong class="program">MPD</strong> listens on for connections from clients.  It can be
+used multiple times to bind to more than one address.  Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bind_to_address</span> <span class="s2">&quot;192.168.1.42&quot;</span>
+<span class="n">bind_to_address</span> <span class="s2">&quot;127.0.0.1&quot;</span>
+</pre></div>
+</div>
+<p>The default is “any”, which binds to all available addresses.
+Additionally, MPD binds to <code class="code docutils literal notranslate"><span class="pre">$XDG_RUNTIME_DIR/mpd/socket</span></code> (if it
+was launched as a per-user daemon and no <code class="code docutils literal notranslate"><span class="pre">bind_to_address</span></code>
+setting exists).</p>
+<p>You can set a port that is different from the global port setting,
+e.g. “localhost:6602”.  IPv6 addresses must be enclosed in square
+brackets if you want to configure a port:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bind_to_address</span> <span class="s2">&quot;[::1]:6602&quot;</span>
+</pre></div>
+</div>
+<p>To bind to a local socket (UNIX domain socket), specify an absolute
+path or a path starting with a tilde (~).  Some clients default to
+connecting to <code class="file docutils literal notranslate"><span class="pre">/var/run/mpd/socket</span></code> so this may be a good
+choice:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bind_to_address</span> <span class="s2">&quot;/var/run/mpd/socket&quot;</span>
+</pre></div>
+</div>
+<p>On Linux, local sockets can be bound to a name without a socket inode
+on the filesystem; MPD implements this by prepending <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> to the
+address:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bind_to_address</span> <span class="s2">&quot;@mpd&quot;</span>
+</pre></div>
+</div>
+<p>If no port is specified, the default port is 6600.  This default can
+be changed with the port setting:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">port</span> <span class="s2">&quot;6601&quot;</span>
+</pre></div>
+</div>
+<p>These settings will be ignored if <a class="reference internal" href="#systemd-socket-activation">systemd socket activation</a> is
+used.</p>
+</section>
+<section id="permissions-and-passwords">
+<h4>Permissions and Passwords<a class="headerlink" href="#permissions-and-passwords" title="Permalink to this headline">¶</a></h4>
+<p>By default, all clients are unauthenticated and have a full set of permissions. This can be restricted with the settings <code class="code docutils literal notranslate"><span class="pre">default_permissions</span></code> and <code class="code docutils literal notranslate"><span class="pre">password</span></code>.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">default_permissions</span></code> controls the permissions of a new client. Its value is a comma-separated list of permissions:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>read</strong></p></td>
+<td><p>Allows reading of the database, displaying the current playlist, and current status of <strong class="program">MPD</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>add</strong></p></td>
+<td><p>Allows adding songs and loading playlists.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>player</strong></p></td>
+<td><p>Allows any player and queue manipulation (start/pause/stop
+playback etc.).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>control</strong></p></td>
+<td><p>Allows all other player and playlist manipulations.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>admin</strong></p></td>
+<td><p>Allows manipulating outputs, stickers and partitions,
+mounting/unmounting storage and shutting down <strong class="program">MPD</strong>.</p></td>
+</tr>
+</tbody>
+</table>
+<p><code class="code docutils literal notranslate"><span class="pre">local_permissions</span></code> may be used to assign other permissions to clients connecting on a local socket.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">host_permissions</span></code> may be used to assign permissions to clients
+with a certain IP address.</p>
+<p><code class="code docutils literal notranslate"><span class="pre">password</span></code> allows the client to send a password to gain other permissions. This option may be specified multiple times with different passwords.</p>
+<p>Note that the <code class="code docutils literal notranslate"><span class="pre">password</span></code> option is not secure: passwords are sent in clear-text over the connection, and the client cannot verify the server’s identity.</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>default_permissions &quot;read&quot;
+host_permissions &quot;192.168.0.100 read,add,control,admin&quot;
+host_permissions &quot;2003:1234:4567::1 read,add,control,admin&quot;
+password &quot;the_password@read,add,control&quot;
+password &quot;the_admin_password@read,add,control,admin&quot;
+</pre></div>
+</div>
+</section>
+</section>
+<section id="other-settings">
+<h3>Other Settings<a class="headerlink" href="#other-settings" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-given docutils align-default" id="metadata-to-use">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>metadata_to_use TAG1,TAG2,…</strong></p></td>
+<td><p>Use only the specified tags, and ignore the others. This
+setting can reduce the database size and <strong class="program">MPD</strong>’s
+memory usage by omitting unused tags. By default, all tags but
+comment are enabled. The special value “none” disables all
+tags.</p>
+<p>If the setting starts with <code class="docutils literal notranslate"><span class="pre">+</span></code> or <code class="docutils literal notranslate"><span class="pre">-</span></code>, then the following
+tags will be added or remoted to/from the current set of tags.
+This example just enables the “comment” tag without disabling all
+the other supported tags</p>
+<blockquote>
+<div><p>metadata_to_use “+comment”</p>
+</div></blockquote>
+<p>Section <a class="reference internal" href="protocol.html#tags"><span class="std std-ref">Tags</span></a> contains a list of supported tags.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<section id="the-state-file">
+<h4>The State File<a class="headerlink" href="#the-state-file" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>The state file is a file where <strong class="program">MPD</strong> saves and restores its state (play queue, playback position etc.) to keep it persistent across restarts and reboots. It is an optional setting.</p>
+</div></blockquote>
+<p><strong class="program">MPD</strong> will attempt to load the state file during startup, and will save it when shutting down the daemon. Additionally, the state file is refreshed every two minutes (after each state change).</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>state_file PATH</strong></p></td>
+<td><p>Specify the state file location. The parent directory must be writable by the <strong class="program">MPD</strong> user (+wx).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>state_file_interval SECONDS</strong></p></td>
+<td><p>Auto-save the state file this number of seconds after each state change. Defaults to 120 (2 minutes).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>restore_paused yes|no</strong></p></td>
+<td><p>If set to <code class="samp docutils literal notranslate"><span class="pre">yes</span></code>, then <strong class="program">MPD</strong> is put into pause mode instead of starting playback after startup. Default is <code class="samp docutils literal notranslate"><span class="pre">no</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-sticker-database">
+<h4>The Sticker Database<a class="headerlink" href="#the-sticker-database" title="Permalink to this headline">¶</a></h4>
+<p>“Stickers” are pieces of information attached to songs. Some clients
+use them to store ratings and other volatile data. This feature
+requires <strong class="program">SQLite</strong>, compile-time configure option
+<code class="code docutils literal notranslate"><span class="pre">-Dsqlite=...</span></code>.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>sticker_file PATH</strong></p></td>
+<td><p>The location of the sticker database.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="resource-limitations">
+<h4>Resource Limitations<a class="headerlink" href="#resource-limitations" title="Permalink to this headline">¶</a></h4>
+<p>These settings are various limitations to prevent <strong class="program">MPD</strong> from using too many resources (denial of service).</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>connection_timeout SECONDS</strong></p></td>
+<td><p>If a client does not send any new data in this time period, the connection is closed. Clients waiting in “idle” mode are excluded from this. Default is 60.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>max_connections NUMBER</strong></p></td>
+<td><p>This specifies the maximum number of clients that can be connected to <strong class="program">MPD</strong> at the same time. Default is 100.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>max_playlist_length NUMBER</strong></p></td>
+<td><p>The maximum number of songs that can be in the playlist. Default is 16384.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>max_command_list_size KBYTES</strong></p></td>
+<td><p>The maximum size a command list. Default is 2048 (2 MiB).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>max_output_buffer_size KBYTES</strong></p></td>
+<td><p>The maximum size of the output buffer to a client (maximum response size). Default is 8192 (8 MiB).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="buffer-settings">
+<h4>Buffer Settings<a class="headerlink" href="#buffer-settings" title="Permalink to this headline">¶</a></h4>
+<p>Do not change these unless you know what you are doing.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>audio_buffer_size SIZE</strong></p></td>
+<td><p>Adjust the size of the internal audio buffer. Default is
+<code class="samp docutils literal notranslate"><span class="pre">4</span> <span class="pre">MB</span></code> (4 MiB).</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="zeroconf">
+<h4>Zeroconf<a class="headerlink" href="#zeroconf" title="Permalink to this headline">¶</a></h4>
+<p>If Zeroconf support (<a class="reference external" href="http://avahi.org/">Avahi</a> or Apple’s Bonjour)
+was enabled at compile time with <code class="code docutils literal notranslate"><span class="pre">-Dzeroconf=...</span></code>,
+<strong class="program">MPD</strong> can announce its presence on the network. The following
+settings control this feature:</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Setting</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>zeroconf_enabled yes|no</strong></p></td>
+<td><p>Enables or disables this feature. Default is yes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>zeroconf_name NAME</strong></p></td>
+<td><p>The service name to publish via Zeroconf. The default is “Music Player &#64; %h”.
+%h will be replaced with the hostname of the machine running <strong class="program">MPD</strong>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+<section id="advanced-configuration">
+<h2>Advanced configuration<a class="headerlink" href="#advanced-configuration" title="Permalink to this headline">¶</a></h2>
+<section id="satellite-setup">
+<span id="satellite"></span><h3>Satellite setup<a class="headerlink" href="#satellite-setup" title="Permalink to this headline">¶</a></h3>
+<p><strong class="program">MPD</strong> runs well on weak machines such as the Raspberry Pi. However, such hardware tends to not have storage big enough to hold a music collection. Mounting music from a file server can be very slow, especially when updating the database.</p>
+<p>One approach for optimization is running <strong class="program">MPD</strong> on the file server, which not only exports raw files, but also provides access to a readily scanned database. Example configuration:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>music_directory &quot;nfs://fileserver.local/srv/mp3&quot;
+#music_directory &quot;smb://fileserver.local/mp3&quot;
+
+database {
+    plugin &quot;proxy&quot;
+    host &quot;fileserver.local&quot;
+}
+</pre></div>
+</div>
+<p>The <code class="code docutils literal notranslate"><span class="pre">music_directory</span></code> setting tells <strong class="program">MPD</strong> to read files from the given NFS server. It does this by connecting to the server from userspace. This does not actually mount the file server into the kernel’s virtual file system, and thus requires no kernel cooperation and no special privileges. It does not even require a kernel with NFS support, only the nfs storage plugin (using the libnfs userspace library). The same can be done with SMB/CIFS using the smbclient storage plugin (using libsmbclient).</p>
+<p>The database setting tells <strong class="program">MPD</strong> to pass all database queries on to the <strong class="program">MPD</strong> instance running on the file server (using the proxy plugin).</p>
+</section>
+<section id="real-time-scheduling">
+<span id="realtime"></span><h3>Real-Time Scheduling<a class="headerlink" href="#real-time-scheduling" title="Permalink to this headline">¶</a></h3>
+<p>On Linux, <strong class="program">MPD</strong> attempts to configure real-time scheduling for some threads that benefit from it.</p>
+<p>This is only possible if you allow <strong class="program">MPD</strong> to do it. This privilege is controlled by <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RLIMIT_RTPRIO</span></code> <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RLIMIT_RTTIME</span></code>. You can configure this privilege with <strong class="command">ulimit</strong> before launching <strong class="program">MPD</strong>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ulimit -HS -r 40; mpd
+</pre></div>
+</div>
+<p>Or you can use the <strong class="command">prlimit</strong> program from the util-linux package:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>prlimit --rtprio=40 --rttime=unlimited mpd
+</pre></div>
+</div>
+<p>The systemd service file shipped with <strong class="program">MPD</strong> comes with this setting.</p>
+<p>This works only if the Linux kernel was compiled with <strong class="makevar">CONFIG_RT_GROUP_SCHED</strong> disabled. Use the following command to check this option for your current kernel:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>zgrep ^CONFIG_RT_GROUP_SCHED /proc/config.gz
+</pre></div>
+</div>
+<p>You can verify whether the real-time scheduler is active with the ps command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># ps H -q `pidof -s mpd` -o &#39;pid,tid,cls,rtprio,comm&#39;
+  PID   TID CLS RTPRIO COMMAND
+16257 16257  TS      - mpd
+16257 16258  TS      - io
+16257 16259  FF     40 rtio
+16257 16260  TS      - player
+16257 16261  TS      - decoder
+16257 16262  FF     40 output:ALSA
+16257 16263 IDL      0 update
+</pre></div>
+</div>
+<p>The CLS column shows the CPU scheduler; TS is the normal scheduler; FF and RR are real-time schedulers. In this example, two threads use the real-time scheduler: the output thread and the rtio (real-time I/O) thread; these two are the important ones. The database update thread uses the idle scheduler (“IDL in ps), which only gets CPU when no other process needs it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is a rumor that real-time scheduling improves audio
+quality. That is not true. All it does is reduce the probability of
+skipping (audio buffer xruns) when the computer is under heavy
+load.</p>
+</div>
+</section>
+</section>
+<section id="using-mpd">
+<h2>Using MPD<a class="headerlink" href="#using-mpd" title="Permalink to this headline">¶</a></h2>
+<section id="starting-and-stopping-mpd">
+<h3>Starting and Stopping MPD<a class="headerlink" href="#starting-and-stopping-mpd" title="Permalink to this headline">¶</a></h3>
+<p>The simplest (but not the best) way to start <strong class="program">MPD</strong> is to
+simply type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpd</span>
+</pre></div>
+</div>
+<p>This will start <strong class="program">MPD</strong> as a daemon process (which means it
+detaches from your terminal and continues to run in background).  To
+stop it, send <code class="docutils literal notranslate"><span class="pre">SIGTERM</span></code> to the process; if you have configured a
+<code class="docutils literal notranslate"><span class="pre">pid_file</span></code>, you can use the <code class="docutils literal notranslate"><span class="pre">--kill</span></code> option:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpd</span> <span class="o">--</span><span class="n">kill</span>
+</pre></div>
+</div>
+<p>The best way to manage <strong class="program">MPD</strong> processes is to use a service
+manager such as <strong class="program">systemd</strong>.</p>
+<section id="systemd">
+<h4>systemd<a class="headerlink" href="#systemd" title="Permalink to this headline">¶</a></h4>
+<p><strong class="program">MPD</strong> ships with <strong class="program">systemd</strong> service units.</p>
+<p>If you have installed <strong class="program">MPD</strong> with your operating system’s
+package manager, these are probably preinstalled, so you can start and
+stop <strong class="program">MPD</strong> this way (like any other service):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">systemctl</span> <span class="n">start</span> <span class="n">mpd</span>
+<span class="n">systemctl</span> <span class="n">stop</span> <span class="n">mpd</span>
+</pre></div>
+</div>
+</section>
+<section id="systemd-socket-activation">
+<h4>systemd socket activation<a class="headerlink" href="#systemd-socket-activation" title="Permalink to this headline">¶</a></h4>
+<p>Using systemd, you can launch <strong class="program">MPD</strong> on demand when the first client attempts to connect.</p>
+<p><strong class="program">MPD</strong> comes with two systemd unit files: a “service” unit and
+a “socket” unit.  These will be installed to the directory specified
+with <code class="code docutils literal notranslate"><span class="pre">-Dsystemd_system_unit_dir=...</span></code>,
+e.g. <code class="file docutils literal notranslate"><span class="pre">/lib/systemd/system</span></code>.</p>
+<p>To enable socket activation, type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>systemctl enable mpd.socket
+systemctl start mpd.socket
+</pre></div>
+</div>
+<p>In this configuration, <strong class="program">MPD</strong> will ignore the <a class="reference internal" href="#listeners"><span class="std std-ref">listener
+settings</span></a> (<code class="docutils literal notranslate"><span class="pre">bind_to_address</span></code> and <code class="docutils literal notranslate"><span class="pre">port</span></code>).</p>
+</section>
+<section id="systemd-user-unit">
+<h4>systemd user unit<a class="headerlink" href="#systemd-user-unit" title="Permalink to this headline">¶</a></h4>
+<p>You can launch <strong class="program">MPD</strong> as a systemd user unit.  These will be
+installed to the directory specified with
+<code class="code docutils literal notranslate"><span class="pre">-Dsystemd_user_unit_dir=...</span></code>,
+e.g. <code class="file docutils literal notranslate"><span class="pre">/usr/lib/systemd/user</span></code> or
+<code class="file docutils literal notranslate"><span class="pre">$HOME/.local/share/systemd/user</span></code>.</p>
+<p>Once the user unit is installed, you can start and stop <strong class="program">MPD</strong> like any other service:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>systemctl --user start mpd
+</pre></div>
+</div>
+<p>To auto-start <strong class="program">MPD</strong> upon login, type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>systemctl --user enable mpd
+</pre></div>
+</div>
+</section>
+</section>
+<section id="signals">
+<span id="id2"></span><h3>Signals<a class="headerlink" href="#signals" title="Permalink to this headline">¶</a></h3>
+<p><strong class="program">MPD</strong> understands the following UNIX signals:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SIGTERM</span></code>, <code class="docutils literal notranslate"><span class="pre">SIGINT</span></code>: shut down MPD</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SIGHUP</span></code>: reopen log files (send this after log rotation) and
+flush caches (see <a class="reference internal" href="#input-cache"><span class="std std-ref">Configuring the Input Cache</span></a>)</p></li>
+</ul>
+</section>
+<section id="the-client">
+<h3>The client<a class="headerlink" href="#the-client" title="Permalink to this headline">¶</a></h3>
+<p>After you have installed, configured and started <strong class="program">MPD</strong>, you choose a client to control the playback.</p>
+<p>The most basic client is <strong class="program">mpc</strong>, which provides a command line interface. It is useful in shell scripts. Many people bind specific <strong class="program">mpc</strong> commands to hotkeys.</p>
+<p>The <a class="reference external" href="http://www.musicpd.org/clients/">MPD Wiki</a> contains an extensive list of clients to choose from.</p>
+</section>
+<section id="the-music-directory-and-the-database">
+<h3>The music directory and the database<a class="headerlink" href="#the-music-directory-and-the-database" title="Permalink to this headline">¶</a></h3>
+<p>The “music directory” is where you store your music files. <strong class="program">MPD</strong> stores all relevant meta information about all songs in its “database”. Whenever you add, modify or remove songs in the music directory, you have to update the database, for example with mpc:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mpc update
+</pre></div>
+</div>
+<p>Depending on the size of your music collection and the speed of the storage, this can take a while.</p>
+<p>To exclude a file from the update, create a file called <code class="file docutils literal notranslate"><span class="pre">.mpdignore</span></code> in its parent directory. Each line of that file may contain a list of shell wildcards. Matching files in the current directory and all subdirectories are excluded.</p>
+<section id="mounting-other-storages-into-the-music-directory">
+<h4>Mounting other storages into the music directory<a class="headerlink" href="#mounting-other-storages-into-the-music-directory" title="Permalink to this headline">¶</a></h4>
+<p><strong class="program">MPD</strong> has various storage plugins of which multiple instances can be “mounted” into the music directory. This way, you can use local music, file servers and USB sticks at the same time. Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mpc mount foo nfs://192.168.1.4/export/mp3
+mpc mount usbstick udisks://by-uuid-2F2B-D136
+mpc unmount usbstick
+</pre></div>
+</div>
+<p><strong class="program">MPD</strong>’s neighbor plugins can be helpful with finding mountable storages:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mpc listneighbors
+</pre></div>
+</div>
+<p>Mounting is only possible with the simple database plugin and a <code class="code docutils literal notranslate"><span class="pre">cache_directory</span></code>, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>database {
+  plugin &quot;simple&quot;
+  path &quot;~/.mpd/db&quot;
+  cache_directory &quot;~/.mpd/cache&quot;
+}
+</pre></div>
+</div>
+<p>This requires migrating from the old <code class="code docutils literal notranslate"><span class="pre">db_file</span></code> setting to a database section. The cache directory must exist, and <strong class="program">MPD</strong> will put one file per mount there, which will be reused when the same storage is used again later.</p>
+</section>
+</section>
+<section id="metadata">
+<h3>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">¶</a></h3>
+<p>When scanning or playing a song, <strong class="program">MPD</strong> parses its metadata.
+See <a class="reference internal" href="protocol.html#tags"><span class="std std-ref">Tags</span></a> for a list of supported tags.</p>
+<p>The <a class="reference internal" href="#metadata-to-use"><span class="std std-ref">metadata_to_use</span></a> setting can be used to
+enable or disable certain tags.</p>
+</section>
+<section id="the-queue">
+<h3>The queue<a class="headerlink" href="#the-queue" title="Permalink to this headline">¶</a></h3>
+<p>The queue (sometimes called “current playlist”) is a list of songs to be played by <strong class="program">MPD</strong>. To play a song, add it to the queue and start playback. Most clients offer an interface to edit the queue.</p>
+</section>
+<section id="stored-playlists">
+<span id="id3"></span><h3>Stored Playlists<a class="headerlink" href="#stored-playlists" title="Permalink to this headline">¶</a></h3>
+<p>Stored playlists are some kind of secondary playlists which can be
+created, saved, edited and deleted by the client. They are addressed
+by their names.  Its contents can be loaded into the queue, to be
+played back.  The <code class="code docutils literal notranslate"><span class="pre">playlist_directory</span></code> setting specifies where
+those playlists are stored.</p>
+</section>
+</section>
+<section id="advanced-usage">
+<h2>Advanced usage<a class="headerlink" href="#advanced-usage" title="Permalink to this headline">¶</a></h2>
+<section id="bit-perfect-playback">
+<h3>Bit-perfect playback<a class="headerlink" href="#bit-perfect-playback" title="Permalink to this headline">¶</a></h3>
+<p>“Bit-perfect playback” is a phrase used by audiophiles to describe a setup that plays back digital music as-is, without applying any modifications such as resampling, format conversion or software volume. Naturally, this implies a lossless codec.</p>
+<p>By default, <strong class="program">MPD</strong> attempts to do bit-perfect playback, unless you tell it not to. Precondition is a sound chip that supports the audio format of your music files. If the audio format is not supported, <strong class="program">MPD</strong> attempts to fall back to the nearest supported audio format, trying to lose as little quality as possible.</p>
+<p>To verify if <strong class="program">MPD</strong> converts the audio format, enable verbose logging, and watch for these lines:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>decoder: audio_format=44100:24:2, seekable=true
+output: opened plugin=alsa name=&quot;An ALSA output&quot; audio_format=44100:16:2
+output: converting from 44100:24:2
+</pre></div>
+</div>
+<p>This example shows that a 24 bit file is being played, but the sound chip cannot play 24 bit. It falls back to 16 bit, discarding 8 bit.</p>
+<p>However, this does not yet prove bit-perfect playback; ALSA may be fooling <strong class="program">MPD</strong> that the audio format is supported. To verify the format really being sent to the physical sound chip, try:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>cat /proc/asound/card*/pcm*p/sub*/hw_params
+access: RW_INTERLEAVED
+format: S16_LE
+subformat: STD
+channels: 2
+rate: 44100 (44100/1)
+period_size: 4096
+buffer_size: 16384
+</pre></div>
+</div>
+<p>Obey the “format” row, which indicates that the current playback format is 16 bit (signed 16 bit integer, little endian).</p>
+<p>Check list for bit-perfect playback:</p>
+<ul class="simple">
+<li><p>Use the ALSA output plugin.</p></li>
+<li><p>Disable sound processing inside ALSA by configuring a “hardware”
+device (<code class="samp docutils literal notranslate"><span class="pre">hw:0,0</span></code> or similar).</p></li>
+<li><p>Don’t use software volume (setting <code class="code docutils literal notranslate"><span class="pre">mixer_type</span></code>).</p></li>
+<li><p>Don’t force <strong class="program">MPD</strong> to use a specific audio format (settings
+<code class="code docutils literal notranslate"><span class="pre">format</span></code>, <a class="reference internal" href="#audio-output-format"><span class="std std-ref">audio_output_format</span></a>).</p></li>
+<li><p>Verify that you are really doing bit-perfect playback using <strong class="program">MPD</strong>’s verbose log and <code class="file docutils literal notranslate"><span class="pre">/proc/asound/card*/pcm*p/sub*/hw_params</span></code>. Some DACs can also indicate the audio format.</p></li>
+</ul>
+</section>
+<section id="direct-stream-digital-dsd">
+<span id="dsd"></span><h3>Direct Stream Digital (DSD)<a class="headerlink" href="#direct-stream-digital-dsd" title="Permalink to this headline">¶</a></h3>
+<p>DSD (<a class="reference external" href="https://en.wikipedia.org/wiki/Direct_Stream_Digital">Direct Stream Digital</a>) is a digital
+format that stores audio as a sequence of single-bit values at a very
+high sampling rate.  It is the sample format used on <a class="reference external" href="https://en.wikipedia.org/wiki/Super_Audio_CD">Super Audio CDs</a>.</p>
+<p><strong class="program">MPD</strong> understands the file formats <a class="reference internal" href="plugins.html#decoder-dsdiff"><span class="std std-ref">DSDIFF</span></a> and <a class="reference internal" href="plugins.html#decoder-dsf"><span class="std std-ref">DSF</span></a>.  There are three ways
+to play back DSD:</p>
+<ul class="simple">
+<li><p>Native DSD playback. Requires ALSA 1.0.27.1 or later, a sound driver/chip that supports DSD and of course a DAC that supports DSD.</p></li>
+<li><p>DoP (DSD over PCM) playback. This wraps DSD inside fake 24 bit PCM according to the DoP standard. Requires a DAC that supports DSD. No support from ALSA and the sound chip required (except for bit-perfect 24 bit PCM support).</p></li>
+<li><p>Convert DSD to PCM on-the-fly.</p></li>
+</ul>
+<p>Native DSD playback is used automatically if available. DoP is only
+used if enabled explicitly using the <code class="code docutils literal notranslate"><span class="pre">dop</span></code> option, because there
+is no way for <strong class="program">MPD</strong> to find out whether the DAC supports
+it. DSD to PCM conversion is the fallback if DSD cannot be used
+directly.</p>
+</section>
+<section id="icy-metadata">
+<h3>ICY-MetaData<a class="headerlink" href="#icy-metadata" title="Permalink to this headline">¶</a></h3>
+<p>Some MP3 streams send information about the current song with a
+protocol named <a class="reference external" href="http://www.smackfu.com/stuff/programming/shoutcast.html">“ICY-MetaData”</a>.
+<strong class="program">MPD</strong> makes its <code class="docutils literal notranslate"><span class="pre">StreamTitle</span></code> value available as <code class="docutils literal notranslate"><span class="pre">Title</span></code>
+tag.</p>
+<p>By default, <strong class="program">MPD</strong> assumes this tag is UTF-8-encoded.  To tell
+<strong class="program">MPD</strong> to assume a different character set, specify it in the
+<code class="docutils literal notranslate"><span class="pre">charset</span></code> URL fragment parameter, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mpc</span> <span class="n">add</span> <span class="s1">&#39;http://radio.example.com/stream#charset=cp1251&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="client-hacks">
+<h2>Client Hacks<a class="headerlink" href="#client-hacks" title="Permalink to this headline">¶</a></h2>
+<section id="external-mixer">
+<span id="id5"></span><h3>External Mixer<a class="headerlink" href="#external-mixer" title="Permalink to this headline">¶</a></h3>
+<p>The setting <code class="code docutils literal notranslate"><span class="pre">mixer_type</span> <span class="pre">&quot;null&quot;</span></code> asks MPD to pretend that there is a mixer, but not actually do something. This allows you to implement a <strong class="program">MPD</strong> client which listens for mixer events, queries the current (fake) volume, and uses it to program an external mixer. For example, your client can forward this setting to your amplifier.</p>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<section id="where-to-start">
+<h3>Where to start<a class="headerlink" href="#where-to-start" title="Permalink to this headline">¶</a></h3>
+<p>Make sure you have the latest <strong class="program">MPD</strong> version (via <code class="code docutils literal notranslate"><span class="pre">mpd</span> <span class="pre">--version</span></code>, not mpc version). All the time, bugs are found and fixed, and your problem might be a bug that is fixed already. Do not ask for help unless you have the latest <strong class="program">MPD</strong> version. The most common excuse is when your distribution ships an old <strong class="program">MPD</strong> version - in that case, please ask your distribution for help, and not the <strong class="program">MPD</strong> project.</p>
+<p>Check the log file. Configure <code class="code docutils literal notranslate"><span class="pre">log_level</span> <span class="pre">&quot;verbose&quot;</span></code> or pass <code class="xref std std-option docutils literal notranslate"><span class="pre">--verbose</span></code> to mpd.</p>
+<p>Sometimes, it is helpful to run <strong class="program">MPD</strong> in a terminal and follow what happens. This is how to do it:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>mpd --stderr --no-daemon --verbose
+</pre></div>
+</div>
+</section>
+<section id="support">
+<h3>Support<a class="headerlink" href="#support" title="Permalink to this headline">¶</a></h3>
+<section id="getting-help">
+<h4>Getting Help<a class="headerlink" href="#getting-help" title="Permalink to this headline">¶</a></h4>
+<p>The <strong class="program">MPD</strong> project runs a <a class="reference external" href="https://forum.musicpd.org/">forum</a> and an IRC channel (#mpd on Libera.Chat) for requesting help. Visit the MPD help page for details on how to get help.</p>
+</section>
+<section id="common-problems">
+<h4>Common Problems<a class="headerlink" href="#common-problems" title="Permalink to this headline">¶</a></h4>
+<section id="startup">
+<h5>Startup<a class="headerlink" href="#startup" title="Permalink to this headline">¶</a></h5>
+<section id="error-could-not-get-realtime-scheduling">
+<h6>Error “could not get realtime scheduling”<a class="headerlink" href="#error-could-not-get-realtime-scheduling" title="Permalink to this headline">¶</a></h6>
+<p>See <a class="reference internal" href="#realtime"><span class="std std-ref">Real-Time Scheduling</span></a>.  You can safely ignore this, but you won’t
+benefit from real-time scheduling.  This only makes a difference if
+your computer runs programs other than MPD.</p>
+</section>
+<section id="error-failed-to-initialize-io-uring">
+<h6>Error “Failed to initialize io_uring”<a class="headerlink" href="#error-failed-to-initialize-io-uring" title="Permalink to this headline">¶</a></h6>
+<p>Linux specific: the io_uring subsystem could not be initialized.  This
+is not a critical error - MPD will fall back to “classic” blocking
+disk I/O.  You can safely ignore this error, but you won’t benefit
+from io_uring’s advantages.</p>
+<ul class="simple">
+<li><p>“Cannot allocate memory” usually means that your memlock limit
+(<code class="docutils literal notranslate"><span class="pre">ulimit</span> <span class="pre">-l</span></code> in bash or <code class="docutils literal notranslate"><span class="pre">LimitMEMLOCK</span></code> in systemd) is too low.
+64 MB is a reasonable value for this limit.</p></li>
+<li><p>Your Linux kernel might be too old and does not support io_uring.</p></li>
+</ul>
+</section>
+<section id="error-bind-to-0-0-0-0-6600-failed-continuing-anyway-because-binding-to-6600-succeeded">
+<h6>Error “bind to ‘0.0.0.0:6600’ failed (continuing anyway, because binding to ‘[::]:6600’ succeeded)”<a class="headerlink" href="#error-bind-to-0-0-0-0-6600-failed-continuing-anyway-because-binding-to-6600-succeeded" title="Permalink to this headline">¶</a></h6>
+<p>This happens on Linux when <code class="file docutils literal notranslate"><span class="pre">/proc/sys/net/ipv6/bindv6only</span></code> is
+disabled.  MPD first binds to IPv6, and this automatically binds to
+IPv4 as well; after that, MPD binds to IPv4, but that fails.  You can
+safely ignore this, because MPD works on both IPv4 and IPv6.</p>
+</section>
+</section>
+<section id="database">
+<h5>Database<a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h5>
+<section id="i-can-t-see-my-music-in-the-mpd-database">
+<h6>I can’t see my music in the MPD database<a class="headerlink" href="#i-can-t-see-my-music-in-the-mpd-database" title="Permalink to this headline">¶</a></h6>
+<ul class="simple">
+<li><p>Check your <code class="code docutils literal notranslate"><span class="pre">music_directory</span></code> setting.</p></li>
+<li><p>Does the MPD user have read permission on all music files, and read+execute permission on all music directories (and all of their parent directories)?</p></li>
+<li><p>Did you update the database? (mpc update)</p></li>
+<li><p>Did you enable all relevant decoder plugins at compile time? <strong class="command">mpd --version</strong> will tell you.</p></li>
+</ul>
+</section>
+<section id="mpd-doesn-t-read-id3-tags">
+<h6>MPD doesn’t read ID3 tags!<a class="headerlink" href="#mpd-doesn-t-read-id3-tags" title="Permalink to this headline">¶</a></h6>
+<ul class="simple">
+<li><p>You probably compiled <strong class="program">MPD</strong> without libid3tag. <strong class="command">mpd --version</strong> will tell you.</p></li>
+</ul>
+</section>
+</section>
+<section id="playback">
+<h5>Playback<a class="headerlink" href="#playback" title="Permalink to this headline">¶</a></h5>
+<section id="i-can-t-hear-music-on-my-client">
+<h6>I can’t hear music on my client<a class="headerlink" href="#i-can-t-hear-music-on-my-client" title="Permalink to this headline">¶</a></h6>
+<ul>
+<li><p>That problem usually follows a misunderstanding of the nature of <strong class="program">MPD</strong>. <strong class="program">MPD</strong> is a remote-controlled music player, not a music distribution system. Usually, the speakers are connected to the box where <strong class="program">MPD</strong> runs, and the <strong class="program">MPD</strong> client only sends control commands, but the client does not actually play your music.</p>
+<p><strong class="program">MPD</strong> has output plugins which allow hearing music on a remote host (such as httpd), but that is not <strong class="program">MPD</strong>’s primary design goal.</p>
+</li>
+</ul>
+</section>
+<section id="error-device-or-resource-busy">
+<h6>Error “Device or resource busy”<a class="headerlink" href="#error-device-or-resource-busy" title="Permalink to this headline">¶</a></h6>
+<ul class="simple">
+<li><p>This ALSA error means that another program uses your sound hardware exclusively. You can stop that program to allow <strong class="program">MPD</strong> to use it.</p></li>
+</ul>
+<blockquote>
+<div><p>Sometimes, this other program is PulseAudio, which can multiplex sound from several applications, to allow them to share your sound chip. In this case, it might be a good idea for <strong class="program">MPD</strong> to use PulseAudio as well, instead of using ALSA directly.</p>
+</div></blockquote>
+</section>
+</section>
+</section>
+</section>
+<section id="reporting-bugs">
+<h3>Reporting Bugs<a class="headerlink" href="#reporting-bugs" title="Permalink to this headline">¶</a></h3>
+<p>If you believe you found a bug in <strong class="program">MPD</strong>, report it on the <a class="reference external" href="https://github.com/MusicPlayerDaemon/MPD/issues">bug tracker</a>.</p>
+<p>Your bug report should contain:</p>
+<ul class="simple">
+<li><p>the output of <strong class="command">mpd --version</strong></p></li>
+<li><p>your configuration file (<code class="file docutils literal notranslate"><span class="pre">mpd.conf</span></code>)</p></li>
+<li><p>relevant portions of the log file (<code class="xref std std-option docutils literal notranslate"><span class="pre">--verbose</span></code>)</p></li>
+<li><p>be clear about what you expect MPD to do, and what is actually happening</p></li>
+</ul>
+<section id="too-much-cpu-usage">
+<span id="profiler"></span><h4>Too Much CPU Usage<a class="headerlink" href="#too-much-cpu-usage" title="Permalink to this headline">¶</a></h4>
+<p>If you believe MPD consumes too much CPU, <a class="reference external" href="https://github.com/MusicPlayerDaemon/MPD/issues">write a bug report</a> with a profiling
+information.</p>
+<p>On Linux, this can be obtained with <strong class="program">perf</strong> (on Debian,
+installed the package <code class="file docutils literal notranslate"><span class="pre">linux-perf</span></code>), for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>perf record -p `pidof mpd`
+</pre></div>
+</div>
+<p>Run this command while MPD consumes much CPU, let it run for a minute
+or so, and stop it by pressing <code class="docutils literal notranslate"><span class="pre">Ctrl-C</span></code>.  Then type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">perf</span> <span class="n">report</span> <span class="o">&gt;</span><span class="n">mpd_perf</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Upload the output file to the bug report.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This requires having debug symbols for MPD and all relevant
+libraries.  See <a class="reference internal" href="#crash"><span class="std std-ref">MPD crashes</span></a> for details.</p>
+</div>
+</section>
+<section id="mpd-crashes">
+<span id="crash"></span><h4>MPD crashes<a class="headerlink" href="#mpd-crashes" title="Permalink to this headline">¶</a></h4>
+<p>All <strong class="program">MPD</strong> crashes are bugs which must be fixed by a developer, and you should write a bug report. (Many crash bugs are caused by codec libraries used by <strong class="program">MPD</strong>, and then that library must be fixed; but in any case, the <strong class="program">MPD</strong> <a class="reference external" href="https://github.com/MusicPlayerDaemon/MPD/issues">bug tracker</a> is a good place to report it first if you don’t know.)</p>
+<p>A crash bug report needs to contain a “backtrace”.</p>
+<p>First of all, your <strong class="program">MPD</strong> executable must not be “stripped”
+(i.e. debug information deleted).  The executables shipped with Linux
+distributions are usually stripped, but some have so-called “debug”
+packages (package <code class="file docutils literal notranslate"><span class="pre">mpd-dbgsym</span></code> or <code class="file docutils literal notranslate"><span class="pre">mpd-dbg</span></code> on Debian,
+<code class="file docutils literal notranslate"><span class="pre">mpd-debug</span></code> on other distributions).  Make sure this package is
+installed.</p>
+<p>If you built <strong class="program">MPD</strong> from sources, please recompile with Meson
+option “<code class="code docutils literal notranslate"><span class="pre">--buildtype=debug</span> <span class="pre">-Db_ndebug=false</span></code>”, because this will
+add more helpful information to the backtrace.</p>
+<p>You can extract the backtrace from a core dump, or by running <strong class="program">MPD</strong> in a debugger, e.g.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>gdb --args mpd --stderr --no-daemon --verbose
+run
+</pre></div>
+</div>
+<p>As soon as you have reproduced the crash, type “<strong class="command">bt</strong>” on the
+gdb command prompt. Copy the output to your bug report.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">User’s Manual</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#installing-on-debian-ubuntu">Installing on Debian/Ubuntu</a></li>
+<li><a class="reference internal" href="#installing-on-android">Installing on Android</a></li>
+<li><a class="reference internal" href="#compiling-from-source">Compiling from source</a></li>
+<li><a class="reference internal" href="#compiling-for-windows">Compiling for Windows</a></li>
+<li><a class="reference internal" href="#compiling-for-android">Compiling for Android</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuration">Configuration</a><ul>
+<li><a class="reference internal" href="#the-configuration-file">The Configuration File</a></li>
+<li><a class="reference internal" href="#configuring-the-music-directory">Configuring the music directory</a></li>
+<li><a class="reference internal" href="#configuring-database-plugins">Configuring database plugins</a></li>
+<li><a class="reference internal" href="#configuring-neighbor-plugins">Configuring neighbor plugins</a></li>
+<li><a class="reference internal" href="#configuring-input-plugins">Configuring input plugins</a><ul>
+<li><a class="reference internal" href="#configuring-the-input-cache">Configuring the Input Cache</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#configuring-decoder-plugins">Configuring decoder plugins</a></li>
+<li><a class="reference internal" href="#configuring-encoder-plugins">Configuring encoder plugins</a></li>
+<li><a class="reference internal" href="#configuring-audio-outputs">Configuring audio outputs</a></li>
+<li><a class="reference internal" href="#configuring-filters">Configuring filters</a></li>
+<li><a class="reference internal" href="#configuring-playlist-plugins">Configuring playlist plugins</a></li>
+<li><a class="reference internal" href="#audio-format-settings">Audio Format Settings</a><ul>
+<li><a class="reference internal" href="#global-audio-format">Global Audio Format</a></li>
+<li><a class="reference internal" href="#resampler">Resampler</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#client-connections">Client Connections</a><ul>
+<li><a class="reference internal" href="#listeners">Listeners</a></li>
+<li><a class="reference internal" href="#permissions-and-passwords">Permissions and Passwords</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#other-settings">Other Settings</a><ul>
+<li><a class="reference internal" href="#the-state-file">The State File</a></li>
+<li><a class="reference internal" href="#the-sticker-database">The Sticker Database</a></li>
+<li><a class="reference internal" href="#resource-limitations">Resource Limitations</a></li>
+<li><a class="reference internal" href="#buffer-settings">Buffer Settings</a></li>
+<li><a class="reference internal" href="#zeroconf">Zeroconf</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-configuration">Advanced configuration</a><ul>
+<li><a class="reference internal" href="#satellite-setup">Satellite setup</a></li>
+<li><a class="reference internal" href="#real-time-scheduling">Real-Time Scheduling</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-mpd">Using MPD</a><ul>
+<li><a class="reference internal" href="#starting-and-stopping-mpd">Starting and Stopping MPD</a><ul>
+<li><a class="reference internal" href="#systemd">systemd</a></li>
+<li><a class="reference internal" href="#systemd-socket-activation">systemd socket activation</a></li>
+<li><a class="reference internal" href="#systemd-user-unit">systemd user unit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#signals">Signals</a></li>
+<li><a class="reference internal" href="#the-client">The client</a></li>
+<li><a class="reference internal" href="#the-music-directory-and-the-database">The music directory and the database</a><ul>
+<li><a class="reference internal" href="#mounting-other-storages-into-the-music-directory">Mounting other storages into the music directory</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#metadata">Metadata</a></li>
+<li><a class="reference internal" href="#the-queue">The queue</a></li>
+<li><a class="reference internal" href="#stored-playlists">Stored Playlists</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-usage">Advanced usage</a><ul>
+<li><a class="reference internal" href="#bit-perfect-playback">Bit-perfect playback</a></li>
+<li><a class="reference internal" href="#direct-stream-digital-dsd">Direct Stream Digital (DSD)</a></li>
+<li><a class="reference internal" href="#icy-metadata">ICY-MetaData</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#client-hacks">Client Hacks</a><ul>
+<li><a class="reference internal" href="#external-mixer">External Mixer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#where-to-start">Where to start</a></li>
+<li><a class="reference internal" href="#support">Support</a><ul>
+<li><a class="reference internal" href="#getting-help">Getting Help</a></li>
+<li><a class="reference internal" href="#common-problems">Common Problems</a><ul>
+<li><a class="reference internal" href="#startup">Startup</a><ul>
+<li><a class="reference internal" href="#error-could-not-get-realtime-scheduling">Error “could not get realtime scheduling”</a></li>
+<li><a class="reference internal" href="#error-failed-to-initialize-io-uring">Error “Failed to initialize io_uring”</a></li>
+<li><a class="reference internal" href="#error-bind-to-0-0-0-0-6600-failed-continuing-anyway-because-binding-to-6600-succeeded">Error “bind to ‘0.0.0.0:6600’ failed (continuing anyway, because binding to ‘[::]:6600’ succeeded)”</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#database">Database</a><ul>
+<li><a class="reference internal" href="#i-can-t-see-my-music-in-the-mpd-database">I can’t see my music in the MPD database</a></li>
+<li><a class="reference internal" href="#mpd-doesn-t-read-id3-tags">MPD doesn’t read ID3 tags!</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#playback">Playback</a><ul>
+<li><a class="reference internal" href="#i-can-t-hear-music-on-my-client">I can’t hear music on my client</a></li>
+<li><a class="reference internal" href="#error-device-or-resource-busy">Error “Device or resource busy”</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reporting-bugs">Reporting Bugs</a><ul>
+<li><a class="reference internal" href="#too-much-cpu-usage">Too Much CPU Usage</a></li>
+<li><a class="reference internal" href="#mpd-crashes">MPD crashes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Music Player Daemon</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="plugins.html"
+                        title="next chapter">Plugin reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/user.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="plugins.html" title="Plugin reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Music Player Daemon"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Music Player Daemon  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">User’s Manual</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2003-2021 The Music Player Daemon Project.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.2.0.
+    </div>
+  </body>
+</html>
