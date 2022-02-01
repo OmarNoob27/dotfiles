@@ -4,7 +4,7 @@ shift + Escape
 #terminal 
 super + Return
     alacritty
-#brave 
+#browser 
 super + shift + b 
 	~/scripts/browser.sh
 #file manger gui 
@@ -31,7 +31,6 @@ XF86MonBrightnessDown
 #dmenu 
 super + shift + d 
 	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
-
 #lang 
 shift+ ctrl + l 
 	(setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ar || setxkbmap us && pkill -RTMIN+15 i3blocks
