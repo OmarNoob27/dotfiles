@@ -4,14 +4,12 @@ shift + Escape
 #terminal 
 super + Return
     alacritty
-    #prime-run alacritty
 #brave 
 super + shift + b 
 	~/scripts/browser.sh
 #file manger gui 
 shift + Return
     dolphin /home/omar
-  #pcmanfm /home/omar
 #xkill 
 super + shift + x 
 	xkill
@@ -40,19 +38,12 @@ shift+ ctrl + l
 #power 
 super + Escape 
 	/home/omar/scripts/power 
-  #arcolinux-logout
 #wallpaper 
 super + shift + i 
 	/home/omar/github/styli.sh/styli.sh && notify-send "Changing wallpaper is done." && exit 0 
 #move wall 
 super + i 
     ~/scripts/wall.sh
-#firefox
-#super + shift + f 
-#    firefox 
-#yd
-#super + shift + y 
-#	yt-dlg
 #play pause 
 XF86AudioPlay
 	playerctl play-pause
@@ -75,29 +66,9 @@ super + shift + h
 super + shift + s 
 	/home/omar/scripts/recordscreen && pkill -RTMIN+5 i3blocks 
 	#simplescreenrecorder
-
 #screeen record with size  
 super + s 
 	/home/omar/scripts/recordscreen_size && pkill -RTMIN+5 i3blocks 
-
-
-#moc 
-#super + shift + m 
-#	/home/omar/scripts/mocdmenu
-#moc previous
-#ctrl + XF86AudioPrev 
-#	  mocp -r && pkill -RTMIN+3 i3blocks 
-#moc next
-#ctrl + XF86AudioNext 
-#	  mocp -f && pkill -RTMIN+3 i3blocks 
-#moc stop
-#ctrl + XF86AudioPlay
-#	  mocp -G && pkill -RTMIN+3 i3blocks 
-#update moc 
-#ctrl + m 
-#	pkill -RTMIN+3 i3blocks
-
-
 #mpv youtube 
 super + p 
  mpv $(xclip -o)
@@ -116,10 +87,6 @@ super + shift + k
 #websearch 
 super + shift + w 
     /home/omar/github/dmscripts/scripts/dm-websearch
-#mount usb 
-#super + shift + u 
-#    alacritty -e /home/omar/scripts/checkmount
-    
 #github disktop
 super + shift + g 
     github-desktop
@@ -152,10 +119,10 @@ super + n
     notify-send -i ~/logo/music.jpeg "$(mpc -f %file% | awk 'NR==1 || /pattern/')"
 #mpd previous
 ctrl + XF86AudioPrev 
-	   playerctl previous --player=mpd #&& pkill -RTMIN+3 i3blocks 
+	   playerctl previous --player=mpd  
 #mpd next
 ctrl + XF86AudioNext 
-	   playerctl next --player=mpd #&& pkill -RTMIN+3 i3blocks 
+	   playerctl next --player=mpd 
 #mpd stop
 ctrl + XF86AudioPlay
     playerctl play-pause --player=mpd
