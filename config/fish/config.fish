@@ -368,6 +368,7 @@ alias calc='gnome-calculator'
 alias smus='mpd && ncmpcpp'
 alias mus='ncmpcpp'
 alias emus='pkill mpd'
+alias rd='zaread'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S
