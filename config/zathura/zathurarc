@@ -13,6 +13,21 @@ map J zoom out
 map i recolor
 map p print
 map gg goto top
+# Open document in fit-width mode by default
+set adjust-open "best-fit"
+
+# One page per row by default
+set pages-per-row 1
+
+# Stop at page boundries
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+# zoom settings
+set zoom-min 10
+set guioptions ""
+
 #colors : 
 set default-bg                  "#2E3440"
 set default-fg                  "#3B4252"
@@ -51,5 +66,7 @@ set recolor-darkcolor           "#ECEFF4"
 
 #set recolor                     "true"
 set recolor-keephue             "true"
+
+
 
 

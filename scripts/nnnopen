@@ -1,5 +1,4 @@
-#!/usr/bin/env fish
-#path for this script : ~/.bin
+#!/usr/bin/env sh  
 if [[ ! -f "$1" ]];then
 	exit
 fi
@@ -27,4 +26,10 @@ elif [[ "$mime" = "application/pdf" ]];then
 # exe 
 elif [[ "$mime" = "application/x-dosexec" ]];then
 	wine "$1"
+elif [[ "$mime" = "application/vnd.oasis.opendocument.text" ]];then
+	libreoffice "$1"
+elif [[ "$mime" = "application/vnd.openxmlformats-officedocument.wordprocessingml.document" ]];then
+	libreoffice "$1"
+elif [[ "$mime" = "application/vnd.openxmlformats-officedocument.presentationml.presentation" ]];then
+	libreoffice "$1"
 fi

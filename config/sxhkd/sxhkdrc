@@ -149,7 +149,7 @@ super + shift + o
     ~/scripts/githubscripts/dm-hub
 #nnn
 super + shift + Return
-    ~/nnn.sh
+    ~/nnn 
 #song
 super + n 
     notify-send -i ~/logo/music.jpeg "$(mpc -f %file% | awk 'NR==1 || /pattern/')"

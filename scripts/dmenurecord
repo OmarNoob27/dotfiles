@@ -111,7 +111,6 @@ videoselected()
 	echo $! > /tmp/recordingpid
 	updateicon "⏺️"
 }
-
 case "$1" in
 	screencast) screencast;;
 	audio) audio;;
