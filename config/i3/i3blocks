@@ -138,7 +138,6 @@ border_left=0
 [volbar2]
 interval=once
 signal=10
-#background=#458588
 label=<span color="#d19a66">Vol </span>
 color=#61afef
 border=#61afef
