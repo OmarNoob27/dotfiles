@@ -37,3 +37,4 @@ doas pacman -S okular
 doas pacman -S htop 
 doas pacman -S paru 
 doas pacman -S lxappearance 
+doas pacman -S xdotool 

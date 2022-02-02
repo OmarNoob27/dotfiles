@@ -126,9 +126,9 @@ color=#e06c75
 [backlight]
 interval=once
 signal=20
-#label=<span color="#FFC300"> </span>
-label=<span color="#f1fa8c"> </span>
-border=#f1fa8c
+#label=<span color="#f1fa8c"> </span>
+label=<span color="#f9af4f"> </span>
+border=#f9af4f
 border_top=0
 border_right=0
 border_bottom=1
@@ -138,7 +138,7 @@ border_left=0
 [volbar2]
 interval=once
 signal=10
-label=<span color="#d19a66">Vol </span>
+label=<span color="#d19a66"></span>
 color=#61afef
 border=#61afef
 border_top=0

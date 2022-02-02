@@ -42,6 +42,18 @@ dot="${num: -1}"
 if [ "$dot" == "5" ]; then
 string="$(echo $string".")"
 fi
- 
-echo $string $num"%"
+vol="$(pamixer --get-volume)"
+
+    if [ "$vol" -gt "70" ]; then
+		icon="🔊"
+		elif [ "$vol" -gt "30" ]; then
+		icon="🔉"
+		elif [ "$vol" -gt "0" ]; then
+		icon="🔈"
+		else
+		echo 🔇 && exit
+		fi
+echo $icon $string $num"%"
+
+
 
