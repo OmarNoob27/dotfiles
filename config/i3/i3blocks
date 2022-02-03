@@ -134,6 +134,10 @@ border_right=0
 border_bottom=1
 border_left=0
 
+[micro]
+interval=once
+label=<span color="#98c379"></span>
+signal=17
 
 [volbar2]
 interval=once

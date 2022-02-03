@@ -1,4 +1,5 @@
 #!/bin/bash 
+doas pacman -Syyu
 doas pacman -S neovim 
 doas pacman -S mpv 
 doas pacman -S mpd 
@@ -39,3 +40,4 @@ doas pacman -S nvtop
 doas pacman -S paru 
 doas pacman -S lxappearance 
 doas pacman -S xdotool 
+doas pacman -S fzf

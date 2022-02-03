@@ -16,11 +16,7 @@ status=$(echo "${statusLine}" | grep -wo "on")
 volume=$(echo "${statusLine}" | awk -F ' ' '{print $5}' | tr -d '[]%')
 
 if [[ "${status}" == "on" ]]; then
-  echo "${volume}%"
-  echo "${volume}%"
-  echo ""
+  echo " ${volume}%"
 else
-  echo "off"
-  echo "off"
-  echo ""
+  echo " off"
 fi
