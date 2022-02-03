@@ -3,6 +3,7 @@
 declare options=("Brave
 Firefox
 Google-chrome
+Chromium
 Qutebrowser")
 
 #choice=$(echo -e "${options[@]}" | dmenu -l 10 -i -fn 'Roboto Mono' -p 'launch browser: ' -nb '#3b3b3b' -nf '#71988a' -sb '#000000' -sf '#71988a')
@@ -20,6 +21,9 @@ case "$choice" in
     ;;
     Google-chrome)
         choice="google-chrome-stable"
+    ;;
+    Chromium)
+        choice="chromium"
     ;;
     Qutebrowser)
         choice="qutebrowser"

@@ -35,6 +35,7 @@ doas pacman -S pulsemixer
 doas pacman -S trash-cli 
 doas pacman -S okular 
 doas pacman -S htop 
+doas pacman -S nvtop 
 doas pacman -S paru 
 doas pacman -S lxappearance 
 doas pacman -S xdotool 
