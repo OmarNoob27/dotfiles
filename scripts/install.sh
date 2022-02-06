@@ -49,7 +49,7 @@ doas pacman -S google-chrome
 doas pacman -S chromium 
 doas pacman -S qutebrowser 
 
-printf "###Install pdf viewer..."
+printf "###Install pdf tools..."
 doas pacman -S zathura 
 doas pacman -S okular 
 
