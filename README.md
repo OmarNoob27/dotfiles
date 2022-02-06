@@ -10,7 +10,7 @@
 - terminal : st > alacritty > st > terminator > alacritty 
 - shell : bash  > fish 
 - key binding : xbindkeys > sxhkd
-- scripts passing : dmenu 
+- dynamic menu : dmenu 
 - theme : style & pywal & qt5ct & kvantummanager 
 - browser : chrome > firefox > brave > qutebrowser 
 - search engine : google > duckduckgo

@@ -67,7 +67,7 @@ doas pacman -S git
 doas pacman -S paru 
 doas pacman -S yay 
 
-printf "###Install some tools..."
+printf "###Install general tools..."
 doas pacman -S sxhkd 
 doas pacman -S dmenu 
 doas pacman -S sxiv 
