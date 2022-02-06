@@ -791,8 +791,8 @@ colors:
   #my confi
 key_bindings:
     # (Windows, Linux, and BSD only)
-  - { key: K,         mods: Control,       action: IncreaseFontSize            }
-  - { key: J,         mods: Control,       action: DecreaseFontSize            }
+  - { key: K,         mods: Control|Shift,       action: IncreaseFontSize            }
+  - { key: J,         mods: Control|Shift,       action: DecreaseFontSize            }
   - { key: V,         mods: Control|Shift, action: Paste                       }
   - { key: C,         mods: Control|Shift, action: Copy                        }
   - { key: K,         mods: Alt,          action: ScrollPageUp                 }
