@@ -70,6 +70,7 @@ doas pacman -S yay
 printf "###Install general tools..."
 doas pacman -S sxhkd 
 doas pacman -S dmenu 
+doas pacman -S rofi rofimoji 
 doas pacman -S sxiv 
 doas pacman -S clipmenu 
 doas pacman -S trash-cli 
