@@ -60,8 +60,8 @@
 #def_key "enter"
 #  play_item
 #
-#def_key "space"
-#  add_item_to_playlist
+def_key "space"
+  add_item_to_playlist
 #
 #def_key "space"
 #  toggle_lyrics_update_on_song_change
