@@ -5,7 +5,7 @@ doas pacman -Syyu
 #printf "###Install xorg-server and display manager"
 #doas pacman -S picom xorg-server xorg-xrandr lightdm lightdm-gtk-greeter xorg-xrdb 
 
-printf "###Install nvim"
+printf "###Install nvim..."
 doas pacman -S neovim 
 
 printf"###Install Multimedia..."
@@ -76,7 +76,7 @@ doas pacman -S clipmenu
 doas pacman -S trash-cli 
 doas pacman -S kdialog 
 
-printf "###Install zoom and tools"
+printf "###Install zoom and tools..."
 doas pacman -S zoom
 doas pacman -S droidcam 
 
