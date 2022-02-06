@@ -795,8 +795,8 @@ key_bindings:
   - { key: J,         mods: Control|Shift,       action: DecreaseFontSize            }
   - { key: V,         mods: Control|Shift, action: Paste                       }
   - { key: C,         mods: Control|Shift, action: Copy                        }
-  - { key: K,         mods: Alt,          action: ScrollPageUp                 }
-  - { key: J,         mods: Alt,          action: ScrollPageDown               }
+  - { key: K,         mods: Control,          action: ScrollPageUp                 }
+  - { key: J,         mods: Control,          action: ScrollPageDown               }
   - { key: Insert,    mods: Shift,         action: PasteSelection              }
   - { key: Key0,      mods: Control,       action: ResetFontSize               }
   - { key: Paste,     mods: None,          action: Paste                       }

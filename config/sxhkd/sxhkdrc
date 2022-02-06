@@ -126,15 +126,6 @@ super + shift + o
 #song
 super + n 
     notify-send -i ~/logo/music.jpeg "$(mpc -f %file% | awk 'NR==1 || /pattern/')"
-#mpd previous
-ctrl + XF86AudioPrev 
-	   playerctl previous --player=mpd  
-#mpd next
-ctrl + XF86AudioNext 
-	   playerctl next --player=mpd 
-#mpd stop
-ctrl + XF86AudioPlay
-    playerctl play-pause --player=mpd
 #ncmpcpp
 super + shift + n 
     alacritty -e ncmpcpp
