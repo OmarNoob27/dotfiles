@@ -129,3 +129,12 @@ super + n
 #ncmpcpp
 super + shift + n 
     alacritty -e ncmpcpp
+#mpd previous
+ctrl + XF86AudioPrev 
+	   playerctl previous --player=mpd  
+#mpd next
+ctrl + XF86AudioNext 
+	   playerctl next --player=mpd 
+#mpd stop
+ctrl + XF86AudioPlay
+    playerctl play-pause --player=mpd
