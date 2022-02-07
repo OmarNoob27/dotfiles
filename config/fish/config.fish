@@ -404,7 +404,8 @@ alias sn='sudo -E nnn -eRH'
 #export NNN_PLUG='p:mocq;i:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;x:!doas chmod +x $nnn;k:pskill;K:!pkill mpv;s:!bash -i*;o:fzopen' #to play this plug press ; then choose option 
 export NNN_PLUG='i:imgview;f:fzcd;t:mp3conv;e:suedit;v:preview-tui;x:!doas chmod +x $nnn;k:pskill;s:!bash -i*;o:fzopen' #to play this plug press ; then choose option 
 export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;C:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;c:~/.config;p:~/pins;m:~/Music;e:~/enterprise;v:~/Videos" #to play this plug press b then choose option 
-export NNN_OPENER=nnnopen #nnnopen path : ~/.bin 
+#xdg-open is the default opener for nnn 
+#export NNN_OPENER=nnnopen #nnnopen path : ~/.bin 
 #export NNN_OPENER=nuke 
 export NNN_TMPFILE='/tmp/.lastd'
 export NNN_COLORS='1267'

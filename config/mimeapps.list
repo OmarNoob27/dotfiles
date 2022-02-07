@@ -54,7 +54,6 @@ image/png=org.kde.gwenview.desktop;org.nomacs.ImageLounge.desktop;gimp.desktop;r
 image/svg+xml=org.inkscape.Inkscape.desktop;ristretto.desktop;sublime_text.desktop;
 image/vnd.adobe.photoshop=gimp.desktop;
 image/vnd.microsoft.icon=org.nomacs.ImageLounge.desktop;
-image/x-xcf=gimp.desktop;
 inode/directory=nnn.desktop;org.kde.dolphin.desktop;exo-file-manager.desktop;thunar;
 text/css=sublime_text.desktop;code-oss.desktop;visual-studio-code.desktop;
 text/html=firefox.desktop;
@@ -111,4 +110,5 @@ application/json=nvim.desktop;
 text/*=nvim.desktop;
 x-scheme-handler/tg=userapp-Telegram Desktop-H0FHE1.desktop
 inode/directory=org.kde.dolphin.desktop;exo-file-manager.desktop;thunar;
-
+application/x-shellscript=nvim.desktop;
+text/plain=nvim.desktop;

@@ -8,7 +8,7 @@ super + Return
 super + shift + b 
 	~/scripts/browser.sh
 #file manger gui 
-shift + Return
+super + shift + Return
     dolphin /home/omar
 #xkill 
 super + shift + x 
@@ -138,3 +138,6 @@ ctrl + XF86AudioNext
 #mpd stop
 ctrl + XF86AudioPlay
     playerctl play-pause --player=mpd
+#nnn file manger 
+shift + Return
+    ~/scripts/nnn.sh
