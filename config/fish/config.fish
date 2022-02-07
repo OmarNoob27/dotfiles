@@ -356,6 +356,8 @@ alias color='rgb-tui'
 alias sv='~/scripts/dmenu_service'
 alias ns='nvidia-smi'
 alias ft='xdg-mime query filetype'
+alias fd='xdg-mime query default'
+alias search='locate -i'
 alias size='du -sh'
 alias rip='~/scripts/rip' #to get public ip 
 alias ip='ip --color a' #to get private ip 
@@ -369,7 +371,6 @@ alias smus='mpd && ncmpcpp'
 alias mus='ncmpcpp'
 alias emus='pkill mpd'
 alias rd='zaread'
-alias gq='cd .config/qtile'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S
