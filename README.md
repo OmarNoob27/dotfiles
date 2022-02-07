@@ -6,20 +6,18 @@
 - Dynamic wm : dwm > polybar >  i3blocks 
 - text editor : nano > vim > neovim 
 - cli file manager : lf > ranger > nnn 
-- gui file manager : pcmanfm > dolphin > pcmanfm 
+- gui file manager : pcmanfm > dolphin > pcmanfm > dolphin 
 - terminal : st > alacritty > st > terminator > alacritty 
 - shell : bash  > fish 
 - key binding : xbindkeys > sxhkd
 - dynamic menu : dmenu 
 - theme : style & pywal & qt5ct & kvantummanager 
-- browser : chrome > firefox > brave > qutebrowser 
-- search engine : google > duckduckgo
+- browser : chrome > firefox > brave > qutebrowser > brave
+- search engine : google > duckduckgo > startpage > duckduckgo
 - firewall : gufw 
 - media player : moc > mpd > moc > mpd + ncmpcpp + mpDris2
 - notification : xcfe4-notifi
 - photo viewer : sxiv 
 - video player : mpv 
-- pdf viewer : zathura 
+- pdf viewer : zathura + zaread 
 - office : libre office > wps > libre 
-- virtual machine : vmware > virtual box 
-- virtual os : ubuntu
