@@ -82,6 +82,7 @@ video/x-matroska=vlc.desktop;
 video/x-ms-wmv=vlc.desktop;
 video/x-msvideo=vlc.desktop
 video/x-msvideo=vlc.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-H0FHE1.desktop;
 x-scheme-handler/about=exo-web-browser.desktop;firefox.desktop;
 x-scheme-handler/http=exo-web-browser.desktop;firefox.desktop;
 x-scheme-handler/https=exo-web-browser.desktop;firefox.desktop;
@@ -90,7 +91,6 @@ x-scheme-handler/mailto=exo-mail-reader.desktop
 x-scheme-handler/mailto=exo-mail-reader.desktop
 x-scheme-handler/trash=exo-file-manager.desktop
 x-scheme-handler/unknown=firefox.desktop
-x-scheme-handler/tg=userapp-Telegram Desktop-H0FHE1.desktop;
 
 [Default Applications]
 text/html=brave-browser.desktop
@@ -108,7 +108,7 @@ video/x-matroska=mpv.desktop;
 audio/mpeg=mpv.desktop;
 application/json=nvim.desktop;
 text/*=nvim.desktop;
-x-scheme-handler/tg=userapp-Telegram Desktop-H0FHE1.desktop
 inode/directory=org.kde.dolphin.desktop;exo-file-manager.desktop;thunar;
+x-scheme-handler/tg=userapp-Telegram Desktop-H0FHE1.desktop
 application/x-shellscript=nvim.desktop;
 text/plain=nvim.desktop;

@@ -1,4 +1,5 @@
 #!/usr/bin/env sh 
+#path to this file : /usr/bin/nnnopen
 if [[ ! -f "$1" ]];then
 	exit
 fi
