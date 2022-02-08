@@ -125,10 +125,10 @@ super + shift + o
     ~/scripts/githubscripts/dm-hub
 #song
 super + n 
-    notify-send -i ~/logo/music.jpeg "$(mpc -f %file% | awk 'NR==1 || /pattern/')"
+    ~/scripts/noti
 #ncmpcpp
 super + shift + n 
-    alacritty -e ncmpcpp
+     alacritty -e ncmpcpp && ~/github/mpdq/mpdq & 
 #mpd previous
 ctrl + XF86AudioPrev 
 	   playerctl previous --player=mpd  
