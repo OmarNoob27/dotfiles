@@ -1,5 +1,5 @@
 command=/home/omar/scripts/$BLOCK_NAME
-separator_block_width=15
+separator_block_width=10
 markup=pango
 
 #global font color
@@ -16,14 +16,6 @@ border_top=0
 border_right=0
 border_bottom=1
 border_left=0
-
-
-#[moc]
-#interval=once
-#signal=3
-#label=   
-#color=#c678dd
-
 
 [lang]
 command=xkb-switch | xargs echo  
