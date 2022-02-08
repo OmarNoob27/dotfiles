@@ -2,6 +2,14 @@
 printf "###Updating the system..."
 doas pacman -Syyu
 
+printf "###Install aur helper and doas..."
+sudo pacman -S paru 
+sudo paru -S doas 
+
+#printf "###Make config file for doas..."
+#touch /etc/doas.conf 
+#echo "permit omar as root" > /etc/doas.conf
+
 #printf "###Install xorg-server and display manager"
 #doas pacman -S picom xorg-server xorg-xrandr lightdm lightdm-gtk-greeter xorg-xrdb 
 

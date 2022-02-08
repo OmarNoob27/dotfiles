@@ -38,12 +38,9 @@ border_bottom=1
 border_left=0
 
 
-#[weather]
-#command=curl -s 'wttr.in/{Cairo}?format=1'
-#command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | sed -n '2p'
-#interval=3600
-#color=#61afef
-##label=<span color="#ff0055">⛅ </span>
+[weather]
+interval=3600
+color=#61afef
 
 [pacman]
 interval=3600
@@ -113,7 +110,7 @@ interval=2
 label=<span color="#5499C7">  </span>
 
 
-[ram]
+[i3-memory]
 interval=1 
 label=<span color="#FFC300">  </span>
 color=#56b6c2
