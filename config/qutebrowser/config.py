@@ -193,6 +193,7 @@ c.tabs.show = 'always'
 #default home 
 c.url.default_page = 'https://html.duckduckgo.com/html/'
 c.url.start_pages = 'https://html.duckduckgo.com/html/'
+
 #c.url.default_page = 'https://www.startpage.com/do/mypage.pl?prfe=3fea297d338b072216886c5dcc07a659e21eeee5e53d2d9061e3e542e636276bcd45b7afde8dede7a7b591f50bf31266eaab60152b0cd429a7ea2bc8f75a5d55f2de10e22bf4fad0946aea7f29a3'
 #c.url.start_pages = 'https://www.startpage.com/do/mypage.pl?prfe=3fea297d338b072216886c5dcc07a659e21eeee5e53d2d9061e3e542e636276bcd45b7afde8dede7a7b591f50bf31266eaab60152b0cd429a7ea2bc8f75a5d55f2de10e22bf4fad0946aea7f29a3'
 
