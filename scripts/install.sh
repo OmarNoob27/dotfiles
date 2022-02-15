@@ -83,6 +83,7 @@ doas pacman -S sxiv
 doas pacman -S clipmenu 
 doas pacman -S trash-cli 
 doas pacman -S kdialog 
+doas pacman -S xorg-xprop
 
 printf "###Install zoom and tools..."
 doas pacman -S zoom
