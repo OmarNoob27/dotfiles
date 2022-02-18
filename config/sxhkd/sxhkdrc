@@ -9,8 +9,7 @@ super + shift + b
 	~/scripts/browser.sh
 #file manger gui 
 super + shift + Return
-    thunar 
-    #dolphin /home/omar
+    dolphin /home/omar
 #xkill 
 super + shift + x 
 	xkill
