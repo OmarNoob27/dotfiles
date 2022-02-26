@@ -359,7 +359,7 @@ alias ft='xdg-mime query filetype'
 alias fd='xdg-mime query default'
 alias search='find / -iname'
 #alias search='locate -i'
-alias size='du -sh'
+#alias size='du -sh'
 alias rip='~/scripts/rip' #to get public ip 
 alias ip='ip --color a' #to get private ip 
 alias ll='exa --group-directories-first  --icons -lh'
@@ -373,6 +373,7 @@ alias mus='ncmpcpp'
 alias emus='pkill mpd'
 alias rd='zaread'
 alias gsh='~/scripts/gsh'
+alias size='gdu'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S

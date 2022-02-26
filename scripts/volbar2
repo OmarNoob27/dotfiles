@@ -51,9 +51,6 @@ vol="$(pamixer --get-volume)"
 		elif [ "$vol" -gt "0" ]; then
 		icon="🔈"
 		else
-		echo 🔇 && exit
+		echo VOL=0 && exit
 		fi
 echo $icon $string $num"%"
-
-
-
