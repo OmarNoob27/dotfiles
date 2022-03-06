@@ -11,4 +11,5 @@ cp ~/.config/ncmpcpp/bindings ~/Documents/Github/dotfiles/config/ncmpcpp
 cp ~/.config/mpd/mpd.conf ~/Documents/Github/dotfiles/config/mpd
 cp ~/.config/mpDris2/mpDris2.conf ~/Documents/Github/dotfiles/config/mpDris2
 cp -rf ~/.config/nnn/plugins ~/Documents/Github/dotfiles/config/nnn
+cp -rf ~/.config/kitty/kitty.conf ~/Documents/Github/dotfiles/config/kitty
 

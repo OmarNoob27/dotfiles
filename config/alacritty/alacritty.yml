@@ -21,11 +21,11 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: alacritty
+  TERM: xterm-256color
 
 window:
   # Window dimensions (changes require restart)
-  opacity: 1.0
+  opacity: 0.90
   #
   # Number of lines/columns (not pixels) in the terminal. The number of columns
   # must be at least `2`, while using a value of `0` for columns and lines will
@@ -829,5 +829,5 @@ key_bindings:
   #
   #themes 
 import:
-  - /home/omar/github/alacritty-theme/themes/snazzy.yaml
+  - /home/omar/github/alacritty-theme/themes/one_dark.yaml
 

@@ -73,11 +73,12 @@ super + shift + h
   /home/omar/scripts/resources
 #screeen record 
 super + shift + s 
-	/home/omar/scripts/recordscreen && pkill -RTMIN+5 i3blocks 
-	#simplescreenrecorder
+	simplescreenrecorder
+#	/home/omar/scripts/recordscreen && pkill -RTMIN+5 i3blocks 
+
 #screeen record with size  
-super + s 
-	/home/omar/scripts/recordscreen_size && pkill -RTMIN+5 i3blocks 
+#super + s 
+#	/home/omar/scripts/recordscreen_size && pkill -RTMIN+5 i3blocks 
 #mpv youtube 
 super + p 
  mpv $(xclip -o)
@@ -94,7 +95,7 @@ Print
 super + shift + k 
     /home/omar/github/dmscripts/scripts/dm-kill
 #websearch 
-super + shift + w 
+super + w
     /home/omar/github/dmscripts/scripts/dm-websearch
 #github disktop
 super + shift + g 
@@ -128,7 +129,7 @@ super + n
     ~/scripts/noti
 #ncmpcpp
 super + shift + n 
-     alacritty -e ncmpcpp && ~/github/mpdq/mpdq & 
+     kitty -e ncmpcpp && ~/github/mpdq/mpdq & 
 #mpd previous
 ctrl + XF86AudioPrev 
 	   playerctl previous --player=mpd  
@@ -141,3 +142,6 @@ ctrl + XF86AudioPlay
 #nnn file manger 
 shift + Return
     ~/scripts/nnn.sh
+#whataspp 
+super + shift + w 
+    whatsapp-nativefier
