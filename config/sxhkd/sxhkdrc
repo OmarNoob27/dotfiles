@@ -3,7 +3,7 @@ shift + Escape
 	pkill -USR1 -x sxhkd
 #terminal 
 super + Return
-    alacritty
+    kitty 
 #browser 
 super + shift + b 
 	~/scripts/browser.sh
