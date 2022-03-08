@@ -13,7 +13,7 @@ DMENU="dmenu -fn 'NotoMonoRegular:bold:pixelsize=15'-i -l 20 -p "
 DMBROWSER="brave"
 #DMBROWSER="qutebrowser"
 
-DMTERM="alacritty -e"
+DMTERM="kitty -e"
 
 #DMEDITOR="nvim"
 DMEDITOR="nvim"

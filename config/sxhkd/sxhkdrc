@@ -83,8 +83,8 @@ super + shift + s
 super + p 
  mpv $(xclip -o)
 #sxiv via dmenu  
-super + shift + p 
-    ~/scripts/dmenu_sxiv
+#super + shift + p 
+#    ~/scripts/dmenu_sxiv
 #mp3-youtube-dl 
 super + shift + y
     /home/omar/scripts/ytdmenu

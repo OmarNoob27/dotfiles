@@ -4,7 +4,7 @@ set -U fish_user_paths $HOME/.local/bin $HOME/Applications $fish_user_paths
 
 ### EXPORT ###
 set fish_greeting                                 # Supresses fish's intro message
-set TERMINAL "alacritty"                         # Sets the terminal type
+set TERMINAL "kitty"                         # Sets the terminal type
 set EDITOR "nvim"
 set VISUAL "nvim"
 #export EDITOR=/usr/bin/nvim
@@ -406,8 +406,8 @@ alias nn='nnn -eRx'
 alias n='nnn -Rxe'
 alias sn='sudo -E nnn -eRH'
 #export NNN_PLUG='p:mocq;i:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;x:!doas chmod +x $nnn;k:pskill;K:!pkill mpv;s:!bash -i*;o:fzopen' #to play this plug press ; then choose option 
-export NNN_PLUG='m:nmount;i:imgview;f:fzcd;t:mp3conv;e:suedit;v:preview-tui;x:!doas chmod +x $nnn;s:!bash -i*;o:fzopen;k:kdeconnect' #to play this plug press ; then choose option 
-export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;C:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;c:~/.config;p:~/pins;m:~/Music;e:~/enterprise;v:~/Videos;k:/run/user/1000/59cda44b9f5d1bb4/" #to play this plug press b then choose option 
+export NNN_PLUG='F:fixname;m:nmount;i:imgview;f:fzcd;t:mp3conv;e:suedit;v:preview-tui;x:!doas chmod +x $nnn;s:!bash -i*;o:fzopen;k:kdeconnect;u:upload;p:rsynccp' #to play this plug press ; then choose option 
+export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;C:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;c:~/.config;p:~/pins;P:~/Pictures;m:~/Music;e:~/enterprise;v:~/Videos;k:/run/user/1000/59cda44b9f5d1bb4/;T:~/Templates" #to play this plug press b then choose option 
 #xdg-open is the default opener for nnn 
 export NNN_OPENER=nnnopen #nnnopen path : /usr/bin/nnnopen
 #export NNN_OPENER=nuke 

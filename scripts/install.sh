@@ -88,4 +88,3 @@ doas pacman -S xorg-xprop
 printf "###Install zoom and tools..."
 doas pacman -S zoom
 doas pacman -S droidcam 
-

@@ -108,8 +108,6 @@ bindsym $mod+Shift+6 move container to workspace 6;
 bindsym $mod+Shift+7 move container to workspace 7; 
 bindsym $mod+Shift+8 move container to workspace 8; 
 bindsym $mod+Shift+9 move container to workspace 9; 
-
-
 ################# menu's in arcolinux
 
 #set $mode_system System (k) lock, (l) logout, (u) suspend, (h) hibernate, (r) reboot, (s) shutdown
