@@ -830,4 +830,3 @@ key_bindings:
   #themes 
 import:
   - /home/omar/github/alacritty-theme/themes/one_dark.yaml
-
