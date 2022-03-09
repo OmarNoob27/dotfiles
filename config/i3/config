@@ -630,9 +630,8 @@ bar {
     # from the opening of the "bar {...}" till the end has to go or hashtagged out
     # in order for the system trayicons to show up in polybar
 
-    ##START THEMING BAR
-    # i3 bar colors
-    # variable border background Text
+
+#my theme 
 
     colors {
         #background #282828
@@ -664,23 +663,6 @@ bar {
     client.urgent           #d42121 #d42121 #f7f7f7 #d42121
 
     client.background       #242424
-
-    ##START THEMING BAR
-    #Theme name : ArcoLinux Dracut
-
-    # i3 bar colors
-    # variable border background Text
-
-    ##STOP THEMING WM
-
-
-##my theme 
-
-
-
-
-
-    ##STOP THEMING WM
 
 ######################################## THE END 
 

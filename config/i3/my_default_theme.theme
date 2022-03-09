@@ -1,0 +1,30 @@
+    colors {
+        #background #282828
+        background #1c1a25
+        statusline #eeeeee
+        #separator  #ebdbb2
+        separator  #eaf08d
+
+    #    # colorclass           border  backgr. text
+       focused_workspace     #83a598 #458588 #ebdbb2
+        active_workspace      #a9a9a9 #5f676a #eeeeee
+        inactive_workspace    #584945 #282828 #928374
+        urgent_workspace      #cc241d #900000 #fb49343
+      }
+
+    }
+    ##STOP THEMING BAR
+
+    ##START THEMING WM
+    #Theme name : ArcoLinux Var Sulpher
+
+    # Window color settings
+    # class                 border  backgr. text    indicator
+   #client.focused          #353439 #6790EB #e5e5e5 #6790EB
+    client.focused          #353439 #98c379  #e5e5e5 #98c379
+    client.unfocused        #222222 #222222 #aaaaaa #222222
+    client.focused_inactive #222222 #222222 #a9a9a9 #222222
+    client.placeholder      #222222 #222222 #aaaaaa #222222
+    client.urgent           #d42121 #d42121 #f7f7f7 #d42121
+
+    client.background       #242424
