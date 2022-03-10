@@ -1,10 +1,9 @@
 #!/bin/bash 
-printf "###Updating the system..."
-doas pacman -Syyu
+printf "###Updating the system...\n"
+sudo pacman -Syyu
 
-printf "###Install aur helper and doas..."
-sudo pacman -S paru 
-sudo paru -S doas 
+printf "###Install aur helper and doas...\n"
+sudo pacman -S paru doas
 
 #printf "###Make config file for doas..."
 #touch /etc/doas.conf 
@@ -13,78 +12,42 @@ sudo paru -S doas
 #printf "###Install xorg-server and display manager"
 #doas pacman -S picom xorg-server xorg-xrandr lightdm lightdm-gtk-greeter xorg-xrdb 
 
-printf "###Install nvim..."
+printf "###Install nvim...\n"
 doas pacman -S neovim 
 
-printf"###Install Multimedia..."
+printf"###Install Multimedia...\n"
 #doas pacman -S pipewire pipewire-alsa pipewire-pulse 
-doas pacman -S pulseaudio 
-doas pacman -S pulsemixer 
-doas pacman -S mpv 
-doas pacman -S mpd 
-doas pacman -S moc 
-doas pacman -S ncmpcpp 
-doas pacman -S youtube-dl 
-doas pacman -S ffmpeg 
+doas pacman -S pulseaudio pulsemixer mpv mpd moc ncmpcpp youtube-dl ffmpeg
 
-printf "###Install file manger..."
-doas pacman -S nnn 
-doas pacman -S dolphin 
-doas pacman -S pcmanfm 
+printf "###Install file manger...\n"
+doas pacman -S nnn dolphin pcmanfm 
 
-printf "###Install terminal and tools..."
-doas pacman -S alacritty 
-doas pacman -S fish 
-doas pacman -S kitty 
-doas pacman -S exa 
-doas pacman -S fzf
-doas pacman -S cmatrix 
-doas pacman -S xdotool 
+printf "###Install terminal and tools...\n"
+doas pacman -S alacritty fish kitty exa fzf cmatrix xdotool 
 
-printf "###Install Diagnostic..."
-doas pacman -S htop 
-doas pacman -S nvtop 
+printf "###Install Diagnostic...\n"
+doas pacman -S htop nvtop
 
-printf "###Install nvidia..."
-doas pacman -S nvidia 
-doas pacman -S nvidia-lts 
-doas pacman -S optimus-manager 
+printf "###Install nvidia...\n"
+doas pacman -S nvidia nvidia-lts optimus-manager
 
-printf "###Install browsers"
-doas pacman -S brave-bin 
-doas pacman -S firefox 
-doas pacman -S google-chrome 
-doas pacman -S chromium 
-doas pacman -S qutebrowser 
+printf "###Install browsers\n"
+doas pacman -S brave-bin firefox google-chrome chromium qutebrowser
 
-printf "###Install pdf tools..."
-doas pacman -S zathura 
-doas pacman -S okular 
+printf "###Install pdf tools...\n"
+doas pacman -S zathura okular
 
-printf "###Install launcher themes and tools ..."
-doas pacman -S python-pywal 
-doas pacman -S qt5ct 
-doas pacman -S lxappearance 
-doas pacman -S kvantum 
+printf "###Install launcher themes and tools ...\n"
+doas pacman -S python-pywal qt5ct lxappearance kvantum
 
-printf "###Install firewall..."
+printf "###Install firewall...\n"
 doas pacman -S gufw 
 
-printf "###Install aur..."
-doas pacman -S git 
-doas pacman -S paru 
-doas pacman -S yay 
+printf "###Install aur...\n"
+doas pacman -S git paru yay
 
-printf "###Install general tools..."
-doas pacman -S sxhkd 
-doas pacman -S dmenu 
-doas pacman -S rofi 
-doas pacman -S sxiv 
-doas pacman -S clipmenu 
-doas pacman -S trash-cli 
-doas pacman -S kdialog 
-doas pacman -S xorg-xprop
+printf "###Install general tools...\n"
+doas pacman -S sxhkd dmenu rofi sxiv clipmenu trash-cli kdialog xorg-xprop
 
-printf "###Install zoom and tools..."
-doas pacman -S zoom
-doas pacman -S droidcam 
+printf "###Install zoom and tools...\n"
+doas pacman -S zoom droidcam
