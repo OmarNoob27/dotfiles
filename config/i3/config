@@ -524,7 +524,7 @@ popup_during_fullscreen smart
 # delete or uncomment the following lines if you do not have it or do not
 # want it
 
-for_window [class="^.*"] border pixel 3
+for_window [class="^.*"] border pixel 2
 gaps inner 12
 gaps outer 0
 smart_gaps on
@@ -634,8 +634,8 @@ bar {
 #my theme 
 
     colors {
-        #background #282828
-        background #1c1a25
+        #background #1c1a25
+        background #040000
         statusline #eeeeee
         #separator  #ebdbb2
         separator  #eaf08d

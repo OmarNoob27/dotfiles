@@ -1,6 +1,7 @@
 #!/bin/bash 
 printf "###Updating the system...\n"
 sudo pacman -Syyu
+printf "###Now,The system is up todate...\n"
 
 printf "###Install aur helper and doas...\n"
 sudo pacman -S paru doas
