@@ -40,7 +40,8 @@ XF86MonBrightnessDown
 	backlight_control -5 && pkill -RTMIN+20 i3blocks
 #dmenu 
 super + shift + d 
-	dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+	dmenu_run  
+	#dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
 #lang 
 shift+ ctrl + l 
 	(setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ar || setxkbmap us && pkill -RTMIN+15 i3blocks
@@ -67,7 +68,8 @@ XF86AudioStop
 	playerctl stop
 #clipboard 
 super + d 
-	clipmenu -fn 'NotoMonoRegular:bold:pixelsize=16'
+	clipmenu  
+
 #htop 
 super + shift + h 
   /home/omar/scripts/resources

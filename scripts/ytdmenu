@@ -1,5 +1,5 @@
 #!/bin/bash
-OPT=$(echo -e "Download_mp3\nDownload_mp4" | dmenu -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=16' -p "Choose action: ")
+OPT=$(echo -e "Download_mp3\nDownload_mp4" | dmenu -fn 'NotoMonoRegular:bold:pixelsize=16' -p "Choose action: ")
 case $OPT in
 	Download_mp3 )  kitty -e /home/omar/scripts/mp3 ;;
 	Download_mp4 )     kitty -e /home/omar/scripts/mp4 ;; 

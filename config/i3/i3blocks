@@ -18,6 +18,10 @@ border_right=0
 border_bottom=1
 border_left=0
 
+#[mediaplayer]
+#interval=1
+
+
 [lang]
 command=xkb-switch | xargs echo  
 interval=once
