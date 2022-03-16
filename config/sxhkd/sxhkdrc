@@ -147,3 +147,6 @@ shift + Return
 #whataspp 
 super + shift + w 
     whatsapp-nativefier
+#creat vim file 
+super + shift + v 
+    kitty -e nvim

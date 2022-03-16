@@ -7,7 +7,7 @@ Chromium
 Qutebrowser")
 
 #choice=$(echo -e "${options[@]}" | dmenu -l 10 -i -fn 'Roboto Mono' -p 'launch browser: ' -nb '#3b3b3b' -nf '#71988a' -sb '#000000' -sf '#71988a')
-choice=$(echo -e "${options[@]}" | dmenu -fn 'NotoMonoRegular:bold:pixelsize=15' -i -l 20  -p 'launch browser: ' )
+choice=$(echo -e "${options[@]}" | dmenu -i -l 20  -p 'launch browser: ' )
 
 case "$choice" in 
     quit)

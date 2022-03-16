@@ -8,6 +8,7 @@
 - cli file manager : lf > ranger > nnn 
 - gui file manager : pcmanfm > dolphin > pcmanfm > dolphin > thunar 
 - terminal : st > alacritty > st > terminator > alacritty > kitty
+- theme for terminal : arthur
 - shell : bash  > fish 
 - key binding : xbindkeys > sxhkd
 - dynamic menu : dmenu 

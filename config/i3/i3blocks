@@ -128,15 +128,15 @@ border_right=0
 border_bottom=1
 border_left=0
 
-[micro]
-interval=once
-signal=17
-color=#95e6cb
-border=#95e6cb
-border_top=0
-border_right=0
-border_bottom=1
-border_left=0
+#[micro]
+#interval=once
+#signal=17
+#color=#95e6cb
+#border=#95e6cb
+#border_top=0
+#border_right=0
+#border_bottom=1
+#border_left=0
 
 [volbar2]
 interval=once
