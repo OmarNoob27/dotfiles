@@ -342,7 +342,7 @@ alias rk='pulseaudio -k; pulseaudio --start'
 alias pulse='doas nvim /etc/pulse/default.pa'
 alias gs='cd ~/scripts'
 alias sbup='cp -r scripts/ scripts_backup/'
-alias ge='cd ~/enterprise'
+alias ge='cd ~/Enterprise'
 alias pr='proxychains'
 alias pf='proxychains firefox'
 alias toand='sh ~/scripts/android.sh'
@@ -374,6 +374,7 @@ alias emus='pkill mpd'
 alias rd='zaread'
 alias gsh='~/scripts/gsh'
 alias size='gdu'
+alias gm='cd /media'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S
@@ -407,7 +408,7 @@ alias n='nnn -Rxe'
 alias sn='sudo -E nnn -eRH'
 #export NNN_PLUG='p:mocq;i:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;x:!doas chmod +x $nnn;k:pskill;K:!pkill mpv;s:!bash -i*;o:fzopen' #to play this plug press ; then choose option 
 export NNN_PLUG='F:fixname;m:nmount;i:imgview;f:fzcd;t:mp3conv;e:suedit;v:preview-tui;x:!doas chmod +x $nnn;s:!bash -i*;o:fzopen;k:kdeconnect;u:upload;p:rsynccp' #to play this plug press ; then choose option 
-export NNN_BMS="g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;C:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;c:~/.config;p:~/pins;P:~/Pictures;m:~/Music;e:~/enterprise;v:~/Videos;k:/run/user/1000/59cda44b9f5d1bb4/;T:~/Templates" #to play this plug press b then choose option 
+export NNN_BMS="m:/media/;g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;C:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;c:~/.config;p:~/pins;P:~/Pictures;M:~/Music;e:~/Enterprise;v:~/Videos;k:/run/user/1000/59cda44b9f5d1bb4/;T:~/Templates" #to play this plug press b then choose option 
 #xdg-open is the default opener for nnn 
 export NNN_OPENER=nnnopen #nnnopen path : /usr/bin/nnnopen
 #export NNN_OPENER=nuke 
