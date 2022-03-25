@@ -113,7 +113,8 @@ super + shift + z
     zoom
 #emoji 
 super + o 
-    bemoji -f ~/scripts/emoji
+    emote 
+    #bemoji -f ~/scripts/emoji
 #kill mpv 
 super + v 
     pkill mpv 

@@ -89,42 +89,42 @@ end
 
 ### FUNCTIONS ###
 # Spark functions
-function letters
-    cat $argv | awk -vFS='' '{for(i=1;i<=NF;i++){ if($i~/[a-zA-Z]/) { w[tolower($i)]++} } }END{for(i in w) print i,w[i]}' | sort | cut -c 3- | spark | lolcat
-    printf  '%s\n' 'abcdefghijklmnopqrstuvwxyz'  ' ' | lolcat
-end
+#function letters
+#    cat $argv | awk -vFS='' '{for(i=1;i<=NF;i++){ if($i~/[a-zA-Z]/) { w[tolower($i)]++} } }END{for(i in w) print i,w[i]}' | sort | cut -c 3- | spark | lolcat
+#    printf  '%s\n' 'abcdefghijklmnopqrstuvwxyz'  ' ' | lolcat
+#end
 
-function commits
-    git log --author="$argv" --format=format:%ad --date=short | uniq -c | awk '{print $1}' | spark | lolcat
-end
+#function commits
+#    git log --author="$argv" --format=format:%ad --date=short | uniq -c | awk '{print $1}' | spark | lolcat
+#end
 
 # Functions needed for !! and !$
-function __history_previous_command
-  switch (commandline -t)
-  case "!"
-    commandline -t $history[1]; commandline -f repaint
-  case "*"
-    commandline -i !
-  end
-end
+#function __history_previous_command
+#  switch (commandline -t)
+#  case "!"
+#    commandline -t $history[1]; commandline -f repaint
+#  case "*"
+#    commandline -i !
+#  end
+#end
 
-function __history_previous_command_arguments
-  switch (commandline -t)
-  case "!"
-    commandline -t ""
-    commandline -f history-token-search-backward
-  case "*"
-    commandline -i '$'
-  end
-end
+#function __history_previous_command_arguments
+#  switch (commandline -t)
+#  case "!"
+#    commandline -t ""
+#    commandline -f history-token-search-backward
+#  case "*"
+#    commandline -i '$'
+#  end
+#end
 # The bindings for !! and !$
-if [ $fish_key_bindings = "fish_vi_key_bindings" ];
-  bind -Minsert ! __history_previous_command
-  bind -Minsert '$' __history_previous_command_arguments
-else
-  bind ! __history_previous_command
-  bind '$' __history_previous_command_arguments
-end
+#if [ $fish_key_bindings = "fish_vi_key_bindings" ];
+#  bind -Minsert ! __history_previous_command
+#  bind -Minsert '$' __history_previous_command_arguments
+#else
+#  bind ! __history_previous_command
+#  bind '$' __history_previous_command_arguments
+#end
 
 # Function for creating a backup file
 # ex: backup file.txt
@@ -136,59 +136,59 @@ end
 # Function for copying files and directories, even recursively.
 # ex: copy DIRNAME LOCATIONS
 # result: copies the directory and all of its contents.
-function copy
-    set count (count $argv | tr -d \n)
-    if test "$count" = 2; and test -d "$argv[1]"
-	set from (echo $argv[1] | trim-right /)
-	set to (echo $argv[2])
-        command cp -r $from $to
-    else
-        command cp $argv
-    end
-end
+#function copy
+#    set count (count $argv | tr -d \n)
+#    if test "$count" = 2; and test -d "$argv[1]"
+#	set from (echo $argv[1] | trim-right /)
+#	set to (echo $argv[2])
+#        command cp -r $from $to
+#    else
+#        command cp $argv
+#    end
+#end
 
 # Function for printing a column (splits input on whitespace)
 # ex: echo 1 2 3 | coln 3
 # output: 3
-function coln
-    while read -l input
-        echo $input | awk '{print $'$argv[1]'}'
-    end
-end
+#function coln
+#    while read -l input
+#        echo $input | awk '{print $'$argv[1]'}'
+#    end
+#end
 
 # Function for printing a row
 # ex: seq 3 | rown 3
 # output: 3
-function rown --argument index
-    sed -n "$index p"
-end
+#function rown --argument index
+#    sed -n "$index p"
+#end
 
 # Function for ignoring the first 'n' lines
 # ex: seq 10 | skip 5
 # results: prints everything but the first 5 lines
-function skip --argument n
-    tail +(math 1 + $n)
-end
+#function skip --argument n
+#    tail +(math 1 + $n)
+#end
 
 # Function for taking the first 'n' lines
 # ex: seq 10 | take 5
 # results: prints only the first 5 lines
-function take --argument number
-    head -$number
-end
+#function take --argument number
+#    head -$number
+#end
 
 # Function for org-agenda
-function org-search -d "send a search string to org-mode"
-    set -l output (/usr/bin/emacsclient -a "" -e "(message \"%s\" (mapconcat #'substring-no-properties \
-        (mapcar #'org-link-display-format \
-        (org-ql-query \
-        :select #'org-get-heading \
-        :from  (org-agenda-files) \
-        :where (org-ql--query-string-to-sexp \"$argv\"))) \
-        \"
-    \"))")
-    printf $output
-end
+#function org-search -d "send a search string to org-mode"
+    #set -l output (/usr/bin/emacsclient -a "" -e "(message \"%s\" (mapconcat #'substring-no-properties \
+        #(mapcar #'org-link-display-format \
+        #(org-ql-query \
+        #:select #'org-get-heading \
+        #:from  (org-agenda-files) \
+        #:where (org-ql--query-string-to-sexp \"$argv\"))) \
+        #\"
+    #\"))")
+    #printf $output
+#end
 
 ### END OF FUNCTIONS ###
 
@@ -310,10 +310,10 @@ alias blk='lsblk'
 alias vim='doas nvim'
 alias g='cd ~/Documents/GitHub'
 alias gd='cd /home/omar/Documents/Github/dotfiles'
-alias pmug='git pull'
-alias ex='extract'
-alias sp='sh /home/omar/scripts/fzf-ueberzogen.sh'
-alias H='history | fzf | xclip -selection clipboard'
+#alias pmug='git pull'
+#alias ex='extract'
+#alias sp='sh /home/omar/scripts/fzf-ueberzogen.sh'
+#alias H='history | fzf | xclip -selection clipboard'
 #alias img='sxiv * &'
 alias img='~/scripts/sxivall1.sh'
 alias imgall='~/scripts/sxivall2.sh'
@@ -400,6 +400,112 @@ function v
     doas nvim $argv
 end
 
+####################################
+####################################
+#cd any directory by alias sd 
+function sd -d "Change directory"
+    set -l commandline (__fzf_parse_commandline)
+    set -l dir $commandline[1]
+    set -l fzf_query $commandline[2]
+
+    if not type -q argparse
+        # Fallback for fish shell version < 2.7
+        function argparse
+            functions -e argparse # deletes itself
+        end
+        if contains -- --hidden $argv; or contains -- -h $argv
+            set _flag_hidden "yes"
+        end
+    end
+
+    # Fish shell version >= v2.7, use argparse
+    set -l options  "h/hidden"
+    argparse $options -- $argv
+
+    set -l COMMAND
+
+    set -q FZF_CD_COMMAND
+    or set -l FZF_CD_COMMAND "
+    command find -L \$dir -mindepth 1 \\( -path \$dir'*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' \\) -prune \
+    -o -type d -print 2> /dev/null | sed 's@^\./@@'"
+
+    set -q FZF_CD_WITH_HIDDEN_COMMAND
+    or set -l FZF_CD_WITH_HIDDEN_COMMAND "
+    command find -L \$dir \
+    \\( -path '*/\\.git*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune \
+    -o -type d -print 2> /dev/null | sed 1d | cut -b3-"
+
+    if set -q _flag_hidden
+        set COMMAND $FZF_CD_WITH_HIDDEN_COMMAND
+    else
+        set COMMAND $FZF_CD_COMMAND
+    end
+
+    eval "$COMMAND | "(__fzfcmd)" +m $FZF_DEFAULT_OPTS $FZF_CD_OPTS --query \"$fzf_query\"" | read -l select
+
+    if not test -z "$select"
+        builtin cd "$select"
+
+        # Remove last token from commandline.
+        commandline -t ""
+    end
+
+    commandline -f repaint
+end
+####################################
+####################################
+# name: sashimi prompt 
+
+function __fzf_cd -d "Change directory"
+    set -l commandline (__fzf_parse_commandline)
+    set -l dir $commandline[1]
+    set -l fzf_query $commandline[2]
+
+    if not type -q argparse
+        # Fallback for fish shell version < 2.7
+        function argparse
+            functions -e argparse # deletes itself
+        end
+        if contains -- --hidden $argv; or contains -- -h $argv
+            set _flag_hidden "yes"
+        end
+    end
+
+    # Fish shell version >= v2.7, use argparse
+    set -l options  "h/hidden"
+    argparse $options -- $argv
+
+    set -l COMMAND
+
+    set -q FZF_CD_COMMAND
+    or set -l FZF_CD_COMMAND "
+    command find -L \$dir -mindepth 1 \\( -path \$dir'*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' \\) -prune \
+    -o -type d -print 2> /dev/null | sed 's@^\./@@'"
+
+    set -q FZF_CD_WITH_HIDDEN_COMMAND
+    or set -l FZF_CD_WITH_HIDDEN_COMMAND "
+    command find -L \$dir \
+    \\( -path '*/\\.git*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune \
+    -o -type d -print 2> /dev/null | sed 1d | cut -b3-"
+
+    if set -q _flag_hidden
+        set COMMAND $FZF_CD_WITH_HIDDEN_COMMAND
+    else
+        set COMMAND $FZF_CD_COMMAND
+    end
+
+    eval "$COMMAND | "(__fzfcmd)" +m $FZF_DEFAULT_OPTS $FZF_CD_OPTS --query \"$fzf_query\"" | read -l select
+
+    if not test -z "$select"
+        builtin cd "$select"
+
+        # Remove last token from commandline.
+        commandline -t ""
+    end
+
+    commandline -f repaint
+end
+
 #my config for nnn file manger 
 #alias nnn='nnn -ed'
 alias nnn='nnn -eRx'
@@ -419,4 +525,3 @@ export NNN_FCOLORS='c1e29568E66033f7c6d6abc4'
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_TRASH=1 #to use trash (needs trash-cli) instead of delete. the trash's directory : /home/omar/.local/share/Trash/files
 export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)"
-
