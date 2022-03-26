@@ -375,6 +375,7 @@ alias rd='zaread'
 alias gsh='~/scripts/gsh'
 alias size='gdu'
 alias gm='cd /media'
+alias yts='~/scripts/yts'
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S
