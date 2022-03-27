@@ -50,8 +50,9 @@ border_bottom=1
 border_left=0
 
 
-#[uptime]
-#interval=60
+[uptime]
+interval=60
+color=#d19a66
 
 [nettraf]
 interval=2
