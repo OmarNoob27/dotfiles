@@ -152,3 +152,6 @@ super + shift + w
 #creat vim file 
 super + shift + v 
     kitty -e nvim
+#any disk 
+super + shift + a 
+    anydesk

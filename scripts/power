@@ -1,5 +1,6 @@
 #!/bin/bash
-OPT=$(echo -e "lock\nlogout\nreboot\nsuspend\nhibernate\nshutdown" | dmenu -p "Choose action: ")
+#OPT=$(echo -e "lock\nlogout\nreboot\nsuspend\nhibernate\nshutdown" | dmenu -p "Choose action: ")
+OPT=$(echo -e "lock\nlogout\nreboot\nsuspend\nhibernate\nshutdown" | dmenu  -p "Choose action: ")
 #OPT=$(echo -e "lock\nlogout\nreboot\nsuspend\nhibernate\nshutdown" | dmenu  -fn 'NotoMonoRegular:bold:pixelsize=18' -p "Choose action: ")
 case $OPT in
 	lock ) [ "$(printf "No\\nYes" | dmenu -i -fn 'NotoMonoRegular:bold:pixelsize=16' -p "Really lock?")" = "Yes" ] && betterlockscreen -l dimblur -- --time-str="%H:%M" ;;
