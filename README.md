@@ -20,6 +20,8 @@
 | Launcher Themes | python-pywal qt5ct lxappearance kvantum | 
 | Firewall | gufw | 
 | General Tools | sxhkd dmenu rofi sxiv clipmenu trash-cli kdialog xorg-xprop | 
+| Laptop Battery Life | tlp tlp-rdw auto-cpufreq slimbookbattery | 
+| Office | libreoffice | 
 | Meetings | zoom droidcam |
 
 
