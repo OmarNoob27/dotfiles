@@ -278,9 +278,8 @@ alias dtosbackup='cp -Rf /etc/dtos ~/dtos-backup-(date +%Y.%m.%d-%H.%M.%S)'
 #alias v='doas nvim'
 alias h='cd ~'
 alias p='cd ..'
-alias C='doas chmod 777'
-alias c='doas chmod 744'
-alias do='doas'
+alias c='doas chmod 777'
+alias d='doas'
 #/opt/shell-color-scripts/colorscripts/colorscript.sh -r 
 /home/omar/github/shell-color-scripts/colorscript.sh -r 
 #eval "$(starship init bash)"
@@ -301,7 +300,7 @@ alias e='exit'
 alias tomp3='sh ~/scripts/tomp3.sh'
 alias install='makepkg -si'
 alias md='mkdir'
-alias config='/home/omar/github/dmscripts/scripts/dm-confedit'
+alias config='/home/omar/scripts/githubscripts/dm-confedit'
 alias blk='lsblk'
 #list
 #alias ls='ls --color=auto'
@@ -309,7 +308,9 @@ alias blk='lsblk'
 #alias ll='ls -la'
 #alias l='ls'
 #alias l.="ls -A | egrep '^\.'"
-#alias vim='doas nvim'
+alias vim='doas nvim'
+#alias g='cd ~/Documents/GitHub'
+alias gd='cd /home/omar/Documents/Github/dotfiles'
 #alias pmug='git pull'
 #alias ex='extract'
 #alias sp='sh /home/omar/scripts/fzf-ueberzogen.sh'
@@ -321,7 +322,7 @@ alias gc='cd ~/.config'
 alias cdi='cd ~/.config/i3'
 alias ram='ps axh -o cmd:15,%mem --sort=-%mem | head | string trim'
 alias cpu='ps axh -o cmd:15,%cpu --sort=-%cpu | head'
-alias bup='sh /home/omar/scripts/gitupload.sh'
+alias bup='sh /home/omar/scripts/gitupload'
 alias y='ytfzf -ml'
 alias yy='ytfzf -t'
 #alias df='df -h'
@@ -331,7 +332,7 @@ alias printerinstall='hp-setup -u'
 alias epdf='okular'
 alias topdf='sh ~/scripts/topdf.sh'
 alias lf='lfrun'
-#alias vim='nvim'
+alias vim='nvim'
 alias gn='cd ~/.config/nnn'
 alias tl='trash-list' 
 alias tr='trash-restore'
@@ -342,6 +343,7 @@ alias rk='pulseaudio -k; pulseaudio --start'
 alias pulse='doas nvim /etc/pulse/default.pa'
 alias gs='cd ~/scripts'
 alias sbup='cp -r scripts/ scripts_backup/'
+alias ge='cd ~/Enterprise'
 alias pr='proxychains'
 alias pf='proxychains firefox'
 alias toand='sh ~/scripts/android.sh'
@@ -365,7 +367,7 @@ alias ll='exa --group-directories-first  --icons -lh'
 alias la='exa --group-directories-first  --icons -lah'
 alias l='exa --group-directories-first  --icons'
 alias ls='exa --group-directories-first  --icons'
-#alias hub='/home/omar/github/dmscripts/scripts/dm-hub'
+alias hub='~/scripts/githubscripts/dm-hub'
 alias calc='gnome-calculator'
 alias smus='mpd && ncmpcpp'
 alias mus='ncmpcpp'
@@ -375,16 +377,6 @@ alias gsh='~/scripts/gsh'
 alias size='gdu'
 alias gm='cd /media'
 alias yts='~/scripts/yts'
-# Function for fish 
-
-function gd 
-  cd ~/Documents/GitHub/dotfiles/
-end 
-
-function hub 
-    cd /home/omar/github/dmscripts/scripts/
-    ./dm-hub
-end
 #search pkg with packman and install it 
 function pmsi
     pacman -Slq | fzf --multi --preview 'pacman -Si {1}' | xargs -ro doas pacman -S
@@ -401,26 +393,14 @@ end
 function sc
     du -a ~/scripts/ | awk '{print $2}' | fzf --preview='head -$LINES {}'| xargs -r $EDITOR
 end 
-# excution selected script 
-function se
-    du -a ~/scripts/ | awk '{print $2}' | fzf --preview='head -$LINES {}' | xargs -r sh
-end 
 #search in $pwd and open it 
 function sf 
     fzf --preview='head -$LINES {}'| xargs -r -I % $EDITOR % 
 end 
 #alias to nvim 
 function v
-    nvim $argv
-end
-
-function vi
     doas nvim $argv
 end
-# nvim 
-# function vim
-#   nvim $argv
-#end
 
 ####################################
 ####################################
@@ -536,7 +516,7 @@ alias n='nnn -Rxe'
 alias sn='sudo -E nnn -eRH'
 #export NNN_PLUG='p:mocq;i:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;x:!doas chmod +x $nnn;k:pskill;K:!pkill mpv;s:!bash -i*;o:fzopen' #to play this plug press ; then choose option 
 export NNN_PLUG='F:fixname;m:nmount;i:imgview;f:fzcd;t:mp3conv;e:suedit;v:preview-tui;x:!doas chmod +x $nnn;s:!bash -i*;o:fzopen;k:kdeconnect;u:upload;p:rsynccp' #to play this plug press ; then choose option 
-export NNN_BMS="m:/media/;g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;C:~/cell;w:~/wallpapers;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;c:~/.config;p:~/pins;P:~/Pictures;M:~/Music;e:~/Enterprise;v:~/Videos;k:/run/user/1000/59cda44b9f5d1bb4/;T:~/Templates" #to play this plug press b then choose option 
+export NNN_BMS="m:/media/;g:$HOME/Documents/Github/dotfiles;d:$HOME/Downloads/;h:~;s:~/scripts;f:~/ffmpeg;C:~/cell;w:~/wall;y:~/youtube-dl;t:~/.local/share/Trash/files;S:~/screenshots;c:~/.config;p:~/pins;P:~/Pictures;M:~/Music;e:~/Enterprise;v:~/Videos;k:/run/user/1000/59cda44b9f5d1bb4/;T:~/Templates" #to play this plug press b then choose option 
 #xdg-open is the default opener for nnn 
 export NNN_OPENER=nnnopen #nnnopen path : /usr/bin/nnnopen
 #export NNN_OPENER=nuke 
