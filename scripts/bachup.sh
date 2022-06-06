@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-# Path for this script is : ~/Backup/
+# Path for this script is : ~/Backup/bachup.sh
 
 currentdir=$(pwd)
 
