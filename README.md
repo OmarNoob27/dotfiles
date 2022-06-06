@@ -8,7 +8,7 @@
 | Permissions  | doas |
 | Aur Helper  | paru yay git |
 | Display |  xorg-server xorg-xrandr lightdm lightdm-gtk-greeter xorg-xrdb |
-| Editor | nvim | 
+| Editor | nvim [github for nvim](https://github.com/AstroNvim/AstroNvim) | 
 | Multimedia | pulseaudio pulsemixer mpv mpv-mpris mpd mpc moc ncmpcpp youtube-dl ffmpeg | 
 | File Manager | nnn dolphin pcmanfm | 
 | Terminal and some tools | alacritty fish kitty exa fzf cmatrix xdotool xclip maim |
