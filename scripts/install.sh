@@ -24,7 +24,7 @@ printf "###Install file manger...\n"
 pacman -S nnn dolphin pcmanfm 
 
 printf "###Install terminal and tools...\n"
-pacman -S alacritty fish kitty exa fzf cmatrix xdotool 
+pacman -S alacritty fish kitty exa fzf cmatrix xdotool xclip maim
 
 printf "###Install Diagnostic...\n"
 pacman -S htop nvtop
@@ -36,7 +36,7 @@ printf "###Install browsers\n"
 pacman -S brave-bin firefox google-chrome chromium qutebrowser
 
 printf "###Install pdf tools...\n"
-pacman -S zathura okular
+pacman -S zathura okular zathura-pdf-mupdf
 
 printf "###Install launcher themes and tools ...\n"
 pacman -S python-pywal qt5ct lxappearance kvantum
