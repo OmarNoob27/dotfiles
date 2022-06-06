@@ -10,7 +10,7 @@
 | Display |  xorg-server xorg-xrandr lightdm lightdm-gtk-greeter xorg-xrdb |
 | Editor and IDE | nvim [Github for nvim..](https://github.com/AstroNvim/AstroNvim) | 
 | Scripts | dm-scripts [Gitlap for dmscripts..](https://gitlab.com/dwt1/dmscripts)|
-| Multimedia | pulseaudio pulsemixer mpv mpv-mpris mpd mpc moc ncmpcpp youtube-dl ffmpeg | 
+| Multimedia | pulseaudio pulsemixer mpv mpv-mpris mpd mpDris2 mpc moc ncmpcpp youtube-dl ffmpeg | 
 | File Manager | nnn dolphin pcmanfm | 
 | Terminal and some tools | alacritty fish kitty exa fzf cmatrix xdotool xclip maim |
 | Diagnostic | htop nvtop | 
