@@ -5,7 +5,8 @@
 
 | Utility  | Packages            |
 | -----     | --------------- |
-| Aur Helper  | doas, paru yay git |
+| Permissions  | doas |
+| Aur Helper  | paru yay git |
 | Display |  xorg-server xorg-xrandr lightdm lightdm-gtk-greeter xorg-xrdb |
 | Editor | nvim | 
 | Multimedia | pulseaudio pulsemixer mpv mpv-mpris mpd mpc moc ncmpcpp youtube-dl ffmpeg | 
