@@ -131,7 +131,8 @@ super + t
     kdialog --calendar date
 #hub 
 super + shift + o 
-	/home/omar/github/dmscripts/scripts/dm-hub
+	~/scripts/hub.sh
+	#/home/omar/github/dmscripts/scripts/dm-hub
 #song
 super + n 
     ~/scripts/noti
