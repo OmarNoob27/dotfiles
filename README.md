@@ -3,6 +3,8 @@
 
 ![Markdown logo](https://markdown-here.com/img/icon256.png)
 
+## Dotfiles 
+
 * Operating System 
    * Linux, Arch 
 * Window Manager 
@@ -39,6 +41,7 @@
 	* libreoffice-still
 * Virtual OS 
 	* ubuntu
+
 
 | Utility  | Packages            |
 | -----     | --------------- |
