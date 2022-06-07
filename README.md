@@ -1,4 +1,4 @@
-# it's up to you ...
+# it's up to you 😇 
 
 ## Dotfiles 
 
