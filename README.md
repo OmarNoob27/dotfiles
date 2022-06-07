@@ -1,9 +1,9 @@
-# it's up to you 
+# it's up to you ...
 
 ## Dotfiles 
 
 * Operating System 
-   * Linux, Arch 
+   * Linux, ArcoD
 * Window Manager 
 	* i3 
 * Status Bar 
@@ -11,7 +11,7 @@
 * Terminal 
 	* kitty
 * Editor 
-	* nvim
+	* nvim & vscodium
  * Shell 
 	* fish 
 * Launcher 
@@ -36,6 +36,8 @@
 	* guwf 
 * Office 
 	* libreoffice-still
+* Mail Client 
+	* mailspring
 * Virtual OS 
 	* ubuntu
 
@@ -45,7 +47,7 @@
 | Permissions  | doas |
 | Aur Helper  | paru yay git |
 | Display |  xorg-server xorg-xrandr lightdm lightdm-gtk-greeter xorg-xrdb |
-| Editor and IDE | nvim [Github for nvim..](https://github.com/AstroNvim/AstroNvim) | 
+| Editor and IDE | nvim [Github for nvim..](https://github.com/AstroNvim/AstroNvim), vscodium| 
 | Scripts | dm-scripts [Gitlap for dmscripts..](https://gitlab.com/dwt1/dmscripts)|
 | Multimedia | pulseaudio pulsemixer mpv mpv-mpris mpd mpDris2 mpc moc ncmpcpp youtube-dl yt-dlp ffmpeg | 
 | File Manager | nnn dolphin pcmanfm | 
@@ -59,9 +61,5 @@
 | General Tools | sxhkd dmenu rofi sxiv clipmenu trash-cli kdialog xorg-xprop | 
 | Laptop Battery Life | tlp tlp-rdw auto-cpufreq slimbookbattery | 
 | Office | libreoffice | 
+| Mail | mailspring | 
 | Meetings | zoom droidcam |
-
-
-
-
-
