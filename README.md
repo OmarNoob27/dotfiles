@@ -16,7 +16,7 @@
  * Shell 
 	* fish 
 * Launcher 
-	* dmenu [Gitlap for dmenu] (https://gitlab.com/dwt1/dmenu-distrotube)
+	* dmenu [Gitlap for dmenu..](https://gitlab.com/dwt1/dmenu-distrotube)
 * File Manger 
 	* nnn & dolphin 
 * Music Player 
