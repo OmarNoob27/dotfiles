@@ -3,6 +3,43 @@
 
 ![Markdown logo](https://markdown-here.com/img/icon256.png)
 
+* Operating System 
+   * Linux, Arch 
+* Window Manager 
+	* i3 
+* Status Bar 
+	* i3blocks 
+* Terminal 
+	* kitty
+* Editor 
+	* nvim
+ * Shell 
+	* fish 
+* Launcher 
+	* dmenu [Gitlap for dmenu] (https://gitlab.com/dwt1/dmenu-distrotube)
+* File Manger 
+	* nnn & dolphin 
+* Music Player 
+	* mpd & ncmpcpp
+* Video Player 
+	* mpv 
+* Photo Viewer 
+	* sxiv
+* pdf Viewer 
+	* zathura
+* Key Binding 
+	* sxhkd 
+* Browser 
+	* brave 
+* Search Engine 
+	* duckduckgo 
+* Firewall 
+	* guwf 
+* Office 
+	* libreoffice-still
+* Virtual OS 
+	* ubuntu
+
 | Utility  | Packages            |
 | -----     | --------------- |
 | Permissions  | doas |
