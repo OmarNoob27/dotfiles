@@ -16,8 +16,10 @@
 	* fish 
 * Launcher 
 	* dmenu [Gitlap for dmenu..](https://gitlab.com/dwt1/dmenu-distrotube)
-* File Manger 
-	* nnn & dolphin 
+* Terminal File Manager 
+	* nnn  
+* Gui File Manager 
+	* dolphin and pcmanfm
 * Music Player 
 	* mpd & ncmpcpp
 * Video Player 
@@ -61,5 +63,6 @@
 | General Tools | sxhkd dmenu rofi sxiv clipmenu trash-cli kdialog xorg-xprop | 
 | Laptop Battery Life | tlp tlp-rdw auto-cpufreq slimbookbattery | 
 | Office | libreoffice | 
-| Mail | mailspring | 
+| Mail | thunderbird mailspring | 
 | Meetings | zoom droidcam |
+| Password Manager | keepassxc | 
