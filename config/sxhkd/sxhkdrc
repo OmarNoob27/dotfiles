@@ -9,7 +9,8 @@ super + shift + b
 	~/scripts/browser.sh
 #file manger gui 
 super + shift + Return
-    dolphin /home/omar
+	pcmanfm /home/omar
+    #dolphin /home/omar
 #xkill 
 super + shift + x 
 	xkill
@@ -58,6 +59,7 @@ super + shift + i
 #move wall 
 super + i 
     ~/scripts/wall.sh
+
 #play pause 
 XF86AudioPlay
 	playerctl play-pause
@@ -70,6 +72,20 @@ XF86AudioPrev
 #play stop 
 XF86AudioStop 
 	playerctl stop
+
+#mpd previous
+ctrl + XF86AudioPrev 
+    mpc prev 
+##	   #playerctl previous --player=mpd  
+#mpd next
+ctrl + XF86AudioNext 
+    mpc next
+##	   #playerctl next --player=mpd 
+#mpd stop
+ctrl + XF86AudioPlay
+    mpc toggle 
+##    #playerctl play-pause --player=mpd
+
 #clipboard 
 super + d 
 	clipmenu  
@@ -139,18 +155,8 @@ super + n
 #ncmpcpp
 super + shift + n 
      kitty -e ncmpcpp && ~/github/mpdq/mpdq & 
-#mpd previous
-ctrl + XF86AudioPrev 
-    mpc prev 
-	   #playerctl previous --player=mpd  
-#mpd next
-ctrl + XF86AudioNext 
-    mpc next
-	   #playerctl next --player=mpd 
-#mpd stop
-ctrl + XF86AudioPlay
-    mpc toggle 
-    #playerctl play-pause --player=mpd
+
+
 #nnn file manger 
 shift + Return
     ~/scripts/nnn.sh
@@ -162,6 +168,7 @@ shift + Return
 #creat vim file 
 super + shift + v 
     kitty -e nvim
-#any disk 
-super + shift + a 
-    anydesk
+# mailspring  
+super + shift + m
+    mailspring
+

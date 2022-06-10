@@ -25,6 +25,7 @@ color=#d19a66
 interval=3600
 color=#61afef
 
+
 [pacman.sh]
 interval=3600
 signal=7
@@ -63,6 +64,7 @@ color=#98c379
 #border_right=0
 #border_bottom=1
 #border_left=0
+
 
 #[gpu_stats]
 #command=nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{ printf "%02i<span color=\"#ffb86c\">% </span>", $0}' && nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits | awk '{ printf " %i<span color=\"#ffb86c\">°C</span>\n", $0}'

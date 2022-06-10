@@ -351,7 +351,6 @@ alias m='cmatrix'
 alias mm='unimatrix'
 alias gx='cd /usr/share/xsessions'
 alias color='rgb-tui'
-alias sv='~/scripts/dmenu_service'
 alias ns='nvidia-smi'
 alias ft='xdg-mime query filetype'
 alias fd='xdg-mime query default'
@@ -374,7 +373,12 @@ alias gsh='~/scripts/gsh'
 alias size='gdu'
 alias gm='cd /media'
 alias yts='~/scripts/yts'
+alias vs='vscodium'
 # Function for fish 
+
+function sv 
+    ~/scripts/dmenu_service.sh
+end 
 
 function gd 
   cd ~/Documents/GitHub/dotfiles/
@@ -413,9 +417,14 @@ function v
     nvim $argv
 end
 
-function vi
+function vim
     doas nvim $argv
 end
+
+function via 
+  ~/scripts/via.sh 
+end 
+
 # nvim 
 # function vim
 #   nvim $argv

@@ -7,33 +7,69 @@ set $right l
 exec --no-startup-id xrandr --output DP0 --right-of HDMI-0 --auto
 set $firstMonitor HDMI-0
 set $secondMonitor DP0
-workspace 1 output $firstMonitor
-workspace 2 output $firstMonitor
-workspace 3 output $firstMonitor
-workspace 4 output $firstMonitor
-workspace 5 output $firstMonitor
-workspace 6 output $secondMonitor
-workspace 7 output $secondMonitor
-workspace 8 output $secondMonitor
-workspace 9 output $secondMonitor
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+Shift+1 move container to workspace 1;
-bindsym $mod+Shift+2 move container to workspace 2; 
-bindsym $mod+Shift+3 move container to workspace 3; 
-bindsym $mod+Shift+4 move container to workspace 4; 
-bindsym $mod+Shift+5 move container to workspace 5; 
-bindsym $mod+Shift+6 move container to workspace 6; 
-bindsym $mod+Shift+7 move container to workspace 7; 
-bindsym $mod+Shift+8 move container to workspace 8; 
-bindsym $mod+Shift+9 move container to workspace 9; 
+
+set $WS1   1: 
+set $WS2   2: 
+set $WS3   3: 
+set $WS4   4: 
+set $WS5   5: 
+set $WS6   6: 
+set $WS7   7: 
+set $WS8   8: 
+set $WS9   9: 
+
+#       Switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+
+#       Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+
+
+#workspace 1 output $firstMonitor
+#workspace 2 output $firstMonitor
+#workspace 3 output $firstMonitor
+#workspace 4 output $firstMonitor
+#workspace 5 output $firstMonitor
+#workspace 6 output $secondMonitor
+#workspace 7 output $secondMonitor
+#workspace 8 output $secondMonitor
+#workspace 9 output $secondMonitor
+#bindsym $mod+1 workspace 1
+#bindsym $mod+2 workspace 2
+#bindsym $mod+3 workspace 3
+#bindsym $mod+4 workspace 4
+#bindsym $mod+5 workspace 5
+#bindsym $mod+6 workspace 6
+#bindsym $mod+7 workspace 7
+#bindsym $mod+8 workspace 8
+#bindsym $mod+9 workspace 9
+#bindsym $mod+Shift+1 move container to workspace 1;
+#bindsym $mod+Shift+2 move container to workspace 2; 
+#bindsym $mod+Shift+3 move container to workspace 3; 
+#bindsym $mod+Shift+4 move container to workspace 4; 
+#bindsym $mod+Shift+5 move container to workspace 5; 
+#bindsym $mod+Shift+6 move container to workspace 6; 
+#bindsym $mod+Shift+7 move container to workspace 7; 
+#bindsym $mod+Shift+8 move container to workspace 8; 
+#bindsym $mod+Shift+9 move container to workspace 9; 
+
+
 bindsym $mod+shift+q exec --no-startup-id i3exit logout
 bindsym $mod+Shift+r restart
 bindsym $mod+r reload
