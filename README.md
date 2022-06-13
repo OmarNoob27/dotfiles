@@ -30,6 +30,8 @@
 	* simplescreenrecorder 
 * pdf Viewer 
 	* zathura
+* Resource Monitor
+	* htop
 * Key Binding 
 	* sxhkd 
 * Browser 
@@ -42,6 +44,8 @@
 	* libreoffice-still
 * Mail Client 
 	* mailspring
+* Virtual Machine 
+	* vbox
 * Virtual OS 
 	* ubuntu
 
@@ -56,7 +60,7 @@
 | Multimedia | pulseaudio pulsemixer mpv mpv-mpris mpd mpDris2 mpc moc ncmpcpp youtube-dl yt-dlp ffmpeg simplescreenrecorder | 
 | File Manager | nnn dolphin pcmanfm | 
 | Terminal and some tools | alacritty fish kitty exa fzf cmatrix xdotool xclip maim |
-| Diagnostic | htop nvtop | 
+| Diagnostic | htop bashtop bpytop nvtop | 
 | Nvidia | nvidia nvidia-lts optimus-manager | 
 | Browsers | brave-bin firefox google-chrome chromium qutebrowser | 
 | pdf tools | zathura okular zathura-pdf-mupdf | 
