@@ -19,7 +19,7 @@
 * Terminal File Manager 
 	* nnn  
 * Gui File Manager 
-	* dolphin and pcmanfm
+	* pcmanfm
 * Music Player 
 	* mpd & ncmpcpp
 * Video Player 
