@@ -20,7 +20,7 @@ fi
 
 if [[ ! -f $script_file ]]; then
     echo '#!/usr/bin/env bash' > $script_file
-    chmod +x $script_file
+    chmod +744 $script_file
 fi
 
 # open script with editor

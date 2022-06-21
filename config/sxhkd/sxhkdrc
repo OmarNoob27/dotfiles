@@ -94,7 +94,7 @@ super + d
 super + shift + h 
   /home/omar/scripts/resources.sh
 #screeen record 
-super + shift + s 
+super + Print
 	simplescreenrecorder
 #	/home/omar/scripts/recordscreen.sh && pkill -RTMIN+5 i3blocks 
 
@@ -125,9 +125,11 @@ super + shift + g
 #youtube in terminal 
 super + y 
     xfce4-terminal 
+
 #youtube via mpv pause
-alt + XF86AudioPlay
-    playerctl play-pause -p mpv
+#alt + XF86AudioPlay
+#    playerctl play-pause -p mpv
+
 #zoom 
 super + shift + z 
     zoom
@@ -156,7 +158,6 @@ super + n
 super + shift + n 
      kitty -e ncmpcpp && ~/github/mpdq/mpdq & 
 
-
 #nnn file manger 
 shift + Return
     ~/scripts/nnn.sh
@@ -171,4 +172,6 @@ super + shift + v
 # mailspring  
 super + shift + m
     mailspring
-
+#messengers 
+super + shift + s 
+	signal-desktop

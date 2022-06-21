@@ -9,6 +9,5 @@ case $OPT in
   Full ) maim -i root ~/screenshots/$(date +'%Y%m%d-%H%M%S').png ;;
 	*) ;;
 esac 
-notify-send -i ~/logo/screen.png "Screenshot Taken"
 
 

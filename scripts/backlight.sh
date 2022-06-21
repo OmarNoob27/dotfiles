@@ -10,4 +10,3 @@ get_backlight()
 
 get_backlight
 
-

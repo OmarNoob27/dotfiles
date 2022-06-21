@@ -1,148 +1,185 @@
 command=/home/omar/scripts/$BLOCK_NAME
-separator_block_width=18
+
+#################
+align=center
+separator=false
+color=#f8f8f2
+separator_block_width=15
 markup=pango
 
-#global font color
-color=#ebdbb2
-#background=#222d38
-background=#040000
-
-[lang.sh]
+#separator_block_width=18
+#markup=pango
+#color=#ebdbb2
+#background=#040000
+#################
+[lang]
 command=xkb-switch | xargs echo  
 interval=once
 signal=15
-label=<span color="#00FF7B">   </span>
-#label=<span>   </span>
-color=#d19a66
-#border=#d19a66
-#border_top=0
-#border_right=0
-#border_bottom=1
-#border_left=0
+label=<span color="#bd93f9">  </span>
+border=#bd93f9
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
 
+#[lang.sh]
+#command=xkb-switch | xargs echo  
+#interval=once
+#signal=15
+#label=<span color="#00FF7B">   </span>
+#color=#d19a66
+#################
 
 [weather.sh]
 interval=3600
-color=#61afef
+color=#ff79c6
+border=#ff79c6
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
 
+#################
+[arch_update]
+command=checkupdates | wc -l
+interval=once
+#label=<span color="#1793d1"> </span>
+label=<span color="#bd93f9"> </span>
+color=#bd93f9
+border=#bd93f9
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
 
-[pacman.sh]
-interval=3600
-signal=7
-color=#c678dd
-#border=#c678dd
-#border_top=0
+#[pacman.sh]
+#interval=3600
+#signal=7
+#color=#c678dd
+#################
+
+#[uptime.sh]
+#interval=60
+#color=#d19a66
+#border_top=1
 #border_right=0
-#border_bottom=1
+#border_bottom=0
 #border_left=0
 
-
-[uptime.sh]
-interval=60
-color=#d19a66
-
+#############
 [nettraf.sh]
 interval=2
+border=#ff79c6
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
 
-#[wifidown]
-#interval=2
-
-#[wifiup]
-#interval=2
-
-#[net]
-#interval=2
-
-
+#############
 [battery.sh]
 interval=2
-color=#98c379
-##color=#ff5555
-#border=#ff5555
-#border=#98c379
-#border_top=0
-#border_right=0
-#border_bottom=1
-#border_left=0
+color=#bd93f9
+border=#bd93f9
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
 
-
-#[gpu_stats]
-#command=nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | awk '{ printf "%02i<span color=\"#ffb86c\">% </span>", $0}' && nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader,nounits | awk '{ printf " %i<span color=\"#ffb86c\">°C</span>\n", $0}'
-#label=<span color="#ffb86c"> </span>
-#interval=3
-#border=#ffb86c
-#border_top=0
-#border_right=0
-#border_bottom=1
-#border_left=0
-#separator=false
-
-#[gpuload]
-#interval=3
-#color=#ffb86c
-#border=#ffb86c
-#border_top=0
-#border_right=0
-#border_bottom=1
-#border_left=0
-
-#[gputemp]
-#interval=3
-#label=<span color="#bf0404">  </span>
-#color=#e06c75
-
+#[battery.sh]
+#interval=2
+#color=#98c379
+##############
 [cpu.sh]
+#command=sar -u 1 1 | awk 'FNR == 5 { printf "%04.1f<span color=\"#ff79c6\">%</span>", (100 - $8) } ' && sensors | awk '{ if ($1 == "CPU" && $2 == "Temperature:") { gsub(/[+°C]/, "") ; printf " %i<span color=\"#ff5555\">°C</span>\n", $3 } }'
 interval=2 
-#label=<span>  </span>
-label=<span color="#5499C7">  </span>
+label=<span color="#ff79c6"><b>CPU: </b></span>
+#label=<span color="#ff5555"><b> </b></span>
+border=#ff79c6
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
 
-
+#[cpu.sh]
+#interval=2 
+#label=<span color="#5499C7">  </span>
+#
+#[cpu2.sh]
+#interval=2
+#label=<span color="#D6331B">  </span>
+#color=#e06c75
+##############
 [i3-memory.sh]
 interval=1 
-#label=<span>  </span>
-label=<span color="#FFC300">  </span>
-color=#56b6c2
+label=<span color="#bd93f9"> </span>
+border=#bd93f9
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
 
-[cpu2.sh]
-interval=2
-#label=<span>  </span>
-label=<span color="#D6331B">  </span>
-color=#e06c75
-
+#[i3-memory.sh]
+#interval=1 
+#label=<span color="#FFC300">  </span>
+#color=#56b6c2
+##############
 [backlight.sh]
 interval=once
 signal=20
-#label=<span> </span>
-label=<span color="#f9af4f"> </span>
-#border=#f9af4f
-#border_top=0
-#border_right=0
-#border_bottom=1
-#border_left=0
+label=<span color="#ff79c6"></span>
+border=#ff79c6
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
 
-#[micro]
+#[backlight.sh]
 #interval=once
-#signal=17
-#color=#95e6cb
-#border=#95e6cb
-#border_top=0
-#border_right=0
-#border_bottom=1
-#border_left=0
+#signal=20
+#label=<span color="#f9af4f"> </span>
 
+##############
 [volbar2.sh]
 interval=once
 signal=10
-label=<span color="#d19a66"></span>
-color=#61afef
-#border=#61afef
-#border_top=0
-#border_right=0
-#border_bottom=1
-#border_left=0
+border=#bd93f9
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
 
-[clock.sh]
-label=<span color="#2BBD8F"> </span>
-#label=<span> </span>
+#[volbar2.sh]
+#interval=once
+#signal=10
+#label=<span color="#d19a66"></span>
+#color=#b0c4de
+##############
+
+##############
+[date]
 interval=30
-color=#d19a66
+command=LC_ALL="zh_CN.UTF-8" date '+%Y 年 %B %d 日 %A。' | awk '{ printf "%s<span color=\"#ff79c6\">%s%s</span>%s<span color=\"#ff79c6\">%s %s</span>\n", $1, $2, $3, $4, $5, $6 }'
+interval=60
+label=<span color="#ff79c6"> </span>
+border=#ff79c6
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+[clock]
+command=date '+%I : %M %p' | awk '{ printf "%s<span color=\"#bd93f9\">%s</span>%s<span color=\"#bd93f9\"> %s</span>\n", $1, $2, $3, $4 }'
+#command=date '+%I:%M %p'
+interval=30
+border=#bd93f9
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
+
+#[clock.sh]
+#label=<span color="#2BBD8F"> </span>
+#interval=30
+#color=#d19a66
+##############

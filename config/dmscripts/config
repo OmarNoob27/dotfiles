@@ -145,10 +145,11 @@ declare -A websearch
 
 # Search Engines
 #websearch[bing]="https://www.bing.com/search?q="
+websearch[google]="https://www.google.com/search?q="
+websearch[youtube]="https://www.youtube.com/results?search_query="
 websearch[brave]="https://search.brave.com/search?q="
 websearch[duckduckgo]="https://duckduckgo.com/?q="
 #websearch[gemini search \(https\)]="https://portal.mozz.us/gemini/geminispace.info/search%3F"
-websearch[google]="https://www.google.com/search?q="
 #websearch[qwant]="https://www.qwant.com/?q="
 #websearch[swisscows]="https://swisscows.com/web?query="
 #websearch[yandex]="https://yandex.com/search/?text="
@@ -161,7 +162,6 @@ websearch[google]="https://www.google.com/search?q="
 # Social Media
 #websearch[reddit]="https://www.reddit.com/search/?q="
 #websearch[odysee]="https://odysee.com/$/search?q="
-websearch[youtube]="https://www.youtube.com/results?search_query="
 # Online Shopping
 #websearch[amazon]="https://www.amazon.com/s?k="
 #websearch[craigslist]="https://www.craigslist.org/search/sss?query="

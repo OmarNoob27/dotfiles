@@ -2,6 +2,7 @@
 
 # Prints out the CPU load percentage
 
+temp=$(sensors | awk '/Core 0/ {print $3}')
 PREFIX=' '
 
 get_load()
@@ -26,7 +27,8 @@ get_load()
   cpu_last=("${cpu_now[@]}")
   cpu_last_sum=$cpu_sum
 
-  echo "$cpu_usage%"
+  echo "$cpu_usage%" /$temp
 }
 
 get_load
+

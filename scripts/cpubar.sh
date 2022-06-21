@@ -1,4 +1,5 @@
 #!/bin/sh
+
 # Module showing CPU load as a changing bars.
 # Just like in polybar.
 # Each bar represents amount of load on one core since
