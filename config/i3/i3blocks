@@ -11,13 +11,14 @@ markup=pango
 #markup=pango
 #color=#ebdbb2
 #background=#040000
+
 #################
 [lang]
 command=xkb-switch | xargs echo  
 interval=once
 signal=15
-label=<span color="#bd93f9">  </span>
-border=#bd93f9
+label=<span color="#ff79c6">  </span>
+border=#ff79c6
 border_top=1
 border_right=0
 border_bottom=0
@@ -33,8 +34,7 @@ border_left=0
 
 [weather.sh]
 interval=3600
-color=#ff79c6
-border=#ff79c6
+border=#bd93f9
 border_top=1
 border_right=0
 border_bottom=0
@@ -45,9 +45,8 @@ border_left=0
 command=checkupdates | wc -l
 interval=once
 #label=<span color="#1793d1"> </span>
-label=<span color="#bd93f9"> </span>
-color=#bd93f9
-border=#bd93f9
+label=<span color="#ff79c6"> </span>
+border=#ff79c6
 border_top=1
 border_right=0
 border_bottom=0
@@ -59,13 +58,13 @@ border_left=0
 #color=#c678dd
 #################
 
-#[uptime.sh]
-#interval=60
-#color=#d19a66
-#border_top=1
-#border_right=0
-#border_bottom=0
-#border_left=0
+[uptime.sh]
+interval=60
+border=#bd93f9
+border_top=1
+border_right=0
+border_bottom=0
+border_left=0
 
 #############
 [nettraf.sh]
