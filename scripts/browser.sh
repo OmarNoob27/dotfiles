@@ -4,7 +4,8 @@ declare options=("Brave
 Firefox
 Google-chrome
 Chromium
-Qutebrowser")
+Qutebrowser
+librewolf")
 
 #choice=$(echo -e "${options[@]}" | dmenu -l 10 -i -fn 'Roboto Mono' -p 'launch browser: ' -nb '#3b3b3b' -nf '#71988a' -sb '#000000' -sf '#71988a')
 choice=$(echo -e "${options[@]}" | dmenu -i -l 20 -g 2 -X 0 -Y 0 -W 680 -p 'launch browser: ' )
@@ -28,6 +29,9 @@ case "$choice" in
     ;;
     Qutebrowser)
         choice="qutebrowser"
+    ;;
+    librewolf)
+        choice="librewolf"
     ;;
 esac
 "$choice"

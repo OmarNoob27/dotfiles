@@ -1,12 +1,12 @@
 #!/bin/bash
-OPT=$(echo -e "S_clip\nS_save\nS_both\nA_clip\nA_save\nFull" | dmenu -p "Choose action: ")
+OPT=$(echo -e "A_clip\nA_save\nA_both\nW_clip\nW_save\nFull" | dmenu -p "Choose action: ")
 case $OPT in
-	S_clip ) maim -s | xclip -selection clipboard -t image/png ;;
-	S_save) maim -s ~/screenshots/$(date +'%Y%m%d-%H%M%S').png  ;;
-	S_both ) maim -s | tee ~/screenshots/$(date +'%Y%m%d-%H%M%S').png | xclip -selection clipboard -t image/png ;; 
-	A_clip ) maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png   ;;
-  A_save) maim -i $(xdotool getactivewindow) ~/screenshots/$(date +'%Y%m%d-%H%M%S').png ;;
-  Full ) maim -i root ~/screenshots/$(date +'%Y%m%d-%H%M%S').png ;;
+	A_clip ) maim -s | xclip -selection clipboard -t image/png && notify-send -i ~/logo/screen.png "Screenshot taken" ;;
+	A_save) maim -s ~/screenshots/$(date +'%Y%m%d-%H%M%S').png  && notify-send -i ~/logo/screen.png "Screenshot taken" ;;
+	A_both ) maim -s | tee ~/screenshots/$(date +'%Y%m%d-%H%M%S').png | xclip -selection clipboard -t image/png && notify-send -i ~/logo/screen.png "Screenshot taken" ;;
+	W_clip ) maim -i $(xdotool getactivewindow) | xclip -selection clipboard -t image/png   && notify-send -i ~/logo/screen.png "Screenshot taken" ;;
+  W_save) maim -i $(xdotool getactivewindow) ~/screenshots/$(date +'%Y%m%d-%H%M%S').png && notify-send -i ~/logo/screen.png "Screenshot taken" ;;
+  Full ) maim -i root ~/screenshots/$(date +'%Y%m%d-%H%M%S').png && notify-send -i ~/logo/screen.png "Screenshot taken" ;;
 	*) ;;
 esac 
 

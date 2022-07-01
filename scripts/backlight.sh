@@ -3,10 +3,13 @@
 # Prints the backlight percentage
 # Requires the light package
 
-get_backlight()
-{
-    echo "$(light | sed 's/\..*//g')%"
-}
+#get_backlight()
+#{
+#    echo "$(light | sed 's/\..*//g')%"
+#}
+#
+#get_backlight
+#
 
-get_backlight
-
+light=$(echo "$(light | sed 's/\..*//g')%")
+echo $light

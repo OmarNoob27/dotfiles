@@ -175,3 +175,6 @@ super + shift + m
 #messengers 
 super + shift + s 
 	signal-desktop
+#mount 
+super + Insert
+	~/scripts/mount_umount.sh
