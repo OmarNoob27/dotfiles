@@ -62,7 +62,7 @@
 | Terminal and some tools | alacritty fish kitty exa fzf cmatrix xdotool xclip maim |
 | Diagnostic | htop bashtop bpytop nvtop | 
 | Nvidia | nvidia nvidia-lts optimus-manager | 
-| Browsers | brave-bin firefox google-chrome chromium qutebrowser | 
+| Browsers | brave-bin firefox google-chrome chromium qutebrowser librewolf | 
 | pdf tools | zathura okular zathura-pdf-mupdf | 
 | Launcher Themes | python-pywal qt5ct lxappearance kvantum | 
 | Firewall | gufw | 
