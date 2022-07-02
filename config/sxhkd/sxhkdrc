@@ -27,12 +27,14 @@ XF86AudioMute
 XF86AudioMicMute
     pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+17 i3blocks
     #pactl set-source-mute 1 toggle
-#mic up 
-ctrl + m
-    amixer set Capture 5%+ && pkill -RTMIN+17 i3blocks
-#mic down 
-ctrl + n
-    amixer set Capture 5%- && pkill -RTMIN+17 i3blocks
+
+##mic up 
+#ctrl + m
+#    amixer set Capture 5%+ && pkill -RTMIN+17 i3blocks
+##mic down 
+#ctrl + n
+#    amixer set Capture 5%- && pkill -RTMIN+17 i3blocks
+
 #light up 
 XF86MonBrightnessUp
 	light -A 5 && pkill -RTMIN+20 i3blocks
