@@ -35,7 +35,7 @@
 * Key Binding 
 	* sxhkd 
 * Browser 
-	* firefox && brave 
+	* brave && firefox
 * Search Engine 
 	* duckduckgo 
 * Firewall 

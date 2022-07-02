@@ -1,7 +1,7 @@
 #!/bin/bash
 
-declare options=("Firefox
-Brave
+declare options=("Brave
+Firefox
 Google-chrome
 Chromium
 Qutebrowser

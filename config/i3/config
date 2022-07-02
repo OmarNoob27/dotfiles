@@ -122,6 +122,7 @@ exec --no-startup-id mpDris2
 exec --no-startup-id clipmenud
 exec --no-startup-id xhost + 
 exec --no-startup-id xfce4-power-manager &
+
 exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd &
 for_window [class="Arcolinux-welcome-app.py"] floating enable
 for_window [class="Arcolinux-calamares-tool.py"] floating enable
