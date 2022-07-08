@@ -37,7 +37,7 @@
 * Browser 
 	* brave && firefox
 * Search Engine 
-	* duckduckgo 
+	* startpage 
 * Firewall 
 	* guwf 
 * Office 
