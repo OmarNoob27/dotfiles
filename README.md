@@ -47,7 +47,7 @@
 * Virtual Machine 
 	* vbox
 * Virtual OS 
-	* ubuntu
+	* ubuntu && artix && artix lxde && void
 
 
 | Utility  | Packages            |
