@@ -4,6 +4,8 @@
 
 * Operating System 
    * Linux, ArcoD
+* Service Manager 
+   * systemd
 * Window Manager 
 	* i3 
 * Status Bar 

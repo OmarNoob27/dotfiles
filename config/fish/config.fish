@@ -295,6 +295,7 @@ alias pmq='pacman -Qq'
 alias pmn='pacman -Q | wc -l'
 alias pmc='doas pacman -Sc' #clean the cache after upgrade my system 
 alias pmg='pamac-manager'
+alias pmf="pacman -Qqo"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 alias e='exit'
