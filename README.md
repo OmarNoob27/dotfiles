@@ -49,7 +49,7 @@
 * Virtual Machine 
 	* vbox
 * Virtual OS 
-	* ubuntu && artix && artix lxde && void
+	* ubuntu && artix && artix lxde && void && arco xfce && artix xfce 
 
 
 | Utility  | Packages            |

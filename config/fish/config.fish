@@ -544,6 +544,7 @@ end
 alias nnn='nnn -eRx'
 alias nn='nnn -eRx'
 alias n='nnn -Rxe'
+alias nt='nnn -eRxT t'
 alias sn='sudo -E nnn -eRH'
 #export NNN_PLUG='p:mocq;i:imgview;c:fzcd;t:mp3conv;e:suedit;v:preview-tui;V:nuke;x:!doas chmod +x $nnn;k:pskill;K:!pkill mpv;s:!bash -i*;o:fzopen' #to play this plug press ; then choose option 
 export NNN_PLUG='F:fixname;i:imgview;f:fzcd;t:mp3conv;e:suedit;v:preview-tui;x:!doas chmod +x $nnn;s:!bash -i*;o:fzopen;k:kdeconnect;u:upload;p:rsynccp' #to play this plug press ; then choose option 
