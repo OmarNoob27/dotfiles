@@ -1,3 +1,3 @@
 #!/usr/bin/fish  
-kitty -e nnn -eRx 
+kitty -e nnn -Rx  
 #alacritty -e nnn -eRx 
