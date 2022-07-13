@@ -171,6 +171,11 @@ shift + Return
 #creat vim file 
 super + shift + v 
     kitty -e nvim
+
+#open virtual box 
+super + shift + a
+	  virtualbox
+
 # mailspring  
 super + shift + m
     mailspring

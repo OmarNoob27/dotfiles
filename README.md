@@ -3,7 +3,7 @@
 ## Dotfiles 
 
 * Operating System 
-   * Linux, ArcoD
+   * Linux, ArcoD 
 * Service Manager 
    * systemd
 * Window Manager 
@@ -49,7 +49,7 @@
 * Virtual Machine 
 	* vbox
 * Virtual OS 
-	* ubuntu && artix && artix lxde && void && arco xfce && artix xfce 
+	* ubuntu && artix && artix lxde && void && arcoD xfce && artix xfce 
 
 
 | Utility  | Packages            |
@@ -65,7 +65,7 @@
 | Diagnostic | htop bashtop bpytop nvtop | 
 | Nvidia | nvidia nvidia-lts optimus-manager | 
 | Browsers | brave-bin firefox google-chrome chromium qutebrowser librewolf | 
-| pdf tools | zathura okular zathura-pdf-mupdf | 
+| pdf tools | zathura okular zathura-pdf-mupdf xournal | 
 | Launcher Themes | python-pywal qt5ct lxappearance kvantum | 
 | Firewall | gufw | 
 | General Tools | sxhkd dmenu rofi sxiv clipmenu trash-cli kdialog xorg-xprop | 
