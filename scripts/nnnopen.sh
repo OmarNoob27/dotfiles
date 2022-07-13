@@ -8,16 +8,18 @@ mime=$(file -b --mime-type "$1")
 echo $mime
 # m3u files report as text/plain for some reason
 if [[ "${1#*.}" = "m3u" ]];then
-	mpv "$1"
+	mpv --player-operation-mode=pseudo-gui "$1"
+
 # text/*
-elif [[ "${mime%/*}" = "text" ]];then
-	nnnedit "$1"
+#elif [[ "${mime%/*}" = "text" ]];then
+#	nnnedit "$1"
+
 # image/*
 elif [[ "${mime%/*}" = "image" ]];then
 	sxiv "$1"
 # video/*
 elif [[ "${mime%/*}" = "video" || "${mime%/*}" = "audio" ]];then
-	mpv "$1"
+	mpv --player-operation-mode=pseudo-gui "$1"
 # ebooks 
 elif [[ "$mime" = "application/epub+zip" ]];then
 	zathura "$1"
@@ -33,4 +35,13 @@ elif [[ "$mime" = "application/vnd.openxmlformats-officedocument.wordprocessingm
 	libreoffice "$1"
 elif [[ "$mime" = "application/vnd.openxmlformats-officedocument.presentationml.presentation" ]];then
 	libreoffice "$1"
+# html 
+elif [[ "$mime" = "text/html" ]];then
+	brave "$1"
+# plain txt
+elif [[ "$mime" = "text/plain" ]];then
+	kitty -e nvim "$1"
+# shellscript 
+elif [[ "$mime" = "text/x-shellscript" ]];then
+	kitty -e nvim "$1"
 fi
