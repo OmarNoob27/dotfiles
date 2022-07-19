@@ -296,6 +296,7 @@ alias pmn='pacman -Q | wc -l'
 alias pmc='doas pacman -Sc' #clean the cache after upgrade my system 
 alias pmg='pamac-manager'
 alias pmf="pacman -Qqo"
+alias bs='browser-sync start --server --files "*.js, *.html, *.css"'
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 alias e='exit'
@@ -347,9 +348,9 @@ alias pf='proxychains firefox'
 alias toand='sh ~/scripts/android.sh'
 alias N='prime-run'
 alias power='tlpui'
-alias cam='droidcam-cli -v adb 4747'
-alias m='cmatrix'
-alias mm='unimatrix'
+#alias cam='droidcam-cli -v adb 4747'
+#alias m='cmatrix'
+alias m='unimatrix -n -s 96 -l o'
 alias gx='cd /usr/share/xsessions'
 alias color='rgb-tui'
 alias ns='nvidia-smi'
@@ -377,6 +378,7 @@ alias vs='vscodium'
 alias gsh="~/scripts/gsh.sh"
 #alias bm="~/github/bashmount/bashmount"
 alias theme="~/scripts/kitty_theme.sh"
+alias f="doas find / -iname"
 # Function for fish 
 
 function sv 
@@ -556,7 +558,7 @@ export NNN_OPENER=nnnopen #nnnopen path : /usr/bin/nnnopen
 export NNN_TMPFILE='/tmp/.lastd'
 export NNN_COLORS='1267'
 #BLK="c1" CHR="e2" DIR="95" EXE="68" REG="E6" HARDLINK="60" SYMLINK="33" MISSING="f7" ORPHAN="c6" FIFO="d6" SOCK="ab" OTHER="c4"
-export NNN_FCOLORS='c1e29368E66033f7c6d6abc4'
+export NNN_FCOLORS='c1e29568E66033f7c6d6abc4'
 export NNN_FIFO=/tmp/nnn.fifo
 export NNN_TRASH=1 #to use trash (needs trash-cli) instead of delete. the trash's directory : /home/omar/.local/share/Trash/files
 export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)"

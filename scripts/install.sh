@@ -19,7 +19,7 @@ printf "###Install nvim...\n"
 pacman -S neovim 
 
 #printf"###Install Multimedia...\n"
-#pacman -S pulseaudio pulsemixer mpv mpv-mpris mpd mpc moc ncmpcpp youtube-dl ffmpeg
+pacman -S pulseaudio pulsemixer mpv mpv-mpris mpd mpc moc ncmpcpp youtube-dl ffmpeg
 
 printf "###Install file manger...\n"
 pacman -S nnn dolphin pcmanfm 
@@ -31,10 +31,10 @@ printf "###Install Diagnostic...\n"
 pacman -S htop nvtop
 
 #printf "###Install nvidia...\n"
-#pacman -S nvidia nvidia-lts optimus-manager
+pacman -S nvidia nvidia-lts optimus-manager
 
 #printf "###Install browsers\n"
-#pacman -S brave-bin firefox google-chrome chromium qutebrowser
+pacman -S brave-bin firefox google-chrome chromium qutebrowser
 
 printf "###Install pdf tools...\n"
 pacman -S zathura okular zathura-pdf-mupdf
@@ -52,4 +52,4 @@ printf "###Install general tools...\n"
 pacman -S sxhkd dmenu rofi sxiv clipmenu trash-cli kdialog xorg-xprop
 
 #printf "###Install zoom and tools...\n"
-#pacman -S zoom droidcam
+pacman -S zoom droidcam

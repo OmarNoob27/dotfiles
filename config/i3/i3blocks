@@ -4,7 +4,7 @@ command=/home/omar/scripts/$BLOCK_NAME
 align=center
 separator=true
 color=#f8f8f2
-separator_block_width=15
+separator_block_width=18
 markup=pango
 
 #separator_block_width=18

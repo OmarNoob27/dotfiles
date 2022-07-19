@@ -1,32 +1,38 @@
 # Reload sxhkd 
 shift + Escape
 	pkill -USR1 -x sxhkd
+
 #terminal 
 super + Return
     kitty 
+
 #browser 
 super + shift + b 
 	~/scripts/browser.sh
+
 #file manger gui 
 super + shift + Return
 	pcmanfm /home/omar
-    #dolphin /home/omar
+
 #xkill 
 super + shift + x 
 	xkill
+
 #Vol up 
 XF86AudioRaiseVolume
 	amixer -q set Master 5%+ && pkill -RTMIN+10 i3blocks
+
 #Vol down 
 XF86AudioLowerVolume
 	amixer -q set Master 5%- && pkill -RTMIN+10 i3blocks
+
 #vol toggle 
 XF86AudioMute
 	amixer -q set Master toggle && pkill -RTMIN+10 i3blocks
+
 #mic toggle 
 XF86AudioMicMute
     pactl set-source-mute @DEFAULT_SOURCE@ toggle && pkill -RTMIN+17 i3blocks
-    #pactl set-source-mute 1 toggle
 
 ##mic up 
 #ctrl + m
@@ -38,26 +44,29 @@ XF86AudioMicMute
 #light up 
 XF86MonBrightnessUp
 	light -A 5 && pkill -RTMIN+20 i3blocks
-	#backlight_control +5 && pkill -RTMIN+20 i3blocks
+
 #light down 
 XF86MonBrightnessDown
 	light -U 5 && pkill -RTMIN+20 i3blocks
-	#backlight_control -5 && pkill -RTMIN+20 i3blocks
+
 #dmenu 
 super + shift + d 
 	dmenu_run  
-	#dmenu_run -i -nb '#191919' -nf '#fea63c' -sb '#fea63c' -sf '#191919' -fn 'NotoMonoRegular:bold:pixelsize=14'
+
 #lang 
 shift + Alt_L
 	(setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ar || setxkbmap us && pkill -RTMIN+15 i3blocks
 shift + Alt_R
 	(setxkbmap -query | grep -q "layout:\s\+us") && setxkbmap ar || setxkbmap us && pkill -RTMIN+15 i3blocks
+
 #power 
 super + Escape 
 	/home/omar/scripts/power.sh
+
 #wallpaper 
 super + shift + i 
 	/home/omar/github/styli.sh/styli.sh && notify-send "Changing wallpaper is done." && exit 0 
+
 #move wall 
 super + i 
     ~/scripts/wall.sh
@@ -65,12 +74,15 @@ super + i
 #play pause 
 XF86AudioPlay
 	playerctl play-pause
+
 #play next 
 XF86AudioNext
 	playerctl next
+
 #play pre
 XF86AudioPrev 
 	 playerctl previous
+
 #play stop 
 XF86AudioStop 
 	playerctl stop
@@ -78,15 +90,14 @@ XF86AudioStop
 #mpd previous
 ctrl + XF86AudioPrev 
     mpc prev 
-##	   #playerctl previous --player=mpd  
+
 #mpd next
 ctrl + XF86AudioNext 
     mpc next
-##	   #playerctl next --player=mpd 
+
 #mpd stop
 ctrl + XF86AudioPlay
     mpc toggle 
-##    #playerctl play-pause --player=mpd
 
 #clipboard 
 super + d 
@@ -95,67 +106,59 @@ super + d
 #htop 
 super + shift + h 
   /home/omar/scripts/resources.sh
+
 #screeen record 
 super + Print
 	simplescreenrecorder
-#	/home/omar/scripts/recordscreen.sh && pkill -RTMIN+5 i3blocks 
 
-#screeen record with size  
-#super + s 
-#	/home/omar/scripts/recordscreen_size.sh && pkill -RTMIN+5 i3blocks 
 #mpv youtube 
 super + p 
  mpv $(xclip -o)
-#sxiv via dmenu  
-#super + shift + p 
-#    ~/scripts/dmenu_sxiv.sh
+
 #mp3-youtube-dl 
 super + shift + y
     /home/omar/scripts/ytdmenu.sh
+
 #screenshot 
 Print
     /home/omar/scripts/screendmenu.sh
+
 #kill process 
 super + shift + k 
     /home/omar/github/dmscripts/scripts/dm-kill
+
 #websearch 
 super + w
     /home/omar/github/dmscripts/scripts/dm-websearch
+
 #github disktop
 super + shift + g 
     github-desktop
-#youtube in terminal 
-super + y 
-    xfce4-terminal 
 
-#youtube via mpv pause
-#alt + XF86AudioPlay
-#    playerctl play-pause -p mpv
-
-#zoom 
-super + shift + z 
-    zoom
 #emoji 
 super + o 
     bemoji
-    #bemoji -f ~/scripts/emoji
-    #emote 
+
 #kill mpv 
 super + v 
     pkill mpv 
+
 #find cursor 
 super + c 
     xfce4-find-cursor
+
 #date 
 super + t 
     kdialog --calendar date
+
 #hub 
 super + shift + o 
 	~/scripts/hub.sh
-	#/home/omar/github/dmscripts/scripts/dm-hub
+
 #song
 super + n 
     ~/scripts/noti
+
 #ncmpcpp
 super + shift + n 
      kitty -e ncmpcpp && ~/github/mpdq/mpdq & 
@@ -164,24 +167,14 @@ super + shift + n
 shift + Return
     ~/scripts/nnn.sh
 
-#whataspp 
-#super + shift + w 
-#    whatsapp-nativefier
-
 #creat vim file 
 super + shift + v 
     kitty -e nvim
 
-#open virtual box 
-super + shift + a
-	  virtualbox
-
 # mailspring  
 super + shift + m
     mailspring
-#messengers 
-super + shift + s 
-	signal-desktop
+
 #mount 
 super + Insert
 	~/scripts/mount_umount.sh
