@@ -45,8 +45,16 @@ XF86AudioMicMute
 XF86MonBrightnessUp
 	light -A 5 && pkill -RTMIN+20 i3blocks
 
+#light up 
+XF86Calculator
+	light -A 5 && pkill -RTMIN+20 i3blocks
+
 #light down 
 XF86MonBrightnessDown
+	light -U 5 && pkill -RTMIN+20 i3blocks
+
+#light down 
+XF86Explorer
 	light -U 5 && pkill -RTMIN+20 i3blocks
 
 #dmenu 
@@ -63,13 +71,13 @@ shift + Alt_R
 super + Escape 
 	/home/omar/scripts/power.sh
 
-#wallpaper 
-super + shift + i 
-	/home/omar/github/styli.sh/styli.sh && notify-send "Changing wallpaper is done." && exit 0 
-
-#move wall 
-super + i 
-    ~/scripts/wall.sh
+##wallpaper 
+#super + shift + i 
+#	/home/omar/github/styli.sh/styli.sh && notify-send "Changing wallpaper is done." && exit 0 
+#
+##move wall 
+#super + i 
+#    ~/scripts/wall.sh
 
 #play pause 
 XF86AudioPlay
@@ -178,3 +186,11 @@ super + shift + m
 #mount 
 super + Insert
 	~/scripts/mount_umount.sh
+
+# Pause button 
+ctrl + Pause
+    mpc toggle 
+
+# Pause button
+Pause
+	playerctl play-pause

@@ -542,10 +542,6 @@ function __fzf_cd -d "Change directory"
 end
 
 #my config for nnn file manger alias nnn='nnn -eRx'
-#alias nn='nnn -eRx'
-#alias n='nnn -Rxe'
-#alias nt='nnn -eRxT t'
-#alias sn='sudo -E nnn -eRH'
 alias nn='nnn -Rx'
 alias n='nnn -Rx'
 alias nt='nnn -RxT t'

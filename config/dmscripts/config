@@ -145,6 +145,7 @@ declare -A websearch
 
 # Search Engines
 #websearch[bing]="https://www.bing.com/search?q="
+websearch[startpage]="https://www.startpage.com/"
 websearch[google]="https://www.google.com/search?q="
 websearch[youtube]="https://www.youtube.com/results?search_query="
 websearch[brave]="https://search.brave.com/search?q="

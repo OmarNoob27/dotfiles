@@ -45,7 +45,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+r reload
 bindsym $mod+Shift+c kill
 floating_modifier $mod
-bindsym $mod+Shift+space floating toggle
+#bindsym $mod+Shift+space floating toggle
+bindsym $mod+space floating toggle
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
@@ -61,7 +62,7 @@ bindsym $mod+Shift+Right move right
 for_window [urgent=latest] focus
 default_orientation horizontal
 bindsym $mod+f fullscreen toggle
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 bindsym $mod+Ctrl+h resize shrink width 1 px or 1 ppt
 bindsym $mod+Ctrl+k resize grow height 1 px or 1 ppt
